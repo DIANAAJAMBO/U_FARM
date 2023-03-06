@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputfullname" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="inputfullname">
+            </div>
+            <div class="col-md-6">
+                <label for="inputNIN" class="form-label">National Identification Number (NIN)</label>
+                <input type="text" class="form-control" id="inputNIN">
+            </div>
+            <div class="col-10">
+                <label for="contactdetails" class="form-label">contact details:</label>
+                <input type="tel" class="form-control" id="focontact" name="contact">
+            </div>
+
+            <div class="col-3">
+                <label for="inputward" class="form-label">ward</label>
+                <input type="text" class="form-control" id="inputward">
+            </div>
+            <div class="col-7">
+                <label for="years-lived" class="form-label">Number of years lived in the ward:</label>
+                <select id="years-lived" name="years-lived" class="form-control">
+                    <option value="less-than-1">Less than 1 year</option>
+                    <option value="1-to-5">1-5 years</option>
+                    <option value="5-to-10">5-10 years</option>
+                    <option value="more-than-10">More than 10 years</option> 
+            
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="inputFOnumber" class="form-label">FO number</label>
+                <input type="text" class="form-control" id="inputFOnumber">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Directions to your residence</label>
+                <input type="text" class="form-control" id="inputAddress">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress2" class="form-label">Residential type</label>
+                <input type="text" class="form-control" id="inputAddress2">
+            </div>
+            <div class="col-7">
+                <label for="birthdate" class="form-label">Date of Birth:</label>
+                <input type="date" class="form-control" id="birthdate" name="birthdate">
+            </div>
+            <div class="col-7">
+                <label for="registrationdate" class="form-label">Date of Registration:</label>
+                <input type="date" class="form-control" id="registration date1" name="registrationdate">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="activities">Activities done by FO:</label>
+                <textarea class="form-control" rows="5" id="activities" name="text"></textarea>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+
+    <script src="css/bootstrap/js/bootstrap.bundle.js"></script>
+
+</body>
+
+</html>
