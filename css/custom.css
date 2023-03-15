@@ -1,7 +1,29 @@
-body {
+body{
     background-image: url("../pictures/fruits.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-  }
+    height: 100vh;
+    color:blue; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   
+  }
+ .card {
+  opacity: 0.8
+ }
+ .card {
+  height: 400px;
+  width : 50%;
+  margin:auto;
+  margin-top: 40px;
+ }
+ button {
+  margin-top: 20px;
+  width:60%
+ } 
+ a:link {
+  text-decoration: none;
+ }
+ h2,h3 {
+  text-align: center;
+ }
+ 
