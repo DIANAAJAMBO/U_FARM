@@ -1,0 +1,8 @@
+.input-group {
+    width: 300px;
+    float: right;
+    margin-left: auto;
+}
+body{
+    min-width: 200px;
+}
