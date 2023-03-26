@@ -12,20 +12,20 @@
 <body>
   <div class="container">
    <div class="row">
-     <div class="col">
+     <div class="col-10">
       <div class="card">
                     <div class="card-body">
                         <h3>Forgot your passsword?</h3>
                     <p>To reset your password, enter the registered email address and we will send you password reset
                         instructions on your email
                     </p>
-                    <form>
+                    <form action="#" name="forgot pwd" onsubmit="return Validate(event);" method="post">
                         <div>
-                            <input class="form-control" placeholder="E-mail">
+                            <input class="form-control" type="email" placeholder="E-mail" id="mail">
+                            <span id="mailErr"></span>
                         </div>
-                    </div>
 
-                        <button type="submit" class="btn btn-primary">send link</button>
+                        <button type="submit" class="btn btn-primary" >send link</button>
 
                     </form>
                    
@@ -35,6 +35,7 @@
         </div>
     </div>
     <script src="../css/bootstrap/js/bootstrap.js"></script>
+    <script src="../javaScript/validations.js"></script>
 </body>
 
 </html>

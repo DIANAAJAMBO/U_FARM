@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form</title>
-    <link rel="stylesheet" href="./css/bootstrap/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css">
     
     
 </head>
@@ -16,7 +16,7 @@
     <h2>Registration form</h2>
     <h3>Farmer one</h3>
     <div class="container">
-        <form class="row g-3">
+        <form class="row g-3" action="#" onsubmit="return Validate(event);" method="post">
             <div class="col-md-6">
                 <label for="inputfullname" class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="inputfullname">
@@ -28,7 +28,7 @@
                 <span id="NINError"></span>
             </div>
             <div class="col-10">
-                <label for="contactdetails" class="form-label">contact details:</label>
+                <label for="contactdetails" class="form-label">Phone number:</label>
                 <input type="tel" class="form-control" id="focontact" name="contact">
                 <span id="phoneError"></span>
             </div>
@@ -80,6 +80,7 @@
 
 
     <script src="css/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./javaScript/validations.js"></script>
 
 </body>
 

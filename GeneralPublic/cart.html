@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    
+    
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+    
+   
+    <link rel="stylesheet" href="../css/cart.css">
+    
+  </head>
+  <body>
+    
+    <div class="container">
+      
+      <h1>Shopping Cart</h1>
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Product A</td>
+            <td>
+              <input type="number" min="1" value="1">
+            </td>
+            <td>ugx 100</td>
+            <td class="item-total">ugx 100</td>
+          </tr>
+          <tr>
+            <td>Product B</td>
+            <td>
+              <input type="number" min="1" value="1">
+            </td>
+            <td>ugx 200</td>
+            <td class="item-total">ugx 200</td>
+          </tr>
+          <tr>
+            <td>Product C</td>
+            <td>
+              <input type="number" min="1" value="1">
+            </td>
+            <td>ugx 100</td>
+            <td class="item-total">ugx 100</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="text-end">Total:</td>
+            <td id="total"></td>
+          </tr>
+        </tfoot>
+      </table>
+      
+    </div>
+    
+    <!-- Link to JavaScript file -->
+    <script src="../javaScript/cart.js"></script>
+    
+    <!-- Link to Bootstrap JavaScript file -->
+    <script src="../css/bootstrap/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

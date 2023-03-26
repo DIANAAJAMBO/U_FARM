@@ -1,29 +1,30 @@
-body{
-    background-image: url("../pictures/fruits.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    color:blue; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  
-  }
- .card {
-  opacity: 0.8
- }
- .card {
+body {
+  background-image: url("../pictures/fruits.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: blue;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.card {
+  opacity: 0.9;
+}
+.card {
   height: 400px;
-  width : 50%;
-  margin:auto;
+  width: 50%;
+  margin: auto;
   margin-top: 40px;
- }
- button {
+}
+button {
   margin-top: 20px;
-  width:60%
- } 
- a:link {
+  width: 100%;
+}
+a:link {
   text-decoration: none;
- }
- h2,h3 {
+}
+h2,
+h3 {
   text-align: center;
- }
- 
+}
