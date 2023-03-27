@@ -1,0 +1,27 @@
+{
+  "name": "ufarm",
+  "version": "1.0.0",
+  "description": "cohort13 project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/group15155109/Ufarm.git"
+  },
+  "author": "Diana Ajambo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/group15155109/Ufarm/issues"
+  },
+  "homepage": "https://gitlab.com/group15155109/Ufarm#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "pug": "^3.0.2"
+  }
+}
