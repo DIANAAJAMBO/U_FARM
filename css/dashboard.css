@@ -3,6 +3,36 @@
     float: right;
     margin-left: auto;
 }
-body{
-    min-width: 200px;
+
+
+#sidebar {
+    background-color: black;
+    height: 100%;
+    position:absolute;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 10px;
+  }
+  
+  #sidebar.active {
+    left: 0;
+  }
+  
+  .sidebar-header {
+    padding: 20px;
+    color: whitesmoke;
+  }
+  
+  #content {
+    margin-left: 250px;
+    padding: 20px;
+    width:auto;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 768px) {
+    #content {
+      margin-left: 0;
+      margin-right: 0;
+    }
 }

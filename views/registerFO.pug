@@ -1,0 +1,62 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Registration form
+  // <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css">
+  link(rel='stylesheet' href='./css/registeration.css')
+h2 Registration form
+h3 Farmer one
+.container
+  form.row.g-3(action='#' onsubmit='return Validate(event);' method='post')
+    fieldset
+      legend Personal Information
+      .col-md-6
+        label.form-label(for='inputfullname') Full Name
+        input#inputfullname.form-control(type='text' min='' length='5' max='' name="fullName")
+        span#FNError
+      .col-md-6
+        label.form-label(for='inputNIN') National Identification Number (NIN)
+        input#inputNIN.form-control(type='text' name= "NIN" required='')
+        span#NINError
+      .col-10
+        label.form-label(for='contactdetails') Phone number:
+        input#focontact.form-control(type='tel' name='phoneNumber' required='')
+        span#phoneError
+      .col-7
+        label.form-label(for='birthdate') Date of Birth:
+        input#birthdate.form-control(type='date' name='birthdate' required='')
+      .col-7
+        label.form-label(for='birthdate') Gender:
+        |                 Male 
+        input#male.form-control(type='radio' name='gender' checked='')
+        |                 Female 
+        input#female.form-control(type='radio' name='gender')
+      .col-12
+        label.form-label(for='inputAddress') Directions to Home
+        input#inputAddress.form-control(type='text' name='directionsTOHome' required='')
+      .col-12
+        label.form-label(for='inputAddress2') Residential type
+        input#inputAddress2.form-control(type='text' placeholder= 'rented or owned' required='')
+    fieldset
+      legend Ward Information
+      .col-3
+        label.form-label(for='inputward') ward
+        input#inputward.form-control(type='text' required='')
+      .col-7
+        label.form-label(for='years-lived') Number of years lived in the ward:
+        input#years-lived.form-control(name='periodOfStayInWard' type='number')
+
+      .col-6
+        label.form-label(for='inputFOnumber') FO number
+        input#inputFOnumber.form-control(type='text' name='foNumber' required='')
+      .col-7
+        label.form-label(for='registrationdate') Date of Registration:
+        input.form-control(type='date' id='registration date1' name='registrationdate')
+      .mb-3.mt-3
+        label(for='activities') Activities done by FO:
+        textarea#activities.form-control(rows='5' name='activities' type='text')
+    button(type='submit') submit
+// <script src="css/bootstrap/js/bootstrap.bundle.js"></script>
+script(src='./controllers/regformvalidation.js')
