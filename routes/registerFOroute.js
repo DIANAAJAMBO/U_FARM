@@ -12,7 +12,7 @@ router.post("/registerFO", async(req,res)=>{
     try{
       const register = new RegisterFO(req.body);
       await register.save()
-      res.redirect("/farmerOnes")      //we redirect to a path
+      res.redirect("")      //we redirect to a path
       console.log(req.body)
     }
     catch(err){
