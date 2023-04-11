@@ -8,6 +8,7 @@
     <title>Registration form</title>
     <!-- <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css"> -->
     <link rel="stylesheet" href="./css/registeration.css">
+    
 
 </head>
 
@@ -21,12 +22,12 @@
                 <legend>Personal Information</legend>
                 <div class="col-md-6">
                     <label for="inputfullname" class="form-label">
-                    First Name<input type="text" class="form-control" id="inputfirstname"></label>
+                    First Name:  <input type="text" class="form-control" id="inputfirstname" name="firstname"></label>
                     <span id="FNError"></span>
                 </div>
                 <div class="col-md-6">
                     <label for="inputfullname" class="form-label">
-                    Last Name<input type="text" class="form-control" id="inputlastname"></label>
+                    Last Name:  <input type="text" class="form-control" id="inputlastname"></label>
                     <span id="LNError"></span>
                 </div>
                 <div class="col-md-6">
@@ -36,7 +37,7 @@
                 </div>
                 <div class="col-10">
                     <label for="contactdetails" class="form-label">Phone number:</label>
-                    <input type="tel" class="form-control" id="focontact" name="contact">
+                    <input type="text" class="form-control" id="focontact" name="contact">
                     <span id="phoneNoError"></span>
                 </div>
                 <div class="col-7">
@@ -47,16 +48,16 @@
                 <div class="col-7">
                     <label for="choice">Gender:</label>
                     <label for="male">
-                    <input type="radio" class="form-control" id="male" name="gender" checked>Male
+                    <input type="radio" id="male" name="gender">Male
                     </label>
                     <label for="female">
-                    <input type="radio" class="form-control" id="female" name="gender">Female
+                    <input type="radio" id="female" name="gender">Female
                     </label> 
                     <span id="genderErr"></span>
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Directions to your residence</label>
-                    <input type="text" class="form-control" id="inputAddress">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="plot 1, Entebbe rd, opp Police station">
                     <span id="address1Err"></span>
                 </div>
                 <div class="col-12">
@@ -89,7 +90,7 @@
                 </div>
                 <div class="col-6">
                     <label for="inputFOnumber" class="form-label">Unique FO number</label>
-                    <input type="text" class="form-control" id="inputFOnumber">
+                    <input type="text" class="form-control" id="inputFOnumber" placeholder="eg UGFO-000">
                     <span id="foNoErr"></span>
                 </div>
 

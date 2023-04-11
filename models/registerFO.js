@@ -1,51 +1,52 @@
 const mongoose = require('mongoose');
 
 const farmerOneSchema = new mongoose.Schema({
-  fullName: {
+  firstname: {
     type: String,
-    required: true,
-    minlength: 5,
-    maxlength: 50
+    trim: true
+    
+  },
+  lastname: {
+    type: String,
+    trim: true
+    
   },
   NIN: {
     type: String,
-    required: true,
-    minlength: 13,
-    maxlength: 13
+    trim: true
+    
   },
-  phoneNumber: {
+  phonenumber: {
     type: String,
-    required: true
+    trim: true
   },
-  dateOfBirth: {
+  birthdate: {
     type: Date,
-    required: true
+    trim: true
   },
   gender: {
     type: String,
-    enum: ['Male', 'Female'],
-    required: true
+    trim: true
   },
   directionsToHome: {
     type: String,
-    required: true
+    trim: true
   },
   residenceType: {
     type: String,
-    required: true
+    trim: true
   },
   ward: {
     type: String,
-    required: true
+    trim: true
   },
   periodOfStayInWard: {
     type: Number,
-    required: true,
+    trim: true,
     min: 10
   },
   foNumber: {
     type: String,
-    required: true,
     unique: true
   },
   dateOfRegistration: {
@@ -53,11 +54,10 @@ const farmerOneSchema = new mongoose.Schema({
     default: Date.now
   },
   activities: {
-    type: [String],
-    required: true
+    type: [String],    //defining the field as an array of strings
+    
   }
   
 });
 
-const FarmerOne = mongoose.model('RegisterFO', farmerOneSchema);
-
+module.exports = mongoose.model('RegisterFO', farmerOneSchema);

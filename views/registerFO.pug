@@ -9,54 +9,86 @@ head
 h2 Registration form
 h3 Farmer one
 .container
-  form.row.g-3(action='#' onsubmit='return Validate(event);' method='post')
+  form.row.g-3(action='#' name='registerFO' onsubmit='return Validate(event);' method='POST')
     fieldset
       legend Personal Information
       .col-md-6
-        label.form-label(for='inputfullname') Full Name
-        input#inputfullname.form-control(type='text' min='' length='5' max='' name="fullName")
+        label.form-label(for='inputfullname')
+          | First Name:  
+          input#inputfirstname.form-control(type='text' name='firstname')
         span#FNError
       .col-md-6
+        label.form-label(for='inputfullname')
+          | Last Name:  
+          input#inputlastname.form-control(type='text' name='lastname')
+        span#LNError
+      .col-md-6
         label.form-label(for='inputNIN') National Identification Number (NIN)
-        input#inputNIN.form-control(type='text' name= "NIN" required='')
+        input#inputNIN.form-control(type='text' name='NIN')
         span#NINError
       .col-10
         label.form-label(for='contactdetails') Phone number:
-        input#focontact.form-control(type='tel' name='phoneNumber' required='')
-        span#phoneError
+        input#focontact.form-control(type='text' name='phonenumber')
+        span#phoneNoError
       .col-7
         label.form-label(for='birthdate') Date of Birth:
-        input#birthdate.form-control(type='date' name='birthdate' required='')
+        input#birthdate.form-control(type='date' name='birthdate')
+        span#dobErr
       .col-7
-        label.form-label(for='birthdate') Gender:
-        |                 Male 
-        input#male.form-control(type='radio' name='gender' checked='')
-        |                 Female 
-        input#female.form-control(type='radio' name='gender')
+        label(for='choice') Gender:
+        label(for='male')
+          input#male(type='radio' name='gender' id='male')
+          | Male
+        label(for='female')
+          input#female(type='radio' name='gender'  id='female')
+          | Female
+        span#genderErr
       .col-12
-        label.form-label(for='inputAddress') Directions to Home
-        input#inputAddress.form-control(type='text' name='directionsTOHome' required='')
+        label.form-label(for='inputAddress') Directions to your residence
+        input#inputAddress.form-control(type='text' placeholder='plot 1, Entebbe rd, opp Police station' name="directionsToHome")
+        span#address1Err
       .col-12
         label.form-label(for='inputAddress2') Residential type
-        input#inputAddress2.form-control(type='text' placeholder= 'rented or owned' required='')
+        select#inputAddress2.form-control(type='text' name='residenceType')
+          option(value='') Select
+          option(value='Rented') Rented
+          option(value='Owned') Owned
+        span#address2Err
     fieldset
       legend Ward Information
       .col-3
         label.form-label(for='inputward') ward
-        input#inputward.form-control(type='text' required='')
+        select#inputward.form-control(type='text' name='ward')
+          option(value='') Select
+          option(value='ward A') Ward A
+          option(value='Ward B') Ward B
+          option(value='Ward C') Ward C
+          option(value='Ward D') Ward D
+        span#wardErr
       .col-7
         label.form-label(for='years-lived') Number of years lived in the ward:
-        input#years-lived.form-control(name='periodOfStayInWard' type='number')
-
+        input#years-lived.form-control(name='periodOfStayInWard' type='number' name='periodOfStayInWard')
+        span#yearslivedinwardErr
       .col-6
-        label.form-label(for='inputFOnumber') FO number
-        input#inputFOnumber.form-control(type='text' name='foNumber' required='')
+        label.form-label(for='inputFOnumber') Unique FO number
+        input#inputFOnumber.form-control(type='text' placeholder='eg UGFO-000' name='foNumber')
+        span#foNoErr
       .col-7
         label.form-label(for='registrationdate') Date of Registration:
-        input.form-control(type='date' id='registration date1' name='registrationdate')
+        input#registrationDate.form-control(type='date' name='dateOfRegistration')
+        span#doRErr
       .mb-3.mt-3
-        label(for='activities') Activities done by FO:
-        textarea#activities.form-control(rows='5' name='activities' type='text')
-    button(type='submit') submit
+        label Activities done by FO:
+        br
+        input#option1(type='checkbox' value='Register Urban Farmers in the ward' name='foactivities')
+        | Register Urban Farmers in the ward
+        br
+        input#option2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='foactivities')
+        | Inspects the produce and agricultural activities for quality
+        br
+        input#option3(type='checkbox' value="Approves farmer's produce to be listed" name='foactivities')
+        | Approves farmer&apos;s produce to be listed
+        span#foactiviesErr
+    button(type='submit') Submit
 // <script src="css/bootstrap/js/bootstrap.bundle.js"></script>
-script(src='./controllers/regformvalidation.js')
+script(src='./controllers/validations.js')
