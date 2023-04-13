@@ -9,11 +9,11 @@ head
 h2 Registration form
 h3 Farmer one
 .container
-  form.row.g-3(action='#' name='registerFO' onsubmit='return Validate(event);' method='POST')
+  form.row.g-3(action='/farmerOne' name='registerFO' onsubmit='return Validate(event);' method='POST')
     fieldset
       legend Personal Information
       .col-md-6
-        label.form-label(for='inputfullname')
+        label.form-label
           | First Name:  
           input#inputfirstname.form-control(type='text' name='firstname')
         span#FNError
@@ -23,13 +23,27 @@ h3 Farmer one
           input#inputlastname.form-control(type='text' name='lastname')
         span#LNError
       .col-md-6
+        label.form-label(for='username')
+          | Username:  
+          input#username.form-control(type='text' name='username')
+        span#userNameErr
+      .col-md-6
+        label.form-label(for='password')
+          | Password:  
+          input#password.form-control(type='text' name='password')
+        span#pwdErr
+      .col-md-6
         label.form-label(for='inputNIN') National Identification Number (NIN)
         input#inputNIN.form-control(type='text' name='NIN')
-        span#NINError
+        span#NINErr
       .col-10
         label.form-label(for='contactdetails') Phone number:
         input#focontact.form-control(type='text' name='phonenumber')
-        span#phoneNoError
+        span#phoneNoErr
+      .col-10
+        label.form-label(for='email') Email:
+        input#email.form-control(type='email' name='email')
+        span#emailErr
       .col-7
         label.form-label(for='birthdate') Date of Birth:
         input#birthdate.form-control(type='date' name='birthdate')
@@ -37,10 +51,10 @@ h3 Farmer one
       .col-7
         label(for='choice') Gender:
         label(for='male')
-          input#male(type='radio' name='gender' id='male')
+          input#male(type='radio' name='gender' )
           | Male
         label(for='female')
-          input#female(type='radio' name='gender'  id='female')
+          input#female(type='radio' name='gender')
           | Female
         span#genderErr
       .col-12
@@ -67,7 +81,7 @@ h3 Farmer one
         span#wardErr
       .col-7
         label.form-label(for='years-lived') Number of years lived in the ward:
-        input#years-lived.form-control(name='periodOfStayInWard' type='number' name='periodOfStayInWard')
+        input#years-lived.form-control(name='periodOfStayInWard' type='number')
         span#yearslivedinwardErr
       .col-6
         label.form-label(for='inputFOnumber') Unique FO number
@@ -91,4 +105,4 @@ h3 Farmer one
         span#foactiviesErr
     button(type='submit') Submit
 // <script src="css/bootstrap/js/bootstrap.bundle.js"></script>
-script(src='./controllers/validations.js')
+script(src='./js/validations.js')

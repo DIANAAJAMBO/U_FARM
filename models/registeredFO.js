@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require("passport-local-mongoose")
 
 const farmerOneSchema = new mongoose.Schema({
   firstname: {
@@ -9,6 +10,16 @@ const farmerOneSchema = new mongoose.Schema({
   lastname: {
     type: String,
     trim: true
+    
+  },
+  username: {
+    type: String,
+    trim: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    
     
   },
   NIN: {
@@ -60,4 +71,5 @@ const farmerOneSchema = new mongoose.Schema({
   
 });
 
-module.exports = mongoose.model('RegisterFO', farmerOneSchema);
+farmerOneSchema.plugin(passportLocalMongoose,);
+module.exports = mongoose.model('RegisteredFO', farmerOneSchema);

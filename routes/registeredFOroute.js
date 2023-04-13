@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const RegisterFO = require("../models/registerFO")
+const RegisterFO = require("../models/registeredFO")
 
 
 router.get("/registerFO",(req,res)=>{
@@ -12,7 +12,7 @@ router.post("/registerFO", async(req,res)=>{
     try{
       const register = new RegisterFO(req.body);
       await register.save()
-      res.redirect("")      //we redirect to a path
+      res.redirect("/farmerOne")      //we redirect to a path
       console.log(req.body)
     }
     catch(err){

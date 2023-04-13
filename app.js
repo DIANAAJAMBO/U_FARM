@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static(path.join(__dirname,"public")));  //middle ware for images, css and jS
 
 app.set("view engine","pug")
 app.set("views", path.join(__dirname,"views"))
@@ -16,7 +17,10 @@ const config = require("./config/database");
 
 
 
-const registerFoRoute = require("./routes/registerFOroute");
+const registerFoRoute = require("./routes/registeredFOroute");
+const farmerOneRoute = require("./routes/farmerOneroute")
+
+
 
 //creating a connection between the controller and the database
 mongoose.connect(config.database,{
@@ -34,7 +38,8 @@ mongoose.connect(config.database,{
   })
 
 
-  app.use ("/",registerFoRoute)
+ app.use ("/",registerFoRoute)
+ app.use ("/", farmerOneRoute)
 
 
 
