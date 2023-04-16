@@ -21,6 +21,10 @@ const Validate = (event) =>{
     let option1 = document.getElementById("option1");    
     let option2 = document.getElementById("option2");    
     let option3 = document.getElementById("option3");    
+    let fName = document.getElementById('signupfirstname');    
+    let lName = document.getElementById('signuplastname');    
+    let signupEmail = document.getElementById('signupEmail');    
+    let password = document.getElementById("signuppassword");    
        
     
      //input error variables
