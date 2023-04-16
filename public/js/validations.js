@@ -49,25 +49,46 @@ const Validate = (event) =>{
         firstNameError.style = "color: red; font-size:11px;";
         return false
     }
-    else if(firstName.value.length >5 && firstName.value.length <50 ){
+    else if(firstName.value.length <5 ){
         firstName.style.border = "1px solid red";
-        firstNameError.innerHTML = "Please first name should be between 5 to 50 characters";
+        firstNameError.innerHTML = "first name should be more than 5 characters";
         firstNameError.style ="color: red; font-size:11px;";
         return false
     }
+    else if(firstName.value.length >50 ){
+        firstName.style.border = "1px solid red";
+        firstNameError.innerHTML = "first name should be less than 50 characters";
+        firstNameError.style ="color: red; font-size:11px;";
+        return false
+    }
+    else{
+        firstName.style.border = "1px solid green";
+        firstNameError.innerHTML = ""; 
+    }
     
-    //validating last last name
+    //validating last name
     if(lastName.value == ""){
         lastName.style.border = "1px solid red";
-        lastNameError.innerHTML = "Please fill in your last name";
+        lastNameError.innerHTML = "Please fill in the last name";;
         lastNameError.style = "color: red; font-size:11px;";
         return false
     }
-    else if(firstName.value.length <5 && firstName.value.length >50 ){
+    else if(firstName.value.length <5 ){
         lastName.style.border = "1px solid red";
-        lastNameError.innerHTML = "Please last name should be between 5 to 50 characters";
+        lastNameError.innerHTML = "last name should be more than 5 characters";
         lastNameError.style ="color: red; font-size:11px;";
         return false
+    }
+    else if(lastName.value.length >50 ){
+        lastName.style.border = "1px solid red";
+        lastNameError.innerHTML = "last name should be less than 50 characters";
+        lastNameError.style ="color: red; font-size:11px;";
+        return false
+    }
+    else{
+        lastName.style.border = "1px solid green";
+        lastNameError.innerHTML = "";
+       
     }
 
      //validating username
@@ -80,13 +101,18 @@ const Validate = (event) =>{
     }
     else if(!(userName.value.match(userNameRegex))){
         userName.style.border = "1px solid red";
-        userNameError.innerHTML = "username should have atleast one letter and one number";
+        userNameError.innerHTML = "username should be alphanumeric";
         userNameError.style ="color: red; font-size:11px;";
         return false
     }
+    else {
+        userName.style.border = "1px solid green";
+        userNameError.innerHTML = "";
+       
+    }
 
     //validating password
-    const pwdregex=  /^[a-zA-Z0-9 !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+    
 
     if (pwd.value == "") {
       pwd.style.border = "1px solid red";
@@ -94,18 +120,18 @@ const Validate = (event) =>{
       pwdError.style = "color: red; font-size:11px;";
       return false
     }
-    else if (!(pwd.value.match(pwdregex))) {
-      pwd.style.border = "1px solid red";
-      pwdError.textContent = "Password should have atleast a character eg!@$&";
-      pwdError.style = "color: red; font-size:11px;";
-      return false
-    }
+    
     else if (pwd.value.length < 5) {
       pwd.style.border = "1px solid red";
       pwdError.textContent = "Please the password must be atleast 5 characters";
       pwdError.style = "color: red; font-size:11px;";
       return false
     }
+    else {
+        pwd.style.border = "1px solid green";
+        pwdError.textContent = "";
+        
+      }
 
     
     //validating NIN
@@ -119,9 +145,14 @@ const Validate = (event) =>{
     }
     else if(!NIN.value.match(NINregex)){
         NIN.style.border = "1px solid red";
-        ninError.innerHTML = "NIN should be 13 characters";
+        ninError.innerHTML = "NIN should be 13 alphanumeric characters";
         ninError.style = "color: red; font-size:11px;";
         return false
+    }
+    else{
+        NIN.style.border = "1px solid green";
+        ninError.innerHTML = "";
+       
     }
 
     //validating Phone number   
@@ -138,7 +169,12 @@ const Validate = (event) =>{
         phoneNumberError.textContent = "Please fill in correct phone number eg 0706323345 or +256706323345";
         phoneNumberError.style = "color: red; font-size:11px;";
         return false
-    } 
+    }
+    else {
+        phoneNumber.style.border = "1px solid green";
+        phoneNumberError.textContent = "";
+       
+    }  
 
     
     //validating email
@@ -155,6 +191,11 @@ const Validate = (event) =>{
       emailError.style = "color: red; font-size:11px;";
       return false
     }
+    else {
+        email.style.border = "1px solid green"
+        emailError.textContent = "";
+       
+      }
 
 
     //validating date of birth
@@ -164,13 +205,22 @@ const Validate = (event) =>{
         dobError.style = "color: red; font-size:11px;";
         return false  
     }
+    else {
+        dateOfBirth.style.border = "1px solid green";
+        dobError.innerHTML = " ";
+      
+    }
     
     //validating gender
     if (!(male.checked || female.checked)){
         genderError.innerHTML = "Please fill in your gender";
         genderError.style = "color: red; font-size:11px;";
         return false  
-    }    
+    }
+    else{
+        genderError.innerHTML = "";
+         
+    }        
 
     //validating directions to your residence
     if (address1.value == ""){
@@ -178,6 +228,11 @@ const Validate = (event) =>{
         address1Error.innerHTML = "Please fill in your residential address";
         address1Error.style = "color: red; font-size:11px;";
         return false
+    }
+    else{
+        address1.style.border = "1px solid green";
+        address1Error.innerHTML = "";
+       
     }
 
     //validating Residential type
@@ -187,6 +242,11 @@ const Validate = (event) =>{
         address2Error.style = "color: red; font-size:11px;";
         return false 
     }
+    else {
+        address2.style.border = "1px solid green";
+        address2Error.innerHTML = "";
+       
+    }
 
     //validating ward
     if (ward.value ==""){
@@ -194,6 +254,11 @@ const Validate = (event) =>{
         wardError.innerHTML = "Please fill in the ward";
         wardError.style = "color: red; font-size:11px;";
         return false 
+    }
+    else {
+        ward.style.border = "1px solid green";
+        wardError.innerHTML = "";
+         
     }
 
     //validating number of years lived in ward
@@ -209,6 +274,11 @@ const Validate = (event) =>{
         yearsLivedInWardError.innerHTML = "Sorry";
         yearsLivedInWardError.style = "color: red; font-size:11px;";
         return false
+    }
+    else {
+        
+        yearsLivedInWardError.innerHTML = "Sorry but you are below required age to register";
+       
     }
 
     //validating fo number   
@@ -226,6 +296,11 @@ const Validate = (event) =>{
         foNoError.style = "color: red; font-size:11px;";
         return false
     } 
+    else {
+        foNumber.style.border = "1px solid green";
+        foNoError.textContent = "";
+        
+    } 
 
 
     //validating registeration date
@@ -234,6 +309,11 @@ const Validate = (event) =>{
         doRError.innerHTML = "Please fill in your date of registeration ";
         doRError.style = "color: red; font-size:11px;";
         return false 
+    }
+    else{
+        doR.style.border = "1px solid green";
+        doRError.innerHTML = "";
+       
     }
    
     //validating fo activities

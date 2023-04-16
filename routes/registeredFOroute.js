@@ -22,6 +22,19 @@ router.post("/registerFO", async(req,res)=>{
   })
 
 
+  //retrieving from the database
+  router.get("/farmerOne",async(req,res)=>{
+    try{
+      let items = await RegisterFO.find();
+      // console.log(items)
+      res.render("farmerOnes",{farmerOnes:items})    //we render a file
+    }
+    catch(err){
+      console.log(err)
+      res.send("failed to retrieve student details")
+    }
+  })
+
 
 
 

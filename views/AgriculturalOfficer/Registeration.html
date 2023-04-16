@@ -14,9 +14,24 @@
     <form class="row g-3" action="#" name="registerFO" onsubmit="return Validate(event);" method="POST">
         <fieldset>
             <legend>Personal Information</legend>
-            <div class="col-md-6"><label class="form-label">First Name: <input class="form-control" id="inputfirstname" type="text" name="firstname"></label><span id="FNError"></span></div>
-            <div class="col-md-6"><label class="form-label" for="inputfullname">Last Name: <input class="form-control" id="inputlastname" type="text" name="lastname"></label><span id="LNError"></span></div>
-            <div class="col-md-6"><label class="form-label" for="username">Username: <input class="form-control" id="username" type="text" name="username"></label><span id="userNameErr"></span></div>
+            <div class="col-md-6">
+                <label class="form-label">
+                    First Name: <input class="form-control" id="inputfirstname" type="text" name="firstname">
+                </label>
+                <span id="FNError"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="inputfullname">
+                    Last Name: <input class="form-control" id="inputlastname" type="text" name="lastname">
+                </label>
+                <span id="LNError"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="username">
+                    Username: <input class="form-control" id="username" type="text" name="username">
+                </label>
+                <span id="userNameErr"></span>
+            </div>
             <div class="col-md-6"><label class="form-label" for="password">Password: <input class="form-control" id="password" type="text" name="password"></label><span id="pwdErr"></span></div>
             <div class="col-md-6"><label class="form-label" for="inputNIN">National Identification Number (NIN)</label><input class="form-control" id="inputNIN" type="text" name="NIN"><span id="NINErr"></span></div>
             <div class="col-10"><label class="form-label" for="contactdetails">Phone number:</label><input class="form-control" id="focontact" type="text" name="phonenumber"><span id="phoneNoErr"></span></div>
