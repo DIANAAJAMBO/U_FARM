@@ -47,7 +47,8 @@
         </fieldset>
         <fieldset>
             <legend>Ward Information</legend>
-            <div class="col-3"><label class="form-label" for="inputward">ward</label><select class="form-control" id="inputward" type="text" name="ward">
+            <div class="col-3"><label class="form-label" for="inputward">ward</label>
+                <select class="form-control" id="inputward" type="text" name="ward">
                     <option value="">Select</option>
                     <option value="ward A">Ward A</option>
                     <option value="Ward B">Ward B</option>
@@ -57,7 +58,12 @@
             <div class="col-7"><label class="form-label" for="years-lived">Number of years lived in the ward:</label><input class="form-control" id="years-lived" name="periodOfStayInWard" type="number"><span id="yearslivedinwardErr"></span></div>
             <div class="col-6"><label class="form-label" for="inputFOnumber">Unique FO number</label><input class="form-control" id="inputFOnumber" type="text" placeholder="eg UGFO-000" name="foNumber"><span id="foNoErr"></span></div>
             <div class="col-7"><label class="form-label" for="registrationdate">Date of Registration:</label><input class="form-control" id="registrationDate" type="date" name="dateOfRegistration"><span id="doRErr"></span></div>
-            <div class="mb-3 mt-3"><label>Activities done by FO:</label><br><input id="option1" type="checkbox" value="Register Urban Farmers in the ward" name="foactivities">Register Urban Farmers in the ward<br><input id="option2" type="checkbox" value="Inspects the produce and agricultural activities for quality" name="foactivities">Inspects the produce and agricultural activities for quality<br><input id="option3" type="checkbox" value="Approves farmer's produce to be listed" name="foactivities">Approves farmer&apos;s produce to be listed<span id="foactiviesErr"></span></div>
+            <div class="mb-3 mt-3">
+                <label>Activities done by FO:</label><br>
+                <input id="option1" type="checkbox" value="Register Urban Farmers in the ward" name="activities">Register Urban Farmers in the ward<br>
+                <input id="option2" type="checkbox" value="Inspects the produce and agricultural activities for quality" name="activities">Inspects the produce and agricultural activities for quality<br>
+                <input id="option3" type="checkbox" value="Approves farmer's produce to be listed" name="activities">Approves farmer's produce to be listed
+                <span id="foactiviesErr"></span></div>
         </fieldset>
         <button type="submit">Submit</button>
     </form>

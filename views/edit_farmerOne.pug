@@ -6,64 +6,56 @@ head
   title Registration form
   // <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css">
   link(rel='stylesheet' href='./css/registeration.css')
-h2 Registration form
-h3 Farmer one
+h2 Edit FarmerOne
 .container
-  form.row.g-3(action='/registerFO' name='registerFO' onsubmit='return Validate(event);' method='POST')
+  form.row.g-3(action='/edit_farmerOne?id='+farmerOne._id name='edit farmerOne' onsubmit='return Validate(event);' method='POST')
     fieldset
       legend Personal Information
       .col-md-6
         label.form-label
           | First Name:  
-          input#inputfirstname.form-control(type='text' name='firstname')
+          input#inputfirstname.form-control(type='text' name='firstname' value=farmerOne.firstname disabled)
         span#FNError
       .col-md-6
         label.form-label(for='inputfullname')
           | Last Name:  
-          input#inputlastname.form-control(type='text' name='lastname')
+          input#inputlastname.form-control(type='text' name='lastname' value=farmerOne.lastname disabled)
         span#LNError
       .col-md-6
         label.form-label(for='username')
           | Username:  
-          input#username.form-control(type='text' name='username')
+          input#username.form-control(type='text' name='username' value=farmerOne.username disabled)
         span#userNameErr
-      .col-md-6
-        label.form-label(for='password')
-          | Password:  
-          input#password.form-control(type='text' name='password')
-        span#pwdErr
+     
       .col-md-6
         label.form-label(for='inputNIN') National Identification Number (NIN)
-        input#inputNIN.form-control(type='text' name='NIN')
+        input#inputNIN.form-control(type='text' name='NIN' value=farmerOne.NIN  disabled)
         span#NINErr
       .col-10
         label.form-label(for='contactdetails') Phone number:
-        input#focontact.form-control(type='text' name='phonenumber')
+        input#focontact.form-control(type='text' name='phonenumber' value=farmerOne.phonenumber )
         span#phoneNoErr
       .col-10
         label.form-label(for='email') Email:
-        input#email.form-control(type='email' name='email')
+        input#email.form-control(type='email' name='email' value=farmerOne.email disabled)
         span#emailErr
-      .col-7
-        label.form-label(for='birthdate') Date of Birth:
-        input#birthdate.form-control(type='date' name='birthdate')
-        span#dobErr
+      
       .col-7
         label(for='choice') Gender:
         label(for='male')
-          input#male(type='radio' name='gender' )
+          input#male(type='radio' name='gender' value=farmerOne.gender disabled)
           | Male
         label(for='female')
-          input#female(type='radio' name='gender')
+          input#female(type='radio' name='gender' value=farmerOne.gender disabled)
           | Female
         span#genderErr
       .col-12
         label.form-label(for='inputAddress') Directions to your residence
-        input#inputAddress.form-control(type='text' placeholder='plot 1, Entebbe rd, opp Police station' name="directionsToHome")
+        input#inputAddress.form-control(type='text' placeholder='plot 1, Entebbe rd, opp Police station' name="directionsToHome" value=farmerOne.directionsToHome disabled)
         span#address1Err
       .col-12
         label.form-label(for='inputAddress2') Residential type
-        select#inputAddress2.form-control(type='text' name='residenceType')
+        select#inputAddress2.form-control(type='text' name='residenceType' value=farmerOne.residenceType disabled)
           option(value='') Select
           option(value='Rented') Rented
           option(value='Owned') Owned
@@ -72,37 +64,31 @@ h3 Farmer one
       legend Ward Information
       .col-3
         label.form-label(for='inputward') ward
-        select#inputward.form-control(type='text' name='ward')
+        select#inputward.form-control(type='text' name='ward' value=farmerOne.ward)
           option(value='') Select
           option(value='ward A') Ward A
           option(value='Ward B') Ward B
           option(value='Ward C') Ward C
           option(value='Ward D') Ward D
         span#wardErr
-      .col-7
-        label.form-label(for='years-lived') Number of years lived in the ward:
-        input#years-lived.form-control(name='periodOfStayInWard' type='number')
-        span#yearslivedinwardErr
+      
       .col-6
         label.form-label(for='inputFOnumber') Unique FO number
-        input#inputFOnumber.form-control(type='text' placeholder='eg UGFO-000' name='foNumber')
+        input#inputFOnumber.form-control(type='text' placeholder='eg UGFO-000' name='foNumber' value=farmerOne.foNumber disabled)
         span#foNoErr
-      .col-7
-        label.form-label(for='registrationdate') Date of Registration:
-        input#registrationDate.form-control(type='date' name='dateOfRegistration')
-        span#doRErr
+      
       .mb-3.mt-3
         label Activities done by FO:
         br
-        input#option1(type='checkbox' value='Register Urban Farmers in the ward' name='activities')
+        input#option1(type='checkbox' value=farmerOne.activities name='activities')
         | Register Urban Farmers in the ward
         br
-        input#option2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='activities')
+        input#option2(type='checkbox' value=farmerOne.activities name='activities')
         | Inspects the produce and agricultural activities for quality
         br
-        input#option3(type='checkbox' value="Approves farmer's produce to be listed" name='activities')
+        input#option3(type='checkbox' value=farmerOne.activities name='activities')
         | Approves farmer's produce to be listed
         span#foactiviesErr
-    button(type='submit') Submit
+    button(type='submit') UPDATE
 // <script src="css/bootstrap/js/bootstrap.bundle.js"></script>
 script(src='./js/validations.js')

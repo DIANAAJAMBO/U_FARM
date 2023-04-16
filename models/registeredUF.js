@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require("passport-local-mongoose")
 
-const farmerOneSchema = new mongoose.Schema({
+const urbanFarmerSchema = new mongoose.Schema({
   firstname: {
     type: String,
     trim: true
@@ -18,9 +18,7 @@ const farmerOneSchema = new mongoose.Schema({
     unique: true
   },
   password: {
-    type: String,
-    
-    
+    type: String,  
   },
   NIN: {
     type: String,
