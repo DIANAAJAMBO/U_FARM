@@ -9,7 +9,7 @@ head
 h2 Registration form
 h3 Farmer one
 .container
-  form.row.g-3(action='/registerFO' name='registerFO' onsubmit='return Validate(event);' method='POST')
+  form.row.g-3(action='/registerFO' name='register' onsubmit='return Validate(event);' method='POST')
     fieldset
       legend Personal Information
       .col-md-6
@@ -18,7 +18,7 @@ h3 Farmer one
           input#inputfirstname.form-control(type='text' name='firstname')
         span#FNError
       .col-md-6
-        label.form-label(for='inputfullname')
+        label.form-label(for='inputlastname')
           | Last Name:  
           input#inputlastname.form-control(type='text' name='lastname')
         span#LNError
@@ -38,7 +38,7 @@ h3 Farmer one
         span#NINErr
       .col-10
         label.form-label(for='contactdetails') Phone number:
-        input#focontact.form-control(type='text' name='phonenumber')
+        input#focontact.form-control(type='text' name='phonenumber' )
         span#phoneNoErr
       .col-10
         label.form-label(for='email') Email:
@@ -83,6 +83,10 @@ h3 Farmer one
         label.form-label(for='years-lived') Number of years lived in the ward:
         input#years-lived.form-control(name='periodOfStayInWard' type='number')
         span#yearslivedinwardErr
+      .col-7
+        label.form-label(for='role') Role:
+        input.form-control(name='role' type='text' value="farmerOne" readonly)
+        
       .col-6
         label.form-label(for='inputFOnumber') Unique FO number
         input#inputFOnumber.form-control(type='text' placeholder='eg UGFO-000' name='foNumber')

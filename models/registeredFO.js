@@ -61,7 +61,7 @@ const farmerOneSchema = new mongoose.Schema({
     trim: true,
     min: 10
   },
-  foNumber: {
+  role: {
     type: String,
     unique: true
   },

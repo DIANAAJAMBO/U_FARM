@@ -29,6 +29,7 @@ const config = require("./config/database");
 const registerFoRoute = require("./routes/registeredFOroute");
 const farmerOneRoute = require("./routes/farmerOneroute")
 const loginRoute = require("./routes/loginroute")
+const signupRoute = require("./routes/signuproute")
 
 
 //passport middleware
@@ -58,6 +59,7 @@ mongoose.connect(config.database,{
  app.use ("/", registerFoRoute)
  app.use ("/", farmerOneRoute)
  app.use ("/", loginRoute)
+ app.use ("/", signupRoute)
 
 
 

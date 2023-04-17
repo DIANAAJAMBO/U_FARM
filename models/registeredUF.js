@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require("passport-local-mongoose")
 
-const urbanFarmerSchema = new mongoose.Schema({
+const urbanfarmerSchema = new mongoose.Schema({
   firstname: {
     type: String,
     trim: true
@@ -18,7 +18,9 @@ const urbanFarmerSchema = new mongoose.Schema({
     unique: true
   },
   password: {
-    type: String,  
+    type: String,
+    
+    
   },
   NIN: {
     type: String,
@@ -42,24 +44,13 @@ const urbanFarmerSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  directionsToHome: {
-    type: String,
-    trim: true
-  },
-  residenceType: {
-    type: String,
-    trim: true
-  },
+ 
   ward: {
     type: String,
     trim: true
   },
-  periodOfStayInWard: {
-    type: Number,
-    trim: true,
-    min: 10
-  },
-  foNumber: {
+  
+  role: {
     type: String,
     unique: true
   },
@@ -74,5 +65,5 @@ const urbanFarmerSchema = new mongoose.Schema({
   
 });
 
-farmerOneSchema.plugin(passportLocalMongoose,);
-module.exports = mongoose.model('RegisteredFO', farmerOneSchema);
+urbanfarmerSchema.plugin(passportLocalMongoose,);
+module.exports = mongoose.model('RegisteredUF', urbanfarmerSchema);

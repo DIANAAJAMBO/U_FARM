@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title><!-- <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css">-->
+    <link rel="stylesheet" href="/public/css/registeration.css">
+</head>
+<body>
+    <h2>Registration form</h2>
+<h3>Urban farmer</h3>
+<div class="container">
+    <form class="row g-3" action="#" name="registerUF" onsubmit="return Validate(event);" method="POST">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="col-md-6">
+                <label class="form-label">
+                    First Name: <input class="form-control" id="inputuffirstname" type="text" name="uffirstname">
+                </label>
+                <span id="ufFNError"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="inputuflastname">
+                    Last Name: <input class="form-control" id="inputuflastname" type="text" name="uflastname">
+                </label>
+                <span id="ufLNError"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="ufusername">
+                    Username: <input class="form-control" id="ufusername" type="text" name="ufusername">
+                </label>
+                <span id="ufuserNameErr"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="ufpassword">
+                    Password: <input class="form-control" id="ufpassword" type="text" name="ufpassword">
+                </label>
+                <span id="ufpwdErr"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="ufinputNIN">National Identification Number (NIN)</label>
+                <input class="form-control" id="ufinputNIN" type="text" name="ufNIN">
+                <span id="ufNINErr"></span>
+            </div>
+            <div class="col-10">
+                <label class="form-label" for="uffocontacts">Phone number:</label>
+                <input class="form-control" id="uffocontact" type="text" name="ufphonenumber">
+                <span id="ufphoneNoErr"></span>
+            </div>
+            <div class="col-10">
+                <label class="form-label" for="ufemail">Email:</label>
+                <input class="form-control" id="ufemail" type="email" name="ufemail">
+                <span id="ufemailErr"></span>
+            </div>
+            <div class="col-7">
+                <label class="form-label" for="ufbirthdate">Date of Birth:</label>
+                <input class="form-control" id="ufbirthdate" type="date" name="ufbirthdate">
+                <span id="ufdobErr"></span>
+            </div>
+            <div class="col-7">
+                <label for="choice">Gender:</label>
+                <label for="ufmale"><input id="ufmale" type="radio" name="ufgender">Male</label>
+                <label for="uffemale"><input id="uffemale" type="radio" name="ufgender">Female</label>
+                <span id="ufgenderErr"></span>
+            </div>
+           
+           
+        </fieldset>
+        <fieldset>
+            <legend>Ward Information</legend>
+            <div class="col-3"><label class="form-label" for="ufinputward">ward</label>
+                <select class="form-control" id="ufinputward" type="text" name="ufward">
+                    <option value="">Select</option>
+                    <option value="ward A">Ward A</option>
+                    <option value="Ward B">Ward B</option>
+                    <option value="Ward C">Ward C</option>
+                    <option value="Ward D">Ward D</option>
+                </select><span id="ufwardErr"></span></div>
+           
+            <div class="col-6">
+                <label class="form-label" for="inputUFnumber">Unique UF number</label>
+                <input class="form-control" id="inputUFnumber" type="text" placeholder="eg UGUF-000" name="ufNumber">
+                <span id="ufNoErr"></span>
+            </div>
+            <div class="col-7">
+                <label class="form-label" for="ufregistrationdate">Date of Registration:</label>
+                <input class="form-control" id="ufregistrationDate" type="date" name="ufdateOfRegistration">
+                <span id="ufdoRErr"></span>
+            </div>
+            <div class="mb-3 mt-3">
+                <label>Activities:</label><br>
+                <input id="ufoption1" type="checkbox" value="Register Urban Farmers in the ward" name="ufactivities">Horticulture<br>
+                <input id="ufoption2" type="checkbox" value="Inspects the produce and agricultural activities for quality" name="ufactivities">Poultry<br>
+                <input id="ufoption3" type="checkbox" value="Approves farmer's produce to be listed" name="ufactivities">Dairy farming
+                <span id="ufactiviesErr"></span>
+            </div>
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
+</div><!-- <script src="css/bootstrap/js/bootstrap.bundle.js"></script>-->
+<script src="/public/js/validations.js"></script>
+</body>
+</html>
+
+<head>

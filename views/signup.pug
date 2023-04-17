@@ -1,0 +1,45 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Signup
+  link(rel='stylesheet' href='./css/bootstrap/css/bootstrap.min.css')
+section
+  .container
+    .row.d-flex.justify-content-center.align-items-center.h-100
+      .col-lg-12.col-xl-11
+        .card.text-black(style='border-radius: 25px;')
+          .card-body.p-md-5
+            .row.justify-content-center
+              .col-md-10.col-lg-6.col-xl-5.order-2.order-lg-1
+                p.text-center.h1.fw-bold Sign up
+                form.mx-1.mx-md-4(action='#' name='signup' onsubmit='return Validate(event);' method='POST')
+                  .d-flex.flex-row.align-items-center.mb-4
+                    .form-outline.flex-fill.mb-0
+                      label.form-label(for='signupfirstname') First Name
+                      input#signupfirstname.form-control(type='text')
+                      span#FirstnameErr
+                  .d-flex.flex-row.align-items-center.mb-4
+                    .form-outline.flex-fill.mb-0
+                      label.form-label(for='signuplastname') last Name
+                      input#signuplastname.form-control(type='text')
+                      span#LastnameErr
+                  .d-flex.flex-row.align-items-center.mb-4
+                    .form-outline.flex-fill.mb-0
+                      label.form-label(for='signupEmail') Email
+                      input#signupEmail.form-control(type='email')
+                      span#signupEmailErr
+                  .d-flex.flex-row.align-items-center.mb-4
+                    .form-outline.flex-fill.mb-0
+                      label.form-label(for='signupUN') Username
+                      input#signupUN.form-control(type='text')
+                      span#signupUNErr
+                  .d-flex.flex-row.align-items-center.mb-4
+                    .form-outline.flex-fill.mb-0
+                      label.form-label(for='signuppassword') Password
+                      input#signuppassword.form-control(type='password')
+                      span#passwordErr
+                  .d-flex.justify-content-center
+                    button.btn.btn-primary.btn-lg(type='submit') Register
+script(src='./js/signupvalidation.js')

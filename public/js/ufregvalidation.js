@@ -2,45 +2,39 @@ const Validate = (event) =>{
    
     let error = 0;
      //input variables
-    let firstName = document.getElementById("inputfirstname");
-    let lastName = document.getElementById("inputlastname");
-    let userName = document.getElementById("username");
-    let pwd = document.getElementById("password");    
-    let NIN = document.getElementById("inputNIN");
-    let phoneNumber = document.getElementById("focontact");
-    let email = document.getElementById("email");  
-    let dateOfBirth = document.getElementById("birthdate");
-    let male = document.getElementById("male");
-    let female = document.getElementById("female");  
-    let address1 = document.getElementById("inputAddress");    
-    let address2 = document.getElementById("inputAddress2");    
-    let ward = document.getElementById("inputward");    
-    let yearsLivedInWard = document.getElementById("years-lived");    
-    let foNumber = document.getElementById("inputFOnumber");
-    let doR = document.getElementById("registrationDate");    
-    let option1 = document.getElementById("option1");    
-    let option2 = document.getElementById("option2");    
-    let option3 = document.getElementById("option3");    
+    let uffirstName = document.getElementById("inputuffirstname");
+    let uflastName = document.getElementById("inputuflastname");
+    let ufuserName = document.getElementById("ufusername");
+    let ufpwd = document.getElementById("ufpassword");    
+    let ufNIN = document.getElementById("ufinputNIN");
+    let ufphoneNumber = document.getElementById("uffocontact");
+    let ufemail = document.getElementById("ufemail");  
+    let ufdateOfBirth = document.getElementById("ufbirthdate");
+    let ufmale = document.getElementById("ufmale");
+    let uffemale = document.getElementById("uffemale");    
+    let ufward = document.getElementById("ufinputward");      
+    let ufNumber = document.getElementById("inputUFnumber");
+    let ufdoR = document.getElementById("ufregistrationDate");    
+    let ufoption1 = document.getElementById("ufoption1");    
+    let ufoption2 = document.getElementById("ufoption2");    
+    let ufoption3 = document.getElementById("ufoption3");    
        
        
     
      //input error variables
-    let firstNameError = document.getElementById("FNError");
-    let lastNameError = document.getElementById("LNError");
-    let userNameError = document.getElementById("userNameErr");
-    let ninError = document.getElementById("NINErr");
-    let pwdError = document.getElementById("pwdErr");
-    let phoneNumberError = document.getElementById("phoneNoErr");
-    let emailError = document.getElementById("emailErr");
-    let dobError = document.getElementById("dobErr");
-    let genderError = document.getElementById("genderErr");
-    let address1Error = document.getElementById("address1Err");
-    let address2Error = document.getElementById("address2Err");
-    let wardError = document.getElementById("wardErr");
-    let yearsLivedInWardError = document.getElementById("yearslivedinwardErr");
-    let foNoError = document.getElementById("foNoErr");
-    let doRError = document.getElementById("doRErr");
-    let foActivitiesErr = document.getElementById("foactiviesErr");
+    let uffirstNameError = document.getElementById("ufFNError");
+    let uflastNameError = document.getElementById("ufLNError");
+    let ufuserNameError = document.getElementById("ufuserNameErr");
+    let ufninError = document.getElementById("ufNINErr");
+    let ufpwdError = document.getElementById("ufpwdErr");
+    let ufphoneNumberError = document.getElementById("ufphoneNoErr");
+    let ufemailError = document.getElementById("ufemailErr");
+    let ufdobError = document.getElementById("ufdobErr");
+    let ufgenderError = document.getElementById("ufgenderErr");
+    let ufwardError = document.getElementById("ufwardErr");
+    let ufNoError = document.getElementById("ufNoErr");
+    let ufdoRError = document.getElementById("ufdoRErr");
+    let ufActivitiesErr = document.getElementById("ufactiviesErr");
    
     
     //validating first name

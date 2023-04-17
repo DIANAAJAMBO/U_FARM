@@ -4,24 +4,25 @@ head
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title ufarm
-  link(rel='stylesheet' href='../css/bootstrap/css/bootstrap.css')
-  link(rel='stylesheet' href='../css/custom.css')
+  link(rel='stylesheet' href='./css/bootstrap/css/bootstrap.css')
+  link(rel='stylesheet' href='./css/custom.css')
 .container.mt-5
   .row.justify-content-center
     .col-md-7
       .card
         .card-body
-          form
+          form(action='#' onsubmit='return Validate(event);' method='POST')
             .mb-3
               label.form-label(for='username_UserID') Username/UserID:
               input#username_UserID.form-control(type='text' name='username_UserID' placeholder='Enter username/UserID')
-              span#userNameErr
+              span#userNameIDErr
             .mb-3
               label.form-label(for='password') Password:
-              input#password.form-control(type='password' name='password' placeholder='Enter password')
-            a(href='./forgotpwd.html') Forgot password ?
+              input#Password.form-control(type='password' name='password' placeholder='Enter password')
+              span#PasswordErr
             button.btn.btn-primary(type='submit') Sign in
             p
-              | Need an Account     
+              | Need an Account   
               a(href='./signup.html') Sign Up
-script(src='../css/bootstrap/js/bootstrap.js')
+script(src='./css/bootstrap/js/bootstrap.js')
+script(src='./js/loginvalidation.js')
