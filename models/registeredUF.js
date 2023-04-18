@@ -2,63 +2,63 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require("passport-local-mongoose")
 
 const urbanfarmerSchema = new mongoose.Schema({
-  firstname: {
+  uffirstname: {
     type: String,
     trim: true
     
   },
-  lastname: {
+  uflastname: {
     type: String,
     trim: true
     
   },
-  username: {
+  ufusername: {
     type: String,
     trim: true,
     unique: true
   },
-  password: {
+  ufpassword: {
     type: String,
     
     
   },
-  NIN: {
-    type: String,
-    trim: true
-    
-  },
-  phonenumber: {
+  ufNIN: {
     type: String,
     trim: true
+    
   },
-  email: {
+  ufphonenumber: {
+    type: String,
+    trim: true
+  },
+  ufemail: {
     type: String,
     trim: true,
     unique: true
   },
-  birthdate: {
+  ufbirthdate: {
     type: Date,
     trim: true
   },
-  gender: {
+  ufgender: {
     type: String,
     trim: true
   },
  
-  ward: {
+  ufward: {
     type: String,
     trim: true
   },
   
-  role: {
+  ufrole: {
     type: String,
     unique: true
   },
-  dateOfRegistration: {
+  ufdateOfRegistration: {
     type: Date,
     default: Date.now
   },
-  activities: {
+  ufactivities: {
     type: [String],    //defining the field as an array of strings
     
   }

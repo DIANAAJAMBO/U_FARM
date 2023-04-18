@@ -74,7 +74,7 @@ const Validate = (event) =>{
         lastNameError.style = "color: red; font-size:11px;";
         return false
     }
-    else if(firstName.value.length <5 ){
+    else if(lastName.value.length <5 ){
         lastName.style.border = "1px solid red";
         lastNameError.innerHTML = "last name should be more than 5 characters";
         lastNameError.style ="color: red; font-size:11px;";

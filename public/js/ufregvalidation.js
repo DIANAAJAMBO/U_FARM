@@ -38,283 +38,237 @@ const Validate = (event) =>{
    
     
     //validating first name
-    if(firstName.value == ""){
-        firstName.style.border = "1px solid red";
-        firstNameError.innerHTML = "Please fill in your first name";
-        firstNameError.style = "color: red; font-size:11px;";
+    if(uffirstName.value == ""){
+        uffirstName.style.border = "1px solid red";
+        uffirstNameError.innerHTML = "Please fill in your first name";
+        uffirstNameError.style = "color: red; font-size:11px;";
         return false
     }
-    else if(firstName.value.length <5 ){
-        firstName.style.border = "1px solid red";
-        firstNameError.innerHTML = "first name should be more than 5 characters";
-        firstNameError.style ="color: red; font-size:11px;";
+    else if(uffirstName.value.length <5 ){
+        uffirstName.style.border = "1px solid red";
+        uffirstNameError.innerHTML = "first name should be more than 5 characters";
+        uffirstNameError.style ="color: red; font-size:11px;";
         return false
     }
-    else if(firstName.value.length >50 ){
-        firstName.style.border = "1px solid red";
-        firstNameError.innerHTML = "first name should be less than 50 characters";
-        firstNameError.style ="color: red; font-size:11px;";
+    else if(uffirstName.value.length >50 ){
+        uffirstName.style.border = "1px solid red";
+        uffirstNameError.innerHTML = "first name should be less than 50 characters";
+        uffirstNameError.style ="color: red; font-size:11px;";
         return false
     }
     else{
-        firstName.style.border = "1px solid green";
-        firstNameError.innerHTML = ""; 
+        uffirstName.style.border = "1px solid green";
+        uffirstNameError.innerHTML = ""; 
     }
     
     //validating last name
-    if(lastName.value == ""){
-        lastName.style.border = "1px solid red";
-        lastNameError.innerHTML = "Please fill in the last name";;
-        lastNameError.style = "color: red; font-size:11px;";
+    if(uflastName.value == ""){
+        uflastName.style.border = "1px solid red";
+        uflastNameError.innerHTML = "Please fill in the last name";;
+        uflastNameError.style = "color: red; font-size:11px;";
         return false
     }
-    else if(firstName.value.length <5 ){
-        lastName.style.border = "1px solid red";
-        lastNameError.innerHTML = "last name should be more than 5 characters";
-        lastNameError.style ="color: red; font-size:11px;";
+    else if(uflastName.value.length <5 ){
+        uflastName.style.border = "1px solid red";
+        uflastNameError.innerHTML = "last name should be more than 5 characters";
+        uflastNameError.style ="color: red; font-size:11px;";
         return false
     }
-    else if(lastName.value.length >50 ){
-        lastName.style.border = "1px solid red";
-        lastNameError.innerHTML = "last name should be less than 50 characters";
-        lastNameError.style ="color: red; font-size:11px;";
+    else if(uflastName.value.length >50 ){
+        uflastName.style.border = "1px solid red";
+        uflastNameError.innerHTML = "last name should be less than 50 characters";
+        uflastNameError.style ="color: red; font-size:11px;";
         return false
     }
     else{
-        lastName.style.border = "1px solid green";
-        lastNameError.innerHTML = "";
+        uflastName.style.border = "1px solid green";
+        uflastNameError.innerHTML = "";
        
     }
 
      //validating username
-     const userNameRegex = /^[a-zA-Z0-9]+$/;
-    if(userName.value == ""){
-        userName.style.border = "1px solid red";
-        userNameError.innerHTML = "Please fill in your username";
-        userNameError.style = "color: red; font-size:11px;";
+     const ufuserNameRegex = /^[a-zA-Z0-9]+$/;
+    if(ufuserName.value == ""){
+        ufuserName.style.border = "1px solid red";
+        ufuserNameError.innerHTML = "Please fill in your username";
+        ufuserNameError.style = "color: red; font-size:11px;";
         return false
     }
-    else if(!(userName.value.match(userNameRegex))){
-        userName.style.border = "1px solid red";
-        userNameError.innerHTML = "username should be alphanumeric";
-        userNameError.style ="color: red; font-size:11px;";
+    else if(!(ufuserName.value.match(ufuserNameRegex))){
+        ufuserName.style.border = "1px solid red";
+        ufuserNameError.innerHTML = "username should be alphanumeric";
+        ufuserNameError.style ="color: red; font-size:11px;";
         return false
     }
     else {
-        userName.style.border = "1px solid green";
-        userNameError.innerHTML = "";
+        ufuserName.style.border = "1px solid green";
+        ufuserNameError.innerHTML = "";
        
     }
 
     //validating password
     
 
-    if (pwd.value == "") {
-      pwd.style.border = "1px solid red";
-      pwdError.textContent = "Password is required";
-      pwdError.style = "color: red; font-size:11px;";
+    if (ufpwd.value == "") {
+      ufpwd.style.border = "1px solid red";
+      ufpwdError.textContent = "Password is required";
+      ufpwdError.style = "color: red; font-size:11px;";
       return false
     }
     
-    else if (pwd.value.length < 5) {
-      pwd.style.border = "1px solid red";
-      pwdError.textContent = "Please the password must be atleast 5 characters";
-      pwdError.style = "color: red; font-size:11px;";
+    else if (ufpwd.value.length < 5) {
+      ufpwd.style.border = "1px solid red";
+      ufpwdError.textContent = "Please the password must be atleast 5 characters";
+      ufpwdError.style = "color: red; font-size:11px;";
       return false
     }
     else {
-        pwd.style.border = "1px solid green";
-        pwdError.textContent = "";
+        ufpwd.style.border = "1px solid green";
+        ufpwdError.textContent = "";
         
       }
 
     
     //validating NIN
-    const NINregex = /^[a-zA-Z0-9]{13}$/;
+    const ufNINregex = /^[a-zA-Z0-9]{13}$/;
     
-    if(NIN.value == ""){
-        NIN.style.border = "1px solid red";
-        ninError.innerHTML = "Please fill in your National Identification Number";
-        ninError.style = "color: red; font-size:11px;";
+    if(ufNIN.value == ""){
+        ufNIN.style.border = "1px solid red";
+        ufninError.innerHTML = "Please fill in your National Identification Number";
+        ufninError.style = "color: red; font-size:11px;";
         return false
     }
-    else if(!NIN.value.match(NINregex)){
-        NIN.style.border = "1px solid red";
-        ninError.innerHTML = "NIN should be 13 alphanumeric characters";
-        ninError.style = "color: red; font-size:11px;";
+    else if(!ufNIN.value.match(ufNINregex)){
+        ufNIN.style.border = "1px solid red";
+        ufninError.innerHTML = "ufNIN should be 13 alphanumeric characters";
+        ufninError.style = "color: red; font-size:11px;";
         return false
     }
     else{
-        NIN.style.border = "1px solid green";
-        ninError.innerHTML = "";
+        ufNIN.style.border = "1px solid green";
+        ufninError.innerHTML = "";
        
     }
 
     //validating Phone number   
-    let telregex = /^(?:\+256|0)[2,3,4,7][0-9]{8}$/;
+    let uftelregex = /^(?:\+256|0)[2,3,4,7][0-9]{8}$/;
     
-    if (phoneNumber.value ==""){
-        phoneNumber.style.border = "1px solid red";
-        phoneNumberError.textContent = "Please fill in your phone number";
-        phoneNumberError.style = "color: red; font-size:11px;";
+    if (ufphoneNumber.value ==""){
+        ufphoneNumber.style.border = "1px solid red";
+        ufphoneNumberError.textContent = "Please fill in your phone number";
+        ufphoneNumberError.style = "color: red; font-size:11px;";
         return false
     }
-    else if (!phoneNumber.value.match(telregex)){
-        phoneNumber.style.border = "1px solid red";
-        phoneNumberError.textContent = "Please fill in correct phone number eg 0706323345 or +256706323345";
-        phoneNumberError.style = "color: red; font-size:11px;";
+    else if (!ufphoneNumber.value.match(uftelregex)){
+        ufphoneNumber.style.border = "1px solid red";
+        ufphoneNumberError.textContent = "Please fill in correct phone number eg 0706323345 or +256706323345";
+        ufphoneNumberError.style = "color: red; font-size:11px;";
         return false
     }
     else {
-        phoneNumber.style.border = "1px solid green";
-        phoneNumberError.textContent = "";
+        ufphoneNumber.style.border = "1px solid green";
+        ufphoneNumberError.textContent = "";
        
     }  
 
     
     //validating email
-    const emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (email.value == "") {
-      email.style.border = "1px solid red"
-      emailError.textContent = "Please fill in your email";
-      emailError.style = "color: red; font-size:11px;";
+    const ufemailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (ufemail.value == "") {
+      ufemail.style.border = "1px solid red"
+      ufemailError.textContent = "Please fill in your email";
+      ufemailError.style = "color: red; font-size:11px;";
       return false
 
-    }else if (!email.value.match(emailregex)) {
-      email.style.border = "1px solid red"
-      emailError.textContent = "Please insert the correct email address";
-      emailError.style = "color: red; font-size:11px;";
+    }else if (!ufemail.value.match(ufemailregex)) {
+      ufemail.style.border = "1px solid red"
+      ufemailError.textContent = "Please insert the correct email address";
+      ufemailError.style = "color: red; font-size:11px;";
       return false
     }
     else {
-        email.style.border = "1px solid green"
-        emailError.textContent = "";
+        ufemail.style.border = "1px solid green"
+        ufemailError.textContent = "";
        
       }
 
 
     //validating date of birth
-    if (dateOfBirth.value == ""){
-        dateOfBirth.style.border = "1px solid red";
-        dobError.innerHTML = "Please fill in your date of birth ";
-        dobError.style = "color: red; font-size:11px;";
+    if (ufdateOfBirth.value == ""){
+        ufdateOfBirth.style.border = "1px solid red";
+        ufdobError.innerHTML = "Please fill in your date of birth ";
+        ufdobError.style = "color: red; font-size:11px;";
         return false  
     }
     else {
-        dateOfBirth.style.border = "1px solid green";
-        dobError.innerHTML = " ";
+        ufdateOfBirth.style.border = "1px solid green";
+        ufdobError.innerHTML = " ";
       
     }
     
     //validating gender
-    if (!(male.checked || female.checked)){
-        genderError.innerHTML = "Please fill in your gender";
-        genderError.style = "color: red; font-size:11px;";
+    if (!(ufmale.checked || uffemale.checked)){
+        ufgenderError.innerHTML = "Please fill in your gender";
+        ufgenderError.style = "color: red; font-size:11px;";
         return false  
     }
     else{
-        genderError.innerHTML = "";
+        ufgenderError.innerHTML = "";
          
     }        
 
-    //validating directions to your residence
-    if (address1.value == ""){
-        address1.style.border = "1px solid red";
-        address1Error.innerHTML = "Please fill in your residential address";
-        address1Error.style = "color: red; font-size:11px;";
-        return false
-    }
-    else{
-        address1.style.border = "1px solid green";
-        address1Error.innerHTML = "";
-       
-    }
-
-    //validating Residential type
-    if (address2.value ==""){
-        address2.style.border = "1px solid red";
-        address2Error.innerHTML = "Please fill in the residential type";
-        address2Error.style = "color: red; font-size:11px;";
-        return false 
-    }
-    else {
-        address2.style.border = "1px solid green";
-        address2Error.innerHTML = "";
-       
-    }
-
     //validating ward
-    if (ward.value ==""){
-        ward.style.border = "1px solid red";
-        wardError.innerHTML = "Please fill in the ward";
-        wardError.style = "color: red; font-size:11px;";
+    if (ufward.value ==""){
+        ufward.style.border = "1px solid red";
+        ufwardError.innerHTML = "Please fill in the ward";
+        ufwardError.style = "color: red; font-size:11px;";
         return false 
     }
     else {
-        ward.style.border = "1px solid green";
-        wardError.innerHTML = "";
+        ufward.style.border = "1px solid green";
+        ufwardError.innerHTML = "";
          
     }
 
-    //validating number of years lived in ward
-   
-    if (yearsLivedInWard.value ==""){
-        yearsLivedInWard.style.border = "1px solid red";
-        yearsLivedInWardError.innerHTML = "Please fill in the ward";
-        yearsLivedInWardError.style = "color: red; font-size:11px;";
-        return false 
-    }
-    else if(yearsLivedInWard.value < 10){
-        yearsLivedInWard.style.border = "1px solid red";
-        yearsLivedInWardError.innerHTML = "Sorry";
-        yearsLivedInWardError.style = "color: red; font-size:11px;";
-        return false
-    }
-    else {
-        
-        yearsLivedInWardError.innerHTML = "Sorry but you are below required age to register";
-       
-    }
-
     //validating fo number   
-    let foregex = /^UGFO-[0-9]{3}$/;
+    let ufregex = /^UGUF-[0-9]{3}$/;
     
-    if (foNumber.value ===""){
-        foNumber.style.border = "1px solid red";
-        foNoError.textContent = "Please fill in the unique number";
-        foNoError.style = "color: red; font-size:11px;";
+    if (ufNumber.value ===""){
+        ufNumber.style.border = "1px solid red";
+        ufNoError.textContent = "Please fill in the unique number";
+        ufNoError.style = "color: red; font-size:11px;";
         return false
     }
-    else if (!foNumber.value.match(foregex)){
-        foNumber.style.border = "1px solid red";
-        foNoError.textContent = "Please fill in correct fo unique number";
-        foNoError.style = "color: red; font-size:11px;";
+    else if (!ufNumber.value.match(ufregex)){
+        ufNumber.style.border = "1px solid red";
+        ufNoError.textContent = "Please fill in correct fo unique number";
+        ufNoError.style = "color: red; font-size:11px;";
         return false
     } 
     else {
-        foNumber.style.border = "1px solid green";
-        foNoError.textContent = "";
+        ufNumber.style.border = "1px solid green";
+        ufNoError.textContent = "";
         
     } 
 
 
     //validating registeration date
-    if (doR.value == ""){
-        doR.style.border = "1px solid red";
-        doRError.innerHTML = "Please fill in your date of registeration ";
-        doRError.style = "color: red; font-size:11px;";
+    if (ufdoR.value == ""){
+        ufdoR.style.border = "1px solid red";
+        ufdoRError.innerHTML = "Please fill in your date of registeration ";
+        ufdoRError.style = "color: red; font-size:11px;";
         return false 
     }
     else{
-        doR.style.border = "1px solid green";
-        doRError.innerHTML = "";
+        ufdoR.style.border = "1px solid green";
+        ufdoRError.innerHTML = "";
        
     }
    
     //validating fo activities
-    if (!(option1.checked || option2.checked || option3.checked)){
-        foActivitiesErr.innerHTML = "Please fill in atleast one fo activity";
-        foActivitiesErr.style = "color: red; font-size:11px;";
+    if (!(ufoption1.checked || ufoption2.checked || ufoption3.checked)){
+        ufActivitiesErr.innerHTML = "Please fill in atleast one fo activity";
+        ufActivitiesErr.style = "color: red; font-size:11px;";
         return false 
     }
     

@@ -1,0 +1,43 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Registered Farmer Ones
+  link(rel='stylesheet' href='../../css/bootstrap/css/bootstrap.min.css')
+div
+  .table-responsive
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th Name
+          //- th Last Name
+          th username
+          th NIN
+          th Phone Number
+          th Email
+          th Date of Birth
+          th Gender
+          th Ward
+          th FO Number
+          th Date of Registeration
+          th Activities done by FO
+          th Action
+      tbody
+      if urbanfarmers.length
+        each urbanfarmer in urbanfarmers 
+          tr
+            td #{urbanfarmer.uffirstname} #{urbanfarmer.uflastname}
+            td #{urbanfarmer.ufusername}
+            td #{urbanfarmer.ufNIN}
+            td #{urbanfarmer.ufphonenumber}
+            td #{urbanfarmer.ufemail}
+            td #{urbanfarmer.ufbirthdate}
+            td #{urbanfarmer.ufgender}
+            td #{urbanfarmer.ufward}
+            td #{urbanfarmer.uffoNumber}
+            td #{urbanfarmer.ufdateOfRegistration}
+            td #{urbanfarmer.ufactivities}   
+      else
+        p there are no urban farmers in the database.
+script(src='../public/css/bootstrap/js/bootstrap.min.js')

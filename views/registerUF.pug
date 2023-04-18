@@ -7,102 +7,90 @@ head
   // <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css">
   link(rel='stylesheet' href='./css/registeration.css')
 h2 Registration form
-h3 Urban Farmer
+h3 Urban farmer
 .container
-  form.row.g-3(action='/registerFO' name='registerFO' onsubmit='return Validate(event);' method='POST')
+  form.row.g-3(action='#' name='registerUF' onsubmit='return Validate(event);' method='POST')
     fieldset
       legend Personal Information
       .col-md-6
         label.form-label
-          | First Name:  
-          input#inputfirstname.form-control(type='text' name='firstname')
-        span#FNError
+          | First Name: 
+          input#inputuffirstname.form-control(type='text' name='uffirstname')
+        span#ufFNError
       .col-md-6
-        label.form-label(for='inputfullname')
-          | Last Name:  
-          input#inputlastname.form-control(type='text' name='lastname')
-        span#LNError
+        label.form-label(for='inputuflastname')
+          | Last Name: 
+          input#inputuflastname.form-control(type='text' name='uflastname')
+        span#ufLNError
       .col-md-6
-        label.form-label(for='username')
-          | Username:  
-          input#username.form-control(type='text' name='username')
-        span#userNameErr
+        label.form-label(for='ufusername')
+          | Username: 
+          input#ufusername.form-control(type='text' name='ufusername')
+        span#ufuserNameErr
       .col-md-6
-        label.form-label(for='password')
-          | Password:  
-          input#password.form-control(type='text' name='password')
-        span#pwdErr
+        label.form-label(for='ufpassword')
+          | Password: 
+          input#ufpassword.form-control(type='text' name='ufpassword')
+        span#ufpwdErr
       .col-md-6
-        label.form-label(for='inputNIN') National Identification Number (NIN)
-        input#inputNIN.form-control(type='text' name='NIN')
-        span#NINErr
+        label.form-label(for='ufinputNIN') National Identification Number (NIN)
+        input#ufinputNIN.form-control(type='text' name='ufNIN')
+        span#ufNINErr
       .col-10
-        label.form-label(for='contactdetails') Phone number:
-        input#focontact.form-control(type='text' name='phonenumber')
-        span#phoneNoErr
+        label.form-label(for='uffocontacts') Phone number:
+        input#uffocontact.form-control(type='text' name='ufphonenumber')
+        span#ufphoneNoErr
       .col-10
-        label.form-label(for='email') Email:
-        input#email.form-control(type='email' name='email')
-        span#emailErr
+        label.form-label(for='ufemail') Email:
+        input#ufemail.form-control(type='email' name='ufemail')
+        span#ufemailErr
       .col-7
-        label.form-label(for='birthdate') Date of Birth:
-        input#birthdate.form-control(type='date' name='birthdate')
-        span#dobErr
+        label.form-label(for='ufbirthdate') Date of Birth:
+        input#ufbirthdate.form-control(type='date' name='ufbirthdate')
+        span#ufdobErr
       .col-7
         label(for='choice') Gender:
-        label(for='male')
-          input#male(type='radio' name='gender' )
+        label(for='ufmale')
+          input#ufmale(type='radio' name='ufgender')
           | Male
-        label(for='female')
-          input#female(type='radio' name='gender')
+        label(for='uffemale')
+          input#uffemale(type='radio' name='ufgender')
           | Female
-        span#genderErr
-      .col-12
-        label.form-label(for='inputAddress') Directions to your residence
-        input#inputAddress.form-control(type='text' placeholder='plot 1, Entebbe rd, opp Police station' name="directionsToHome")
-        span#address1Err
-      .col-12
-        label.form-label(for='inputAddress2') Residential type
-        select#inputAddress2.form-control(type='text' name='residenceType')
-          option(value='') Select
-          option(value='Rented') Rented
-          option(value='Owned') Owned
-        span#address2Err
+        span#ufgenderErr
     fieldset
       legend Ward Information
       .col-3
-        label.form-label(for='inputward') ward
-        select#inputward.form-control(type='text' name='ward')
+        label.form-label(for='ufinputward') ward
+        select#ufinputward.form-control(type='text' name='ufward')
           option(value='') Select
           option(value='ward A') Ward A
           option(value='Ward B') Ward B
           option(value='Ward C') Ward C
           option(value='Ward D') Ward D
-        span#wardErr
+        span#ufwardErr
       .col-7
-        label.form-label(for='years-lived') Number of years lived in the ward:
-        input#years-lived.form-control(name='periodOfStayInWard' type='number')
-        span#yearslivedinwardErr
+        label.form-label(for='role') Role:
+        input.form-control(name='ufrole' type='text' value="urban farmer" readonly)
       .col-6
-        label.form-label(for='inputFOnumber') Unique FO number
-        input#inputFOnumber.form-control(type='text' placeholder='eg UGFO-000' name='foNumber')
-        span#foNoErr
+        label.form-label(for='inputUFnumber') Unique UF number
+        input#inputUFnumber.form-control(type='text' placeholder='eg UGUF-000' name='ufNumber')
+        span#ufNoErr
       .col-7
-        label.form-label(for='registrationdate') Date of Registration:
-        input#registrationDate.form-control(type='date' name='dateOfRegistration')
-        span#doRErr
+        label.form-label(for='ufregistrationdate') Date of Registration:
+        input#ufregistrationDate.form-control(type='date' name='ufdateOfRegistration')
+        span#ufdoRErr
       .mb-3.mt-3
-        label Activities done by FO:
+        label Activities:
         br
-        input#option1(type='checkbox' value='Register Urban Farmers in the ward' name='activities')
-        | Register Urban Farmers in the ward
+        input#ufoption1(type='checkbox' value='Register Urban Farmers in the ward' name='ufactivities')
+        | Horticulture
         br
-        input#option2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='activities')
-        | Inspects the produce and agricultural activities for quality
+        input#ufoption2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='ufactivities')
+        | Poultry
         br
-        input#option3(type='checkbox' value="Approves farmer's produce to be listed" name='activities')
-        | Approves farmer's produce to be listed
-        span#foactiviesErr
+        input#ufoption3(type='checkbox' value="Approves farmer's produce to be listed" name='ufactivities')
+        | Dairy farming
+        span#ufactiviesErr
     button(type='submit') Submit
 // <script src="css/bootstrap/js/bootstrap.bundle.js"></script>
-script(src='./js/validations.js')
+script(src='./js/ufregvalidation.js')
