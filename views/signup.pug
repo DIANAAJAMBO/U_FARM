@@ -18,27 +18,36 @@ section
                   .d-flex.flex-row.align-items-center.mb-4
                     .form-outline.flex-fill.mb-0
                       label.form-label(for='signupfirstname') First Name
-                      input#signupfirstname.form-control(type='text')
+                      input#signupfirstname.form-control(type='text' name='signupfirstname')
                       span#FirstnameErr
                   .d-flex.flex-row.align-items-center.mb-4
                     .form-outline.flex-fill.mb-0
                       label.form-label(for='signuplastname') last Name
-                      input#signuplastname.form-control(type='text')
+                      input#signuplastname.form-control(type='text' name='signuplastname')
                       span#LastnameErr
                   .d-flex.flex-row.align-items-center.mb-4
                     .form-outline.flex-fill.mb-0
                       label.form-label(for='signupEmail') Email
-                      input#signupEmail.form-control(type='email')
+                      input#signupEmail.form-control(type='email' name='signupemail')
                       span#signupEmailErr
                   .d-flex.flex-row.align-items-center.mb-4
                     .form-outline.flex-fill.mb-0
+                      label.form-label(for='signupphonenumber') Phone Number
+                      input#contact.form-control(type='email' name='signupemail')
+                      span#contactErr
+                  .d-flex.flex-row.align-items-center.mb-4
+                    .form-outline.flex-fill.mb-0
+                      label.form-label(for='signuprole') Role
+                      input.form-control(type='email' name='buyerrole' value='general public' readonly)
+                  .d-flex.flex-row.align-items-center.mb-4
+                    .form-outline.flex-fill.mb-0
                       label.form-label(for='signupUN') Username
-                      input#signupUN.form-control(type='text')
+                      input#signupUN.form-control(type='text' name='signupusername')
                       span#signupUNErr
                   .d-flex.flex-row.align-items-center.mb-4
                     .form-outline.flex-fill.mb-0
                       label.form-label(for='signuppassword') Password
-                      input#signuppassword.form-control(type='password')
+                      input#signuppassword.form-control(type='password' name='signuppassword')
                       span#passwordErr
                   .d-flex.justify-content-center
                     button.btn.btn-primary.btn-lg(type='submit') Register

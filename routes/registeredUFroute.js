@@ -12,7 +12,7 @@ router.post("/registerUF", async(req,res)=>{
     try{
       const registeruf = new RegisterUF(req.body);
       await registeruf.save()
-      res.redirect("/farmerOne")      //we redirect to a path
+      res.redirect("/urbanfarmers")      //we redirect to a path
       console.log(req.body)
     }
     catch(err){
@@ -22,18 +22,18 @@ router.post("/registerUF", async(req,res)=>{
   })
 
 
-//   //retrieving from the database
-//   router.get("/urbanfarmer",async(req,res)=>{
-//     try{
-//       let items = await RegisterFO.find();
-//       // console.log(items)
-//       res.render("farmerOnes",{farmerOnes:items})    //we render a file
-//     }
-//     catch(err){
-//       console.log(err)
-//       res.send("failed to retrieve student details")
-//     }
-//   })
+  //retrieving from the database
+  router.get("/urbanfarmer",async(req,res)=>{
+    try{
+      let items = await RegisterUF.find();
+      // console.log(items)
+      res.render("urbanfarmers",{urbanfarmers:items})    //we render a file
+    }
+    catch(err){
+      console.log(err)
+      res.send("failed to retrieve urban farmer details")
+    }
+  })
 
 
 //   //editing a database

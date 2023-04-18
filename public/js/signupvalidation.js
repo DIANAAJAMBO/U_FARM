@@ -8,6 +8,7 @@ const Validate = (event) =>{
     let signupEmail = document.getElementById('signupEmail');    
     let Username = document.getElementById('signupUN');    
     let password = document.getElementById("signuppassword");     
+    let contact = document.getElementById("contact");     
     
      //input error variables
     let FirstnameError = document.getElementById('FirstnameErr');
@@ -15,6 +16,7 @@ const Validate = (event) =>{
     let signupEmailError = document.getElementById('signupEmailErr');
     let signupUNError = document.getElementById('signupUNErr');
     let passwordError = document.getElementById('passwordErr');
+    let contactError = document.getElementById('contactErr');
    
     
     //validating first name
@@ -128,4 +130,25 @@ const Validate = (event) =>{
         signupEmailError.textContent = "";
        
       }
+    
+    //validating Phone number   
+    let contactregex = /^(?:\+256|0)[2,3,4,7][0-9]{8}$/;
+    
+    if (contact.value ==""){
+        contact.style.border = "1px solid red";
+        contactError.textContent = "Please fill in your phone number";
+        contactError.style = "color: red; font-size:11px;";
+        return false
+    }
+    else if (!ufphoneNumber.value.match(contactregex)){
+        contact.style.border = "1px solid red";
+        contactError.textContent = "Please fill in correct phone number eg 0706323345 or +256706323345";
+        contactError.style = "color: red; font-size:11px;";
+        return false
+    }
+    else {
+        contact.style.border = "1px solid green";
+        contactError.textContent = "";
+       
+    }  
 }

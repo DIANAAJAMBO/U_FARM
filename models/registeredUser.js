@@ -2,36 +2,37 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require("passport-local-mongoose")
 
 const userSchema = new mongoose.Schema({
-  firstname: {
+  clientfirstname: {
     type: String,
     trim: true   
   },
-  lastname: {
+  clientlastname: {
     type: String,
     trim: true   
   },
-  username: {
+  clientemail: {
     type: String,
     trim: true,
     unique: true
   },
-  password: {
-    type: String,  
-  },
-
   phonenumber: {
     type: String,
     trim: true
   },
-  email: {
+  clientrole: {
+    type: String,
+    unique: true
+  }, 
+  clientusername: {
     type: String,
     trim: true,
     unique: true
-  }, 
-  role: {
-    type: String,
-    unique: true
   },
+  clientpassword: {
+    type: String,  
+  }
+
+  
   
 });
 
