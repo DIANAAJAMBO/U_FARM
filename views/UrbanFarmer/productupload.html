@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Upload Form</title>
+    <link rel="'stylesheet" href='../../public/css/productupload.css'>
+    <link rel="stylesheet" href="../../public/css/bootstrap/css/bootstrap.min.css">
+    
+</head>
+
+<body>
+    <div class="container fluid">
+        <h2>Product Upload Form</h2>
+        <form  action="#" enctype="" onsubmit='return Validate(event);' method="POST">
+            <div class="form-group">
+                <label for="productname">Name:</label>
+                <input type="text" class="form-control" id="productname" name="productname">
+                <span id="pdnameErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="wardname">Ward Name:</label>
+                <input type="text" class="form-control" id="wardname" name="wardname">
+                <span id="wdnameErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="uniqueid">Unique id:</label>
+                <input type="text" class="form-control" id="uniqueid" name="uniqueid">
+                <span id="uniqueidErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" name="date" >
+                <span id="dateErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="unit-price">Unit Price in Ugx:</label>
+                <input type="number" class="form-control" id="unit-price" name="unitprice" >
+                <span id="unitpxErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" >
+                <span id="QtyErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Mode of Payment:</label>
+                <select class="form-control" id="payment-method" name="payment-method">
+                    <option value="">Select</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Mobile Money">Mobile Money</option>
+                    <option value="card">Card</option>
+                </select>
+                <span id="paymethodErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="directions">Directions:</label>
+                <textarea class="form-control" id="directions" name="directions"></textarea>
+                <span id="directionsErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="delivery-method">Mode of Delivery:</label>
+                <select class="form-control" id="delivery-method" name="delivery-method">
+                    <option value="">Select</option>
+                    <option value="Pickup">Pickup</option>
+                    <option value="Delivery">Delivery</option>
+                </select>
+                <span id="delmethodErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="product-type">Product Type:</label>
+                <select class="form-control" id="product-type" name="product-type">
+                    <option value="">Select</option>
+                    <option value="Fruits">Fruits</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Meat">Meat</option>
+                    <option value="Dairy">Dairy</option>
+                    <option value="Grains">Grains</option>
+                    <option value="Eggs">Eggs</option>
+                </select>
+                <span id="producttypeErr"></span>
+            </div>
+            <div class="form-group">
+                <label for="productImage">Product Image:</label>
+                <input type="file" class="form-control-file" id="productImage" name="productImage" >
+                <span id="productimageErr"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <script src="../../public/js/pdtuplvalidation.js"></script>
+    </div>
+</body>    

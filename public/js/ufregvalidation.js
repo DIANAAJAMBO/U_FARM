@@ -230,7 +230,7 @@ const Validate = (event) =>{
          
     }
 
-    //validating fo number   
+    //validating uf number   
     let ufregex = /^UGUF-[0-9]{3}$/;
     
     if (ufNumber.value ===""){

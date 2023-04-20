@@ -1,56 +1,44 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+  productname: {
+    type: String, 
   },
   wardname: {
     type: String,
-    required: true
+  },
+  uniqueid: {
+    type: String,
   },
   date: {
-    type: String,
-    required: true
+    type: Date,
+    default: Date.now
   },
   unitprice: {
-    type: Number,
-    required: true,
-    min: 0
+    type: Number, 
   },
   quantity: {
-    type: Number,
-    required: true,
-    min: 0
+    type: Number, 
   },
-  modeofpayment: {
-    type: Number,
-    required: true,
-    min: 0
+  paymentMode: {
+    type: String, 
+    enum: ['cash', 'mobile money', 'card']
   },
   directions: {
-    type: Number,
-    required: true,
-    min: 0
-  },
-  modeofdelivery: {
-    type: Number,
-    required: true,
-    min: 0
-  },
-  produce: {
-    type: Number,
-    required: true,
-    min: 0
-  },
-  imageUrl: {
     type: String,
-    required: true
   },
-  category: {
+  deliverymode: {
+    type: String, 
+    enum: ['pickup', 'delivery']
+  },
+  producetype: {
     type: String,
-    required: true
+    enum: ['fruits', 'vegetables','meat','dairy','grains','eggs']
+  },
+  productImage:{
+    type:String
   }
+ 
 });
 
 

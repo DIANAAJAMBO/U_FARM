@@ -54,6 +54,10 @@ const urbanfarmerSchema = new mongoose.Schema({
     type: String,
     unique: true
   },
+  ufNumber: {
+    type: String,
+    unique: true
+  },
   ufdateOfRegistration: {
     type: Date,
     default: Date.now
