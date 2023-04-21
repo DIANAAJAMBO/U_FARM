@@ -6,10 +6,15 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require("express-session");
 const user = require("./models/registeredFO");
+const config = require("./config/database");
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,"public")));  //middle ware for images, css and jS
+
+
 
 //session middleware and it has to be up not down
 app.use(session({
@@ -18,11 +23,10 @@ app.use(session({
   saveUninitialized: false 
 }));
 
+
+
 app.set("view engine","pug")
 app.set("views", path.join(__dirname,"views"))
-
-
-const config = require("./config/database");
 
 
 
@@ -32,6 +36,8 @@ const loginRoute = require("./routes/loginroute")
 const signupRoute = require("./routes/signuproute")
 const registerUfRoute = require("./routes/registeredUFroute")
 const urbanfarmerRoute = require("./routes/urbanfarmerroute")
+const productuploadRoute = require('./routes/productuploadroute')
+const uploadedproductRoute = require('./routes/uploadedproducts')
 
 
 //passport middleware
@@ -40,6 +46,7 @@ app.use(passport.session());
 passport.use(user.createStrategy());   //identifies what authentication we use which in this case is local 
 passport.serializeUser(user.serializeUser()); //gives a session an ID that the browser can use to tract it
 passport.deserializeUser(user.deserializeUser());
+
 
 
 //creating a connection between the controller and the database
@@ -58,12 +65,15 @@ mongoose.connect(config.database,{
   })
 
 
+
  app.use ("/", registerFoRoute)
  app.use ("/", farmerOneRoute)
  app.use ("/", loginRoute)
  app.use ("/", signupRoute)
  app.use ("/", registerUfRoute)
  app.use ("/", urbanfarmerRoute)
+ app.use ("/", productuploadRoute)
+ app.use ("/", uploadedproductRoute)
 
 
 

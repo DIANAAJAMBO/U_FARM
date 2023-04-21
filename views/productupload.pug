@@ -1,0 +1,71 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Product Upload Form
+  link(rel="'stylesheet" href='/css/productupload.css')
+  link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
+.container.fluid
+  h2 Product Upload Form
+  form(action='#' enctype='' onsubmit='return Validate(event);' method='POST')
+    .form-group
+      label(for='productname') Name:
+      input#productname.form-control(type='text' name='productname')
+      span#pdnameErr
+    .form-group
+      label(for='wardname') Ward Name:
+      input#wardname.form-control(type='text' name='wardname')
+      span#wdnameErr
+    .form-group
+      label(for='uniqueid') Unique id:
+      input#uniqueid.form-control(type='text' name='uniqueid')
+      span#uniqueidErr
+    .form-group
+      label(for='date') Date:
+      input#date.form-control(type='date' name='date')
+      span#dateErr
+    .form-group
+      label(for='unit-price') Unit Price in Ugx:
+      input#unit-price.form-control(type='number' name='unitprice')
+      span#unitpxErr
+    .form-group
+      label(for='quantity') Quantity:
+      input#quantity.form-control(type='number' name='quantity')
+      span#QtyErr
+    .form-group
+      label(for='payment-method') Mode of Payment:
+      select#payment-method.form-control(name='payment-method')
+        option(value='') Select
+        option(value='Cash') Cash
+        option(value='Mobile Money') Mobile Money
+        option(value='card') Card
+      span#paymethodErr
+    .form-group
+      label(for='directions') Directions:
+      textarea#directions.form-control(name='directions')
+      span#directionsErr
+    .form-group
+      label(for='delivery-method') Mode of Delivery:
+      select#delivery-method.form-control(name='delivery-method')
+        option(value='') Select
+        option(value='Pickup') Pickup
+        option(value='Delivery') Delivery
+      span#delmethodErr
+    .form-group
+      label(for='product-type') Product Type:
+      select#product-type.form-control(name='product-type')
+        option(value='') Select
+        option(value='Fruits') Fruits
+        option(value='Vegetables') Vegetables
+        option(value='Meat') Meat
+        option(value='Dairy') Dairy
+        option(value='Grains') Grains
+        option(value='Eggs') Eggs
+      span#producttypeErr
+    .form-group
+      label(for='productImage') Product Image:
+      input#productImage.form-control-file(type='file' name='productimage')
+      span#productimageErr
+    button.btn.btn-primary(type='submit') Submit
+  script(src='/js/pdtuplvalidation.js')

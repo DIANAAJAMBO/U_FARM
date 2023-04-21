@@ -35,8 +35,12 @@ const productSchema = new mongoose.Schema({
     type: String,
     enum: ['fruits', 'vegetables','meat','dairy','grains','eggs']
   },
-  productImage:{
+  productimage:{
     type:String
+  },
+  status:{
+    type: String,
+    default: 'Pending'
   }
  
 });
