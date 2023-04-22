@@ -8,36 +8,38 @@ head
 div
   .table-responsive
     table.table.table-striped.table-hover
-    thead
-      tr
-        th #
-        th Product Name
-        th Ward
-        th Unique ID
-        th Date
-        th Unit Price
-        th Quantity
-        th Mode of Payment
-        th Directions
-        th Mode of Delivery
-        th Product Type
-        th Status
-    tbody
-    if Products.length 
-      each product in Products
+      thead
         tr
-          td #{product.productimage}
-          td #{product.productname}
-          td #{product.wardname}
-          td #{product.uniqueid}
-          td #{product.date}
-          td #{product.unitprice}
-          td #{product.quantity}
-          td #{product.paymentMode}
-          td #{product.directions}
-          td #{product.deliverymode}
-          td #{product.producetype}
-          td #{product.status}
-            a.btn.btn-dark.btn-block(href="/edit_farmerOne/"+product.id) Edit
-    else 
-      p there are no products uploaded
+          th #
+          th Product Name
+          th Ward
+          th Unique ID
+          th Date
+          th Unit Price
+          th Quantity
+          th Mode of Payment
+          th Directions
+          th Mode of Delivery
+          th Product Type
+          th Status
+      tbody
+      if products.length 
+        each product in products
+          tr
+            td 
+              img(src='/productimages/'+product.productimage height='100px' width='100px')
+            td #{product.productname}
+            td #{product.wardname}
+            td #{product.uniqueid}
+            td #{product.date}
+            td #{product.unitprice}
+            td #{product.quantity}
+            td #{product.paymentMode}
+            td #{product.directions}
+            td #{product.deliverymode}
+            td #{product.producetype}
+            td #{product.status}
+              a.btn.btn-dark.btn-block(href="/edit_farmerOne/"+product.id) Edit
+      else 
+        p there are no products uploaded.
+script(src='../public/css/bootstrap/js/bootstrap.min.js')

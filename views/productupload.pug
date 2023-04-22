@@ -8,7 +8,7 @@ head
   link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
 .container.fluid
   h2 Product Upload Form
-  form(action='#' enctype='' onsubmit='return Validate(event);' method='POST')
+  form(action='/upload' enctype='multipart/form-data' onsubmit='return Validate(event);' method='POST')
     .form-group
       label(for='productname') Name:
       input#productname.form-control(type='text' name='productname')
@@ -39,7 +39,6 @@ head
         option(value='') Select
         option(value='Cash') Cash
         option(value='Mobile Money') Mobile Money
-        option(value='card') Card
       span#paymethodErr
     .form-group
       label(for='directions') Directions:
@@ -50,22 +49,18 @@ head
       select#delivery-method.form-control(name='delivery-method')
         option(value='') Select
         option(value='Pickup') Pickup
-        option(value='Delivery') Delivery
+        option(value='Home delivery') Home Delivery
       span#delmethodErr
     .form-group
       label(for='product-type') Product Type:
       select#product-type.form-control(name='product-type')
         option(value='') Select
-        option(value='Fruits') Fruits
-        option(value='Vegetables') Vegetables
-        option(value='Meat') Meat
-        option(value='Dairy') Dairy
-        option(value='Grains') Grains
-        option(value='Eggs') Eggs
+        option(value='Organic') Organic
+        option(value='Non Organic') Non Organic
       span#producttypeErr
     .form-group
       label(for='productImage') Product Image:
-      input#productImage.form-control-file(type='file' name='productimage')
+      input#productImage.form-control-file(type='file' name='productimage' accept='image/*')
       span#productimageErr
     button.btn.btn-primary(type='submit') Submit
   script(src='/js/pdtuplvalidation.js')

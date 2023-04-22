@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
   },
   paymentMode: {
     type: String, 
-    enum: ['cash', 'mobile money', 'card']
+    enum: ['cash', 'mobile money']
   },
   directions: {
     type: String,
@@ -33,7 +33,7 @@ const productSchema = new mongoose.Schema({
   },
   producetype: {
     type: String,
-    enum: ['fruits', 'vegetables','meat','dairy','grains','eggs']
+    enum: ['organic','non organic']
   },
   productimage:{
     type:String
@@ -47,3 +47,5 @@ const productSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model('Product', productSchema);
+
+

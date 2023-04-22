@@ -13,7 +13,7 @@ const config = require("./config/database");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,"public")));  //middle ware for images, css and jS
-
+app.use(express.static(path.join(__dirname,"public/productimages")));
 
 
 //session middleware and it has to be up not down
