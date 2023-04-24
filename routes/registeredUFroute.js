@@ -3,37 +3,61 @@ const router = express.Router();
 const RegisterUF = require("../models/registeredUF")
 
 
-router.get("/registerUF",(req,res)=>{
-    res.render("registerUF")
-  })
+router.get("/registerUF", (req, res) => {
+  res.render("registerUF")
+})
 
-  //posting into the database
-router.post("/registerUF", async(req,res)=>{
-    try{
-      const registeruf = new RegisterUF(req.body);
-      await registeruf.save()
-      res.redirect("/urbanfarmers")      //we redirect to a path
-      console.log(req.body)
+//   //posting into the database
+// router.post("/registerUF", async(req,res)=>{
+//     try{
+//       const registeruf = new RegisterUF(req.body);
+//       await registeruf.save()
+//       res.redirect("/urbanfarmers")      //we redirect to a path
+//       console.log(req.body)
+//     }
+//     catch(err){
+//       // res.status(400).render("register")
+//       console.log(err)
+//     }
+//   })
+
+//posting into the database
+router.post("/registerUF", async (req, res) => {
+  console.log(req.body)
+  try {
+    const registeruf = new RegisterUF(req.body);
+    const Username = await RegisterUF.findOne({ username: req.body.username })
+    if (Username) {
+      return res.send("This urban farmer already exists")
     }
-    catch(err){
-      // res.status(400).render("register")
-      console.log(err)
+    else {
+      await RegisterUF.register(registeruf, req.body.password, (error) => {
+        if (error) {
+          throw error
+        }
+        res.redirect("/urbanfarmer")
+      })
     }
-  })
+  }
+  catch (error) {
+    res.status(400).send("sorry it seems there is trouble accessing this page")
+    console.log(error)
+  }
+});
 
 
-  //retrieving from the database
-  router.get("/urbanfarmer",async(req,res)=>{
-    try{
-      let items = await RegisterUF.find();
-      // console.log(items)
-      res.render("urbanfarmers",{urbanfarmers:items})    //we render a file
-    }
-    catch(err){
-      console.log(err)
-      res.send("failed to retrieve urban farmer details")
-    }
-  })
+//retrieving from the database
+router.get("/urbanfarmer", async (req, res) => {
+  try {
+    let items = await RegisterUF.find();
+    // console.log(items)
+    res.render("urbanfarmers", { urbanfarmers: items })    //we render a file
+  }
+  catch (err) {
+    console.log(err)
+    res.send("failed to retrieve urban farmer details")
+  }
+})
 
 
 //   //editing a database

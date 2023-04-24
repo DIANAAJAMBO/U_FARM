@@ -49,12 +49,12 @@ h3 Farmer one
         input#birthdate.form-control(type='date' name='birthdate')
         span#dobErr
       .col-7
-        label(for='choice') Gender:
+        label(for='gender') Gender:
         label(for='male')
-          input#male(type='radio' name='gender' )
+          input#male(type='radio' name='gender' value="Male")
           | Male
         label(for='female')
-          input#female(type='radio' name='gender')
+          input#female(type='radio' name='gender' value="Female")
           | Female
         span#genderErr
       .col-12
@@ -96,7 +96,7 @@ h3 Farmer one
         input#registrationDate.form-control(type='date' name='dateOfRegistration')
         span#doRErr
       .mb-3.mt-3
-        label Activities done by FO:
+        label Activities done by uf:
         br
         input#option1(type='checkbox' value='Register Urban Farmers in the ward' name='activities')
         | Register Urban Farmers in the ward

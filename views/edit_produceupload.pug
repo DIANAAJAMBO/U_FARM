@@ -1,0 +1,56 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Product Upload Form
+  link(rel="'stylesheet" href='/css/productupload.css')
+  link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
+.container.fluid
+  h2 Produce Upload Form
+  form(action='/edit_produceupload?id='+product._id name="edit produceupload" enctype='multipart/form-data' onsubmit='return Validate(event);' method='POST')
+    .form-group
+      label(for='productname') Produce Name:
+      input#productname.form-control(type='text' name='productname' value=product.productname )
+      span#pdnameErr
+    .form-group
+      label(for='wardname') Ward Name:
+      select#wardname.form-control(name='wardname' disabled)
+        option(value='' disabled) Select
+        option(value='Ward A') Ward A
+        option(value='Ward B') Ward B
+        option(value='Ward C') Ward C
+        option(value='Ward D') Ward D
+      span#wdnameErr
+    .form-group
+      label(for='uniqueid') Urban Farmer ID:
+      input#uniqueid.form-control(type='text' name='uniqueid' disabled)
+      span#uniqueidErr
+    .form-group
+      label(for='date') Date of upload:
+      input#date.form-control(type='date' name='date' disabled)
+      span#dateErr
+    .form-group
+      label(for='unit-price') Unit Price in Ugx:
+      input#unit-price.form-control(type='number' name='unitprice' disabled)
+      span#unitpxErr
+    .form-group
+      label(for='quantity') Quantity in kgs:
+      input#quantity.form-control(type='number' name='quantity' disabled)
+      span#QtyErr
+    .form-group
+      label(for='product-type') Produce Type:
+      select#product-type.form-control(name='producetype' disabled)
+        option(value='') Select
+        option(value='organic') Organic
+        option(value='non organic') Non Organic
+      span#producttypeErr
+    .form-group
+      label(for='status') Status:
+      select.form-control(name='status' value=product.status)
+        option(value='' disabled) Select
+        option(value='Pending') Pending
+        option(value='Approved') Approved
+        option(value='Rejected') Rejected
+    button.btn.btn-primary(type='submit') UPDATE
+  

@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
   quantity: {
     type: Number, 
   },
-  paymentMode: {
+  paymentmode: {
     type: String, 
     enum: ['cash', 'mobile money']
   },
@@ -29,7 +29,7 @@ const productSchema = new mongoose.Schema({
   },
   deliverymode: {
     type: String, 
-    enum: ['pickup', 'delivery']
+    enum: ['pickup', 'home delivery']
   },
   producetype: {
     type: String,
@@ -41,6 +41,7 @@ const productSchema = new mongoose.Schema({
   status:{
     type: String,
     default: 'Pending'
+    
   }
  
 });

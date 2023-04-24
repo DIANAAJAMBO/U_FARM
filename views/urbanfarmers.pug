@@ -3,7 +3,7 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Registered Farmer Ones
+  title Registered Urban Farmers
   link(rel='stylesheet' href='../../css/bootstrap/css/bootstrap.min.css')
 div
   .table-responsive
@@ -11,7 +11,6 @@ div
       thead
         tr
           th Name
-          //- th Last Name
           th username
           th NIN
           th Phone Number
@@ -19,24 +18,24 @@ div
           th Date of Birth
           th Gender
           th Ward
-          th FO Number
+          th Urban Farmer ID
           th Date of Registeration
-          th Activities done by FO
-          th Action
+          th Activities carried out
+         
       tbody
       if urbanfarmers.length
         each urbanfarmer in urbanfarmers 
           tr
-            td #{urbanfarmer.uffirstname} #{urbanfarmer.uflastname}
-            td #{urbanfarmer.ufusername}
-            td #{urbanfarmer.ufNIN}
-            td #{urbanfarmer.ufphonenumber}
-            td #{urbanfarmer.ufemail}
-            td #{urbanfarmer.ufbirthdate}
-            td #{urbanfarmer.ufgender}
-            td #{urbanfarmer.ufward}
-            td #{urbanfarmer.uffoNumber}
-            td #{urbanfarmer.ufdateOfRegistration}
+            td #{urbanfarmer.firstname} #{urbanfarmer.lastname}
+            td #{urbanfarmer.username}
+            td #{urbanfarmer.NIN}
+            td #{urbanfarmer.phonenumber}
+            td #{urbanfarmer.email}
+            td #{urbanfarmer.birthdate}
+            td #{urbanfarmer.gender}
+            td #{urbanfarmer.ward}
+            td #{urbanfarmer.uniqueID}
+            td #{urbanfarmer.dateOfRegistration}
             td #{urbanfarmer.ufactivities}   
       else
         p there are no urban farmers in the database.

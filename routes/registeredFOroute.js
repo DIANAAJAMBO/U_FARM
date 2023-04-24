@@ -22,6 +22,32 @@ router.post("/registerFO", async(req,res)=>{
   })
 
 
+  
+//posting into the database
+router.post("/registerFO",async(req,res)=>{
+  console.log(req.body)
+  try{
+    const registerfo = new RegisterFO(req.body);
+    let UserName = await RegisterFO.findOne({username: req.body.username})
+    if(UserName){
+      return res.send("This username already exists")
+    }
+    else {
+      await RegisterFO.register(registerfo,req.body.password,(error)=>{
+        if(error){
+          throw error    //works like console.log(error)
+        }
+        res.redirect("/login")   
+      })
+    }
+  }
+  catch(error){
+    res.status(400).send("sorry it seems there is trouble accessing this page")
+    console.log(error)
+  }
+});
+
+
   //retrieving from the database
   router.get("/farmerOne",async(req,res)=>{
     try{

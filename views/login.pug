@@ -11,7 +11,7 @@ head
     .col-md-7
       .card
         .card-body
-          form(action='#' onsubmit='return Validate(event);' method='POST')
+          form(action='/login' onsubmit='return Validate(event);' method='POST')
             .mb-3
               label.form-label(for='username_UserID') Username/UserID:
               input#username_UserID.form-control(type='text' name='username_UserID' placeholder='Enter username/UserID')
@@ -23,6 +23,6 @@ head
             button.btn.btn-primary(type='submit') Sign in
             p
               | Need an Account   
-              a(href='./signup.html') Sign Up
+              a(href='signup') Sign Up
 script(src='./css/bootstrap/js/bootstrap.js')
 script(src='./js/loginvalidation.js')

@@ -3,26 +3,31 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   meta(http-equiv='X-UA-Compatible' content='ie=edge')
-  title Product Upload Form
+  title Produce Upload Form
   link(rel="'stylesheet" href='/css/productupload.css')
   link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
 .container.fluid
-  h2 Product Upload Form
+  h2 Produce Upload Form
   form(action='/upload' enctype='multipart/form-data' onsubmit='return Validate(event);' method='POST')
     .form-group
-      label(for='productname') Name:
+      label(for='productname') Produce Name:
       input#productname.form-control(type='text' name='productname')
       span#pdnameErr
     .form-group
       label(for='wardname') Ward Name:
-      input#wardname.form-control(type='text' name='wardname')
+      select#wardname.form-control(name='wardname')
+        option(value='') Select
+        option(value='Ward A') Ward A
+        option(value='Ward B') Ward B
+        option(value='Ward C') Ward C
+        option(value='Ward D') Ward D
       span#wdnameErr
     .form-group
-      label(for='uniqueid') Unique id:
+      label(for='uniqueid') Urban Farmer ID:
       input#uniqueid.form-control(type='text' name='uniqueid')
       span#uniqueidErr
     .form-group
-      label(for='date') Date:
+      label(for='date') Date of upload:
       input#date.form-control(type='date' name='date')
       span#dateErr
     .form-group
@@ -30,15 +35,15 @@ head
       input#unit-price.form-control(type='number' name='unitprice')
       span#unitpxErr
     .form-group
-      label(for='quantity') Quantity:
+      label(for='quantity') Quantity in kgs:
       input#quantity.form-control(type='number' name='quantity')
       span#QtyErr
     .form-group
       label(for='payment-method') Mode of Payment:
-      select#payment-method.form-control(name='payment-method')
+      select#payment-method.form-control(name='paymentmode')
         option(value='') Select
-        option(value='Cash') Cash
-        option(value='Mobile Money') Mobile Money
+        option(value='cash') Cash
+        option(value='mobile money') Mobile Money
       span#paymethodErr
     .form-group
       label(for='directions') Directions:
@@ -46,20 +51,20 @@ head
       span#directionsErr
     .form-group
       label(for='delivery-method') Mode of Delivery:
-      select#delivery-method.form-control(name='delivery-method')
+      select#delivery-method.form-control(name='deliverymode')
         option(value='') Select
-        option(value='Pickup') Pickup
-        option(value='Home delivery') Home Delivery
+        option(value='pickup') Pickup
+        option(value='home delivery') Home Delivery
       span#delmethodErr
     .form-group
-      label(for='product-type') Product Type:
-      select#product-type.form-control(name='product-type')
+      label(for='product-type') Produce Type:
+      select#product-type.form-control(name='producetype')
         option(value='') Select
-        option(value='Organic') Organic
-        option(value='Non Organic') Non Organic
+        option(value='organic') Organic
+        option(value='non organic') Non Organic
       span#producttypeErr
     .form-group
-      label(for='productImage') Product Image:
+      label(for='productImage') Produce Image:
       input#productImage.form-control-file(type='file' name='productimage' accept='image/*')
       span#productimageErr
     button.btn.btn-primary(type='submit') Submit

@@ -17,15 +17,9 @@ const farmerOneSchema = new mongoose.Schema({
     trim: true,
     unique: true
   },
-  password: {
-    type: String,
-    
-    
-  },
   NIN: {
     type: String,
-    trim: true
-    
+    trim: true  
   },
   phonenumber: {
     type: String,
@@ -63,11 +57,11 @@ const farmerOneSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    unique: true
+    
   },
   foNumber: {
     type: String,
-    unique: true
+    
   },
   dateOfRegistration: {
     type: Date,

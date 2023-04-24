@@ -11,22 +11,22 @@ const config = require("./config/database");
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname,"public")));  //middle ware for images, css and jS
-app.use(express.static(path.join(__dirname,"public/productimages")));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));  //middle ware for images, css and jS
+app.use(express.static(path.join(__dirname, "public/productimages")));
 
 
 //session middleware and it has to be up not down
 app.use(session({
   secret: "secret",      //protects our session from being used by other people
   resave: false,         // helps u resume your journey so we dont want it to remember
-  saveUninitialized: false 
+  saveUninitialized: false
 }));
 
 
 
-app.set("view engine","pug")
-app.set("views", path.join(__dirname,"views"))
+app.set("view engine", "pug")
+app.set("views", path.join(__dirname, "views"))
 
 
 
@@ -50,33 +50,35 @@ passport.deserializeUser(user.deserializeUser());
 
 
 //creating a connection between the controller and the database
-mongoose.connect(config.database,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  
-  const db = mongoose.connection;
-  //checking if db has connected
-  db.once("open",()=>{
-    console.log("connected to db")
-  });
-  db.on("error",(err)=>{
+mongoose.connect(config.database, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+
+const db = mongoose.connection;
+//checking if db has connected
+db.once("open", () => {
+  console.log("connected to db")
+});
+db.on("error", (err) => {
   console.error(err)
-  })
+})
 
 
 
- app.use ("/", registerFoRoute)
- app.use ("/", farmerOneRoute)
- app.use ("/", loginRoute)
- app.use ("/", signupRoute)
- app.use ("/", registerUfRoute)
- app.use ("/", urbanfarmerRoute)
- app.use ("/", productuploadRoute)
- app.use ("/", uploadedproductRoute)
+app.use("/", registerFoRoute)
+app.use("/", farmerOneRoute)
+app.use("/", loginRoute)
+app.use("/", signupRoute)
+app.use("/", registerUfRoute)
+app.use("/", urbanfarmerRoute)
+app.use("/", productuploadRoute)
+app.use("/", uploadedproductRoute)
 
 
+app.get("*", (req, res) => {
+  res.status(404).send("page does not exist")
+})
 
 
-
-app.listen(3500,() => console.log('listening to port 3500'));
+app.listen(3500, () => console.log('listening to port 3500'));

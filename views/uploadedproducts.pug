@@ -22,6 +22,7 @@ div
           th Mode of Delivery
           th Product Type
           th Status
+          th Action
       tbody
       if products.length 
         each product in products
@@ -34,12 +35,13 @@ div
             td #{product.date}
             td #{product.unitprice}
             td #{product.quantity}
-            td #{product.paymentMode}
+            td #{product.paymentmode}
             td #{product.directions}
             td #{product.deliverymode}
             td #{product.producetype}
             td #{product.status}
-              a.btn.btn-dark.btn-block(href="/edit_farmerOne/"+product.id) Edit
+            td
+              a.btn.btn-dark.btn-block(href="/edit_produceupload/"+product.id) Edit
       else 
         p there are no products uploaded.
 script(src='../public/css/bootstrap/js/bootstrap.min.js')

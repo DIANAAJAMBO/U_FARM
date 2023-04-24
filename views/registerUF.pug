@@ -15,53 +15,53 @@ h3 Urban farmer
       .col-md-6
         label.form-label
           | First Name: 
-          input#inputuffirstname.form-control(type='text' name='uffirstname')
+          input#inputuffirstname.form-control(type='text' name='firstname')
         span#ufFNError
       .col-md-6
         label.form-label(for='inputuflastname')
           | Last Name: 
-          input#inputuflastname.form-control(type='text' name='uflastname')
+          input#inputuflastname.form-control(type='text' name='lastname')
         span#ufLNError
       .col-md-6
         label.form-label(for='ufusername')
           | Username: 
-          input#ufusername.form-control(type='text' name='ufusername')
+          input#ufusername.form-control(type='text' name='username')
         span#ufuserNameErr
       .col-md-6
         label.form-label(for='ufpassword')
           | Password: 
-          input#ufpassword.form-control(type='text' name='ufpassword')
+          input#ufpassword.form-control(type='text' name='password')
         span#ufpwdErr
       .col-md-6
         label.form-label(for='ufinputNIN') National Identification Number (NIN)
-        input#ufinputNIN.form-control(type='text' name='ufNIN')
+        input#ufinputNIN.form-control(type='text' name='NIN')
         span#ufNINErr
       .col-10
         label.form-label(for='uffocontacts') Phone number:
-        input#uffocontact.form-control(type='text' name='ufphonenumber')
+        input#uffocontact.form-control(type='text' name='phonenumber')
         span#ufphoneNoErr
       .col-10
         label.form-label(for='ufemail') Email:
-        input#ufemail.form-control(type='email' name='ufemail')
+        input#ufemail.form-control(type='email' name='email')
         span#ufemailErr
       .col-7
         label.form-label(for='ufbirthdate') Date of Birth:
-        input#ufbirthdate.form-control(type='date' name='ufbirthdate')
+        input#ufbirthdate.form-control(type='date' name='birthdate')
         span#ufdobErr
       .col-7
-        label(for='choice') Gender:
+        label(for='gender') Gender:
         label(for='ufmale')
-          input#ufmale(type='radio' name='ufgender')
+          input#ufmale(type='radio' name='gender' value='Male')
           | Male
         label(for='uffemale')
-          input#uffemale(type='radio' name='ufgender')
+          input#uffemale(type='radio' name='gender' value= 'Female')
           | Female
         span#ufgenderErr
     fieldset
       legend Ward Information
       .col-3
         label.form-label(for='ufinputward') ward
-        select#ufinputward.form-control(type='text' name='ufward')
+        select#ufinputward.form-control(type='text' name='ward')
           option(value='') Select
           option(value='ward A') Ward A
           option(value='Ward B') Ward B
@@ -70,25 +70,25 @@ h3 Urban farmer
         span#ufwardErr
       .col-7
         label.form-label(for='role') Role:
-        input.form-control(name='ufrole' type='text' value="urban farmer" readonly)
+        input.form-control(name='role' type='text' value="urban farmer" readonly)
       .col-6
         label.form-label(for='inputUFnumber') Unique UF number
-        input#inputUFnumber.form-control(type='text' placeholder='eg UGUF-000' name='ufNumber')
+        input#inputUFnumber.form-control(type='text' placeholder='eg UGUF-000' name='uniqueID')
         span#ufNoErr
       .col-7
         label.form-label(for='ufregistrationdate') Date of Registration:
-        input#ufregistrationDate.form-control(type='date' name='ufdateOfRegistration')
+        input#ufregistrationDate.form-control(type='date' name='dateOfRegistration')
         span#ufdoRErr
       .mb-3.mt-3
         label Activities:
         br
-        input#ufoption1(type='checkbox' value='Register Urban Farmers in the ward' name='ufactivities')
+        input#ufoption1(type='checkbox' value='Horticulture' name='ufactivities')
         | Horticulture
         br
-        input#ufoption2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='ufactivities')
+        input#ufoption2(type='checkbox' value='Poultry' name='ufactivities')
         | Poultry
         br
-        input#ufoption3(type='checkbox' value="Approves farmer's produce to be listed" name='ufactivities')
+        input#ufoption3(type='checkbox' value="Dairy farming" name='ufactivities')
         | Dairy farming
         span#ufactiviesErr
     button(type='submit') Submit
