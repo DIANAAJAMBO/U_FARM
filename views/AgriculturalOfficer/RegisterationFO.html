@@ -1,75 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration form</title><!-- <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css">-->
+    <title>Registration form</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/registeration.css">
 </head>
+
 <body>
     <h2>Registration form</h2>
-<h3>Farmer one</h3>
-<div class="container">
-    <form class="row g-3" action="#" name="registerFO" onsubmit="return Validate(event);" method="POST">
-        <fieldset>
-            <legend>Personal Information</legend>
-            <div class="col-md-6">
-                <label class="form-label">
-                    First Name: <input class="form-control" id="inputfirstname" type="text" name="firstname">
-                </label>
-                <span id="FNError"></span>
-            </div>
-            <div class="col-md-6">
-                <label class="form-label" for="inputfullname">
-                    Last Name: <input class="form-control" id="inputlastname" type="text" name="lastname">
-                </label>
-                <span id="LNError"></span>
-            </div>
-            <div class="col-md-6">
-                <label class="form-label" for="username">
-                    Username: <input class="form-control" id="username" type="text" name="username">
-                </label>
-                <span id="userNameErr"></span>
-            </div>
-            <div class="col-md-6"><label class="form-label" for="password">Password: <input class="form-control" id="password" type="text" name="password"></label><span id="pwdErr"></span></div>
-            <div class="col-md-6"><label class="form-label" for="inputNIN">National Identification Number (NIN)</label><input class="form-control" id="inputNIN" type="text" name="NIN"><span id="NINErr"></span></div>
-            <div class="col-10"><label class="form-label" for="contactdetails">Phone number:</label><input class="form-control" id="focontact" type="text" name="phonenumber"><span id="phoneNoErr"></span></div>
-            <div class="col-10"><label class="form-label" for="email">Email:</label><input class="form-control" id="email" type="email" name="email"><span id="emailErr"></span></div>
-            <div class="col-7"><label class="form-label" for="birthdate">Date of Birth:</label><input class="form-control" id="birthdate" type="date" name="birthdate"><span id="dobErr"></span></div>
-            <div class="col-7"><label for="choice">Gender:</label><label for="male"><input id="male" type="radio" name="gender">Male</label><label for="female"><input id="female" type="radio" name="gender">Female</label><span id="genderErr"></span></div>
-            <div class="col-12"><label class="form-label" for="inputAddress">Directions to your residence</label><input class="form-control" id="inputAddress" type="text" placeholder="plot 1, Entebbe rd, opp Police station" name="directionsToHome"><span id="address1Err"></span></div>
-            <div class="col-12"><label class="form-label" for="inputAddress2">Residential type</label><select class="form-control" id="inputAddress2" type="text" name="residenceType">
-                    <option value="">Select</option>
-                    <option value="Rented">Rented</option>
-                    <option value="Owned">Owned</option>
-                </select><span id="address2Err"></span></div>
-        </fieldset>
-        <fieldset>
-            <legend>Ward Information</legend>
-            <div class="col-3"><label class="form-label" for="inputward">ward</label>
-                <select class="form-control" id="inputward" type="text" name="ward">
-                    <option value="">Select</option>
-                    <option value="ward A">Ward A</option>
-                    <option value="Ward B">Ward B</option>
-                    <option value="Ward C">Ward C</option>
-                    <option value="Ward D">Ward D</option>
-                </select><span id="wardErr"></span></div>
-            <div class="col-7"><label class="form-label" for="years-lived">Number of years lived in the ward:</label><input class="form-control" id="years-lived" name="periodOfStayInWard" type="number"><span id="yearslivedinwardErr"></span></div>
-            <div class="col-6"><label class="form-label" for="inputFOnumber">Unique FO number</label><input class="form-control" id="inputFOnumber" type="text" placeholder="eg UGFO-000" name="foNumber"><span id="foNoErr"></span></div>
-            <div class="col-7"><label class="form-label" for="registrationdate">Date of Registration:</label><input class="form-control" id="registrationDate" type="date" name="dateOfRegistration"><span id="doRErr"></span></div>
-            <div class="mb-3 mt-3">
-                <label>Activities done by FO:</label><br>
-                <input id="option1" type="checkbox" value="Register Urban Farmers in the ward" name="activities">Register Urban Farmers in the ward<br>
-                <input id="option2" type="checkbox" value="Inspects the produce and agricultural activities for quality" name="activities">Inspects the produce and agricultural activities for quality<br>
-                <input id="option3" type="checkbox" value="Approves farmer's produce to be listed" name="activities">Approves farmer's produce to be listed
-                <span id="foactiviesErr"></span></div>
-        </fieldset>
-        <button type="submit">Submit</button>
-    </form>
-</div><!-- <script src="css/bootstrap/js/bootstrap.bundle.js"></script>-->
-<script src="/public/js/validations.js"></script>
+    <h3>Farmer one</h3>
+    <div class="container">
+        <form class="row g-3" action="#" name="registerFO" onsubmit="return Validate(event);" method="POST">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="col-md-6">
+                    <label class="form-label">
+                        First Name: <input class="form-control" id="inputfirstname" type="text" name="firstname">
+                    </label>
+                    <span id="FNError"></span>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="inputfullname">
+                        Last Name: <input class="form-control" id="inputlastname" type="text" name="lastname">
+                    </label>
+                    <span id="LNError"></span>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="username">
+                        Username: <input class="form-control" id="username" type="text" name="username">
+                    </label>
+                    <span id="userNameErr"></span>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="password">Password: <input class="form-control"
+                            id="password" type="text" name="password"></label><span id="pwdErr"></span></div>
+                <div class="col-md-6"><label class="form-label" for="inputNIN">National Identification Number
+                        (NIN)</label><input class="form-control" id="inputNIN" type="text" name="NIN"><span
+                        id="NINErr"></span></div>
+                <div class="col-10"><label class="form-label" for="contactdetails">Phone number:</label><input
+                        class="form-control" id="focontact" type="text" name="phonenumber"><span id="phoneNoErr"></span>
+                </div>
+                <div class="col-10"><label class="form-label" for="email">Email:</label><input class="form-control"
+                        id="email" type="email" name="email"><span id="emailErr"></span></div>
+                <div class="col-7"><label class="form-label" for="birthdate">Date of Birth:</label><input
+                        class="form-control" id="birthdate" type="date" name="birthdate"><span id="dobErr"></span></div>
+                <div class="col-7"><label for="choice">Gender:</label><label for="male"><input id="male" type="radio"
+                            name="gender">Male</label><label for="female"><input id="female" type="radio"
+                            name="gender">Female</label><span id="genderErr"></span></div>
+                <div class="col-12"><label class="form-label" for="inputAddress">Directions to your
+                        residence</label><input class="form-control" id="inputAddress" type="text"
+                        placeholder="plot 1, Entebbe rd, opp Police station" name="directionsToHome"><span
+                        id="address1Err"></span></div>
+                <div class="col-12"><label class="form-label" for="inputAddress2">Residential type</label><select
+                        class="form-control" id="inputAddress2" type="text" name="residenceType">
+                        <option value="">Select</option>
+                        <option value="Rented">Rented</option>
+                        <option value="Owned">Owned</option>
+                    </select><span id="address2Err"></span></div>
+            </fieldset>
+            <fieldset>
+                <legend>Ward Information</legend>
+                <div class="col-3"><label class="form-label" for="inputward">ward</label>
+                    <select class="form-control" id="inputward" type="text" name="ward">
+                        <option value="">Select</option>
+                        <option value="ward A">Ward A</option>
+                        <option value="Ward B">Ward B</option>
+                        <option value="Ward C">Ward C</option>
+                        <option value="Ward D">Ward D</option>
+                    </select><span id="wardErr"></span>
+                </div>
+                <div class="col-7"><label class="form-label" for="years-lived">Number of years lived in the
+                        ward:</label><input class="form-control" id="years-lived" name="periodOfStayInWard"
+                        type="number"><span id="yearslivedinwardErr"></span></div>
+                <div class="col-6"><label class="form-label" for="inputFOnumber">Unique FO number</label><input
+                        class="form-control" id="inputFOnumber" type="text" placeholder="eg UGFO-000"
+                        name="foNumber"><span id="foNoErr"></span></div>
+                <div class="col-7"><label class="form-label" for="registrationdate">Date of Registration:</label><input
+                        class="form-control" id="registrationDate" type="date" name="dateOfRegistration"><span
+                        id="doRErr"></span></div>
+                <div class="mb-3 mt-3">
+                    <label>Activities done by FO:</label><br>
+                    <input id="option1" type="checkbox" value="Register Urban Farmers in the ward"
+                        name="activities">Register Urban Farmers in the ward<br>
+                    <input id="option2" type="checkbox"
+                        value="Inspects the produce and agricultural activities for quality" name="activities">Inspects
+                    the produce and agricultural activities for quality<br>
+                    <input id="option3" type="checkbox" value="Approves farmer's produce to be listed"
+                        name="activities">Approves farmer's produce to be listed
+                    <span id="foactiviesErr"></span>
+                </div>
+            </fieldset>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <!-- <script src="css/bootstrap/js/bootstrap.bundle.js"></script>-->
+    <script src="/public/js/validations.js"></script>
 </body>
+
 </html>
 
 <head>

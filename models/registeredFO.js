@@ -59,10 +59,6 @@ const farmerOneSchema = new mongoose.Schema({
     type: String,
     
   },
-  foNumber: {
-    type: String,
-    
-  },
   dateOfRegistration: {
     type: Date,
     default: Date.now

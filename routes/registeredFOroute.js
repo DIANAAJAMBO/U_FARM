@@ -7,19 +7,19 @@ router.get("/registerFO",(req,res)=>{
     res.render("registerFO")
   })
 
-  //posting into the database
-router.post("/registerFO", async(req,res)=>{
-    try{
-      const register = new RegisterFO(req.body);
-      await register.save()
-      res.redirect("/farmerOne")      //we redirect to a path
-      console.log(req.body)
-    }
-    catch(err){
-      // res.status(400).render("register")
-      console.log(err)
-    }
-  })
+//   //posting into the database
+// router.post("/registerFO", async(req,res)=>{
+//     try{
+//       const register = new RegisterFO(req.body);
+//       await register.save()
+//       res.redirect("/farmerOne")      //we redirect to a path
+//       console.log(req.body)
+//     }
+//     catch(err){
+//       // res.status(400).render("register")
+//       console.log(err)
+//     }
+//   })
 
 
   
@@ -37,7 +37,7 @@ router.post("/registerFO",async(req,res)=>{
         if(error){
           throw error    //works like console.log(error)
         }
-        res.redirect("/login")   
+        res.redirect("/farmerOne")   
       })
     }
   }
