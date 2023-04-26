@@ -1,14 +1,8 @@
 h2,h3{
     text-align: center;
+    margin-top: 20px;
 }
-
- 
 
 fieldset{
-    width: 500px;
-    margin:auto;   
-}
-button{
-    display:block;
-    margin:auto;
+margin:auto;   
 }

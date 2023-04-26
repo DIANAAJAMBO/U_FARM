@@ -5,6 +5,13 @@ const RegisterFO = require("../models/registeredFO")
 const RegisterUF = require("../models/registeredUF")
 const User = require("../models/registeredUser")
 
+var roles={
+  agricOfficer: 'agricofficer',
+  farmerone: 'farmerOne',
+  urbanFarmer: 'urban farmer',
+  customer: 'customer'
+}
+
 router.get("/login", (req, res) => {
   res.render("login")
 })
@@ -12,16 +19,19 @@ router.get("/login", (req, res) => {
 
 router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}), async(req,res)=>{
   req.session.user = req.user;
+  const userRole = roles[req.user.role];
   
-  if(req.user.role == "agricofficer"){
-    const aoUser = await AoUser.findOne({ username: req.user.username, password: req.user.password });
+  if(userRole === "agricofficer"){
+    
+    const aoUser = await db.collection('registeredagricofficer').findOne({ username: req.user.username, password: req.user.password });
     if(aoUser){
       req.session.aoUser = aoUser;
+      console.log(req.session)
       res.redirect("/aodash");
     } else {
       res.send("you are not registered");
     }
-  } else if(req.user.role == "urban farmer"){
+  } else if(userRole === "urban farmer"){
     const ufUser = await RegisterUF.findOne({ username: req.user.username, password: req.user.password });
     if(ufUser){
       req.session.ufUser = ufUser;
@@ -29,7 +39,7 @@ router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}
     } else {
       res.send("you are not registered");
     }
-  } else if(req.user.role == "farmerOne"){
+  } else if(userRole === "farmerOne"){
     const foUser = await RegisterFO.findOne({ username: req.user.username, password: req.user.password });
     if(foUser){
       req.session.foUser = foUser;
@@ -37,7 +47,7 @@ router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}
     } else {
       res.send("you are not registered");
     }
-  }else if(req.user.role == "customer"){
+  }else if(userRole === "customer"){
     const gpUser = await User.findOne({ username: req.user.username, password: req.user.password });
     if(gpUser){
       req.session.gpUser = gpUser;

@@ -1,85 +1,72 @@
 const express = require('express');
 const router = express.Router();
+const connectEnsureLogin = require("connect-ensure-login")
 const RegisterFO = require("../models/registeredFO")
 
 
-router.get("/registerFO",(req,res)=>{
-    res.render("registerFO")
-  })
-
-//   //posting into the database
-// router.post("/registerFO", async(req,res)=>{
-//     try{
-//       const register = new RegisterFO(req.body);
-//       await register.save()
-//       res.redirect("/farmerOne")      //we redirect to a path
-//       console.log(req.body)
-//     }
-//     catch(err){
-//       // res.status(400).render("register")
-//       console.log(err)
-//     }
-//   })
-
-
-  
 //posting into the database
-router.post("/registerFO",async(req,res)=>{
+router.post("/aodash", async (req, res) => {
   console.log(req.body)
-  try{
+  try {
     const registerfo = new RegisterFO(req.body);
-    let UserName = await RegisterFO.findOne({username: req.body.username})
-    if(UserName){
+    let UserName = await RegisterFO.findOne({ username: req.body.username })
+    if (UserName) {
       return res.send("This username already exists")
     }
     else {
-      await RegisterFO.register(registerfo,req.body.password,(error)=>{
-        if(error){
+      await RegisterFO.register(registerfo, req.body.password, (error) => {
+        if (error) {
           throw error    //works like console.log(error)
         }
-        res.redirect("/farmerOne")   
+        res.redirect("/farmerOne")
       })
     }
   }
-  catch(error){
+  catch (error) {
     res.status(400).send("sorry it seems there is trouble accessing this page")
     console.log(error)
   }
 });
 
 
-  //retrieving from the database
-  router.get("/farmerOne",async(req,res)=>{
-    try{
+//retrieving from the database
+router.get("/aodash", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+  if (req.user.role === 'agricofficer') {
+    try {
       let items = await RegisterFO.find();
       // console.log(items)
-      res.render("farmerOnes",{farmerOnes:items})    //we render a file
+      res.render("aoDash", { farmerOnes: items })    //we render a file
     }
-    catch(err){
+    catch (err) {
       console.log(err)
       res.send("failed to retrieve student details")
     }
-  })
 
-
-  //editing a database
-router.get("/edit_farmerOne/:id",async(req,res)=>{
-  try{
-    const item = await RegisterFO.findOne({_id:req.params.id});
-    res.render("edit_farmerOne",{farmerOne:item});
+  } else {
+    res.redirect("/login")
   }
-  catch(error){
+
+})
+
+
+//editing a database
+router.get("/edit_farmerOne/:id", async (req, res) => {
+  try {
+    const item = await RegisterFO.findOne({ _id: req.params.id });
+    res.render("edit_farmerOne", { farmerOne: item });
+  }
+  catch (error) {
     res.send("could not find farmerOne");
     console.log(error)
   }
 });
 
-router.post("/edit_farmerOne/",async(req,res)=>{
-  try{
-    await RegisterFO.findOneAndUpdate({_id:req.query.id},req.body)
-    res.redirect("/farmerOne")
+router.post("/edit_farmerOne/", async (req, res) => {
+  try {
+    await RegisterFO.findOneAndUpdate({ _id: req.query.id }, req.body)
+    res.redirect("/aodash")
   }
-  catch(err){
+  catch (err) {
     res.send("failed to update farmerOne details")
     console.log(err)
   }

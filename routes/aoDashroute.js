@@ -3,9 +3,9 @@ const router = express.Router();
 
 
 
-router.get("/aodash",(req,res)=>{
-    res.render("aoDash")
-  })
+// router.get("/aodash",(req,res)=>{
+//     res.render("aoDash")
+//   })
 
  
 

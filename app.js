@@ -38,11 +38,12 @@ const registerUfRoute = require("./routes/registeredUFroute")
 const urbanfarmerRoute = require("./routes/urbanfarmerroute")
 const productuploadRoute = require('./routes/productuploadroute')
 const uploadedproductRoute = require('./routes/uploadedproducts')
-
+const aodashRoute = require('./routes/aoDashroute')
 
 //passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+passport.use(user.createStrategy());   //identifies what authentication we use which in this case is local 
 passport.use(user.createStrategy());   //identifies what authentication we use which in this case is local 
 passport.serializeUser(user.serializeUser()); //gives a session an ID that the browser can use to tract it
 passport.deserializeUser(user.deserializeUser());
@@ -74,7 +75,7 @@ app.use("/", registerUfRoute)
 app.use("/", urbanfarmerRoute)
 app.use("/", productuploadRoute)
 app.use("/", uploadedproductRoute)
-
+app.use('/', aodashRoute)
 
 app.get("*", (req, res) => {
   res.status(404).send("page does not exist")

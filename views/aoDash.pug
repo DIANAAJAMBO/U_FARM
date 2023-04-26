@@ -1,0 +1,175 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Registered Farmer Ones
+    link(rel='stylesheet' href='../../css/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet' href='../../css/dash.css')
+
+#sidebar
+  h3.text-center
+    | Agric Officer Dashboard
+    button#defaultOpen.tablinks(onclick="showContent(event, 'welcome-message')") Dashboard
+    br
+    button.tablinks(onclick="showContent(event, 'foregisteration-form')") Register FarmerOne
+    br
+    button.tablinks(onclick="showContent(event, 'farmerOnes-list')") FarmerOnes
+    br
+    form(method='POST' action='#')
+      button Logout
+// Main Content
+#content
+  #welcome-message.tabcontent
+    h1 Welcome to you UFARM
+    p This is your dashboard, where you can manage farmerOnes.
+    p Please select an option from the side panel to get started.
+  #foregisteration-form.tabcontent
+    h2 Registration form
+    h3 Farmer one
+    .container
+      form(action='/aodash' name='register' onsubmit='return Validate(event);' method='POST')
+        fieldset(style='border:3px')
+          legend Personal Information
+          .row
+            .col-md-4
+              label First Name:
+              input#inputfirstname.form-control(type='text' name='firstname')
+              span#FNError
+            .col-md-4
+              label Last Name:
+              input#inputlastname.form-control(type='text' name='lastname')
+              span#LNError
+            //
+              <div class="col-md-4">
+              <label>Username:</label>
+              <input class="form-control" id="username" type="text" name="username">
+              <span id="userNameErr"></span>
+              </div>
+            .col-md-4
+              label Password:
+              input#password.form-control(type='text' name='password')
+              span#pwdErr
+            .col-md-4
+              label National IdentificationNumber(NIN)
+              input#inputNIN.form-control(type='text' name='NIN')
+              span#NINErr
+            .col-md-4
+              label Phonenumber:
+              input#focontact.form-control(type='text' name='phonenumber')
+              span#phoneNoErr
+            .col-md-4
+              label Email:
+              input#email.form-control(type='email' name='email')
+              span#emailErr
+            .col-md-4
+              label Date of Birth:
+              input#birthdate.form-control(type='date' name='birthdate')
+              span#dobErr
+            .col-md-4(style='margin-top: 30px;')
+              label Gender:
+              .form-check.form-check-inline
+                label(for='male')
+                  input#male.form-check-input(type='radio' name='gender')
+                  | Male
+              .form-check.form-check-inline
+                label(for='female')
+                  input#female.form-check-input(type='radio' name='gender')
+                  | Female
+              span#genderErr
+            .col-md-4
+              label Directions to your residence
+              input#inputAddress.form-control(type='text' placeholder='plot 1, Entebbe rd, opp Police station' name='directionsToHome')
+              span#address1Err
+            .col-md-4
+              label Residential type
+              select#inputAddress2.form-control(type='text' name='residenceType')
+                option(value='') Select
+                option(value='Rented') Rented
+                option(value='Owned') Owned
+              span#address2Err
+        fieldset
+          legend Ward Information
+          .row
+            .col-md-4
+              label Ward
+              select#inputward.form-control(type='text' name='ward')
+                option(value='') Select
+                option(value='ward A') Ward A
+                option(value='Ward B') Ward B
+                option(value='Ward C') Ward C
+                option(value='Ward D') Ward D
+              span#wardErr
+            .col-md-3
+              label Number of years lived in the ward:
+              input#years-lived.form-control(name='periodOfStayInWard' type='number')
+              span#yearslivedinwardErr
+            .col-md-4
+              label Role
+              input.form-control(type='text' value='farmerOne' name='role' readonly)
+            .col-md-4
+              label Unique FO number
+              input#inputFOnumber.form-control(type='text' placeholder='eg UGFO-000' name='username')
+              span#foNoErr
+            .col-md-4
+              label.form-label(for='registrationdate') Date of Registration:
+              input#registrationDate.form-control(type='date' name='dateOfRegistration')
+              span#doRErr
+          .mb-3.mt-3
+            label Activities done by FO:
+            br
+            input#option1(type='checkbox' value='Register Urban Farmers in the ward' name='activities')
+            | Register Urban Farmers in the ward
+            br
+            input#option2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='activities')
+            | Inspects the produce and agricultural activities for quality
+            br
+            input#option3(type='checkbox' value="Approves farmer's produce to be listed" name='activities')
+            | Approves farmerOne's produce to be listed
+            span#foactiviesErr
+        button.btn.btn-primary(type='submit' style='width: 100px;') Submit
+  #farmerOnes-list.tabcontent
+    .table-responsive
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Name
+            th Unique ID
+            th NIN
+            th Phone Number
+            th Email
+            th Date of Birth
+            th Gender
+            th Directions to Home 
+            th Residential type
+            th Ward
+            th Period of Stay in Ward (Years)
+            th Date of Registration
+            th Activities done by FO
+            th Action
+        tbody
+        if farmerOnes.length
+            each farmerOne in farmerOnes 
+                tr
+                    td #{farmerOne.firstname} #{farmerOne.lastname}
+                    td #{farmerOne.username}
+                    td #{farmerOne.NIN}
+                    td #{farmerOne.phonenumber}
+                    td #{farmerOne.email}
+                    td #{farmerOne.birthdate}
+                    td #{farmerOne.gender}
+                    td #{farmerOne.directionsToHome}
+                    td #{farmerOne.residenceType}
+                    td #{farmerOne.ward}
+                    td #{farmerOne.periodOfStayInWard}
+                    td #{farmerOne.dateOfRegistration}
+                    td #{farmerOne.activities}  
+                    td 
+                        a.btn.btn-dark.btn-block(href="/edit_farmerOne/"+farmerOne.id) Edit 
+        else
+            p there are no farmerOnes registered.
+   
+// JS
+script(src='../../css/bootstrap/js/bootstrap.min.js')
+script(src='../../js/dash.js')
+script(src='/js/validations.js')
