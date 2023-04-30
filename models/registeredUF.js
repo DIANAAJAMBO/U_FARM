@@ -48,10 +48,6 @@ const urbanfarmerSchema = new mongoose.Schema({
     type: String,
     
   },
-  uniqueID: {
-    type: String,
-   
-  },
   dateOfRegistration: {
     type: Date,
     default: Date.now

@@ -1,37 +1,187 @@
-//05-04-2022
 doctype html
 head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Document
-.container
-  form#contact_form.well.form-horizontal( name="login" action='/login' method='post')
-    fieldset
-      // Form Name
-      legend
-        center
-          h2
-            b Urban Farmer Dashboard
-      br
-      br
-      br
-      br
-      form(method="POST" action='/logout')
-        button.btn(type= 'submit' width='100px') Signout
-  
-      
-      // Button
-      //.form-group
-        label.col-md-4.control-label
-        .col-md-4
-          br
-          button.btn.btn-warning(type='submit') SUBMIT 
-            
+  title FarmerOne Dashboard
+  // Bootstrap CSS
+  link(rel='stylesheet' href='../../css/bootstrap/css/bootstrap.min.css')
+  // Custom CSS
+  link(rel='stylesheet' href='../../css/dash.css')
+// Side Panel
+#sidebar
+  h3.text-center
+    | FarmerOne Dashboard
+    button#defaultOpen.tablinks(onclick="showContent(event, 'welcome-message')") Dashboard
+    br
+    button.tablinks(onclick="showContent(event, 'ufregisteration-form')") Register Urban farmer
+    br
+    button.tablinks(onclick="showContent(event, 'urbanfarmers-list')") Urban Farmers
+    br
+    button.tablinks(onclick="showContent(event, 'uploadedproduce')") Uploaded produce
+    br
+    form(method='POST' action='/logout')
+      button Logout
+// Main Content
+#content
+  #welcome-message.tabcontent
+    h1 Welcome to you UFARM
+    p This is your dashboard, where you can manage urban farmers.
+    p Please select an option from the side panel to get started.
+  #ufregisteration-form.tabcontent
+    h2 Registration form
+    h3 Urban farmer
+    .container
+      form(action='/fodash' name='registeruf' onsubmit='return Validate(event);' method='POST')
+        fieldset(style='border:3px')
+          legend Personal Information
+          .row
+            .col-md-4
+              label First Name:
+              input#inputuffirstname.form-control(type='text' name='firstname')
+              span#ufFNError
+            .col-md-4
+              label Last Name:
+              input#inputuflastname.form-control(type='text' name='lastname')
+              span#ufLNError
+            .col-md-4
+              label Password:
+              input#ufpassword.form-control(type='text' name='password')
+              span#ufpwdErr
+            .col-md-4
+              label National IdentificationNumber(NIN)
+              input#ufinputNIN.form-control(type='text' name='NIN')
+              span#ufNINErr
+            .col-md-4
+              label Phonenumber:
+              input#ufcontact.form-control(type='text' name='phonenumber')
+              span#ufphoneNoErr
+            .col-md-4
+              label Email:
+              input#ufemail.form-control(type='email' name='email')
+              span#ufemailErr
+            .col-md-4
+              label Date of Birth:
+              input#ufbirthdate.form-control(type='date' name='birthdate')
+              span#ufdobErr
+            .col-md-4(style='margin-top: 30px;')
+              label Gender:
+              .form-check.form-check-inline
+                label(for='ufmale')
+                  input#ufmale.form-check-input(type='radio' name='gender' value='male')
+                  | Male
+              .form-check.form-check-inline
+                label(for='uffemale')
+                  input#uffemale.form-check-input(type='radio' name='gender' value='female')
+                  | Female
+              span#ufgenderErr
+        fieldset
+          legend Ward Information
+          .row
+            .col-md-4
+              label Ward
+              select#ufinputward.form-control(type='text' name='ward')
+                option(value='') Select
+                option(value='ward A') Ward A
+                option(value='Ward B') Ward B
+                option(value='Ward C') Ward C
+                option(value='Ward D') Ward D
+              span#ufwardErr
+            .col-md-4
+              label Role:
+              input.form-control(type='text' name='role' value='urbanfarmer' readonly='')
+            .col-md-4
+              label Unique FO number
+              input#inputUFnumber.form-control(type='text' placeholder='eg UGUF-000' name='username')
+              span#ufNoErr
+            .col-md-4
+              label.form-label(for='ufregistrationdate') Date of Registration:
+              input#registrationDate.form-control(type='date' name='dateOfRegistration')
+              span#ufdoRErr
+          .mb-3.mt-3
+            label Activities:
+            br
+            input#ufoption1(type='checkbox' value='Horticulture' name='ufactivities')
+            | Horticulture
+            br
+            input#ufoption2(type='checkbox' value='Poultry' name='ufactivities')
+            | Poultry
+            br
+            input#ufoption3(type='checkbox' value='Dairy farming' name='ufactivities')
+            | Dairy farming
+            span#ufactiviesErr
+        button.btn.btn-primary(type='submit' style='width: 100px;') Submit
+  #urbanfarmers-list.tabcontent(style='margin-top:50px;')
+    .table-responsive
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Name
+            th Unique ID
+            th NIN
+            th Phone Number
+            th Email
+            th Date of Birth
+            th Gender
+            th Ward
+            th Date of Registration
+            th Activities
+        tbody
+        if urbanfarmers.length 
+          each urbanfarmer in urbanfarmers
+            tr
+              td #{urbanfarmer.firstname} #{urbanfarmer.lastname}
+              td #{urbanfarmer.username}
+              td #{urbanfarmer.NIN}
+              td #{urbanfarmer.phonenumber}
+              td #{urbanfarmer.email}
+              td #{urbanfarmer.birthdate}
+              td #{urbanfarmer.gender}
+              td #{urbanfarmer.ward}
+              td #{urbanfarmer.dateOfRegistration}
+              td #{urbanfarmer.ufactivities}
+        else 
+          p there are no urban farmers registered.
 
-script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
-script(src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
-
-
+  #uploadedproduce.tabcontent
+    div
+      .table-responsive
+        table.table.table-striped.table-hover
+          thead
+            tr
+              th #
+              th Produce Name
+              th Ward
+              th Unique ID
+              th Date
+              th Unit Price
+              th Quantity
+              th Mode of Payment
+              th Directions
+              th Mode of Delivery
+              th Produce Type
+              th Status
+              th Action
+          tbody
+          if produce.length 
+            each produce in produce
+              tr
+                td
+                td 
+                  img(src='/productimages/'+produce.produceimage height='100px' width='100px')
+                td #{produce.producename}
+                td #{produce.wardname}
+                td #{produce.username}
+                td #{produce.date}
+                td #{produce.unitprice}ugx
+                td #{produce.quantity}
+                td #{produce.paymentmode}
+                td #{produce.directions}
+                td #{produce.deliverymode}
+                td #{produce.producetype}
+                td #{produce.status}
+                td
+                  a.btn.btn-dark.btn-block(href="/edit_produceupload/"+product.id) Edit
+          else 
+            p there is no produce uploaded.
+// JS
+script(src='../../css/bootstrap/js/bootstrap.min.js')
+script(src='../../js/dash.js')
+script(src='../../js/validations.js')

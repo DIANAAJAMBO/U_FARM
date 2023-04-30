@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FarmerOne Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../public/css/bootstrap/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../public/css/dash.css">
+</head>
+
+<body>
+   
+   
+        <!-- Side Panel -->
+    <div id="sidebar">
+        <h3 class="text-center">FarmerOne Dashboard</h4>
+        <button class="tablinks" onclick="showContent(event, 'welcome-message')" id="defaultOpen">Dashboard</button><br>
+        <button class="tablinks" onclick="showContent(event, 'ufregisteration-form')">Register Urban farmer</button><br>
+        <button class="tablinks" onclick="showContent(event, 'urbanfarmers-list')">FarmerOnes</button><br>
+        <form method="POST" action="/logout"><button>Logout</button></form>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+        <div id="welcome-message" class="tabcontent">
+            <h1>Welcome to you UFARM</h1>
+            <p>This is your dashboard, where you can manage urban farmers.</p>
+            <p>Please select an option from the side panel to get started.</p>
+        </div>
+        <div id="ufregisteration-form" class="tabcontent">
+            <h2>Registration form</h2>
+            <h3>Urban farmer</h3>
+            <div class="container">
+                <form  action="/registeruf" name="registeruf" onsubmit="return Validate(event);" method="POST">
+                    <fieldset style="border:3px">
+                        <legend>Personal Information</legend>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>First Name:</label> 
+                                <input class="form-control" id="inputuffirstname" type="text" name="firstname">
+                                <span id="ufFNError"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Last Name:</label> 
+                                <input class="form-control" id="inputuflastname" type="text" name="lastname">
+                                <span id="ufLNError"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Password:</label>
+                                <input class="form-control"id="ufpassword" type="text" name="password">
+                                <span id="ufpwdErr"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>National IdentificationNumber(NIN)</label>
+                                <input class="form-control" id="ufinputNIN" type="text" name="NIN">
+                                <span id="ufNINErr"></span>
+                            </div>
+                            <div class="col-md-4"><label>Phonenumber:</label>
+                                    <input class="form-control" id="ufcontact" type="text" name="phonenumber">
+                                    <span id="ufphoneNoErr"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Email:</label>
+                                <input class="form-control" id="ufemail" type="email" name="email">
+                                <span id="ufemailErr"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label >Date of Birth:</label>
+                                <input class="form-control" id="ufbirthdate" type="date" name="birthdate">
+                                <span id="ufdobErr"></span>
+                            </div>
+                            <div class="col-md-4" style="margin-top: 30px;">
+                                <label >Gender:</label>
+                                <div class="form-check form-check-inline">
+                                    <label for="ufmale"><input class="form-check-input" id="ufmale" type="radio" name="gender" value="male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label for="uffemale"><input class="form-check-input" id="uffemale" type="radio" name="gender" value="female">Female</label>
+                                </div>
+                                <span id="ufgenderErr"></span>
+                            </div>
+                        </div>  
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Ward Information</legend>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label >Ward</label>
+                                <select class="form-control" id="ufinputward" type="text" name="ward">
+                                    <option value="">Select</option>
+                                    <option value="ward A">Ward A</option>
+                                    <option value="Ward B">Ward B</option>
+                                    <option value="Ward C">Ward C</option>
+                                    <option value="Ward D">Ward D</option>
+                                </select>
+                                <span id="ufwardErr"></span>
+                            </div>
+                            <div class="col-md-4"><label>Role:</label>
+                                <input class="form-control" type="text" name="role" value="urbanfarmer" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Unique FO number</label>
+                                <input class="form-control" id="inputUFnumber" type="text" placeholder="eg UGUF-000" name="username">
+                                <span id="ufNoErr"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" for="ufregistrationdate">Date of Registration:</label>
+                                <input class="form-control" id="registrationDate" type="date" name="dateOfRegistration">
+                                <span id="ufdoRErr"></span>
+                            </div>
+                            
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label>Activities:</label><br>
+                            <input id="ufoption1" type="checkbox" value='Horticulture' name="ufactivities">Horticulture<br>
+                            <input id="ufoption2" type="checkbox" value='Poultry' name="ufactivities">Poultry<br>
+                            <input id="ufoption3" type="checkbox" value="Dairy farming" name="ufactivities">Dairy farming
+                            <span id="ufactiviesErr"></span>
+                        </div>
+                        
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary"  style='width: 100px;' >Submit</button>
+                </form>
+            </div>
+    
+        </div>
+        <div id="urbanfarmers-list" class="tabcontent">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Unique ID</th>
+                            <th>NIN</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                            <th>Directions to Home </th>
+                            <th>Residential type</th>
+                            <th>Ward</th>
+                            <th>Period of Stay in Ward (Years)</th>
+                            <th>Date of Registration</th>
+                            <th>Activities done by FO</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   
+   
+    <!-- JS -->
+    <script src="../../public/css/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../public/js/dash.js"></script>
+    <script src="/public/js/validations.js"></script>
+</body>
+</html>
+   

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
-  productname: {
-    type: String, 
+const produceSchema = new mongoose.Schema({
+  producename: {
+    type: String,
   },
   wardname: {
     type: String,
@@ -15,38 +15,38 @@ const productSchema = new mongoose.Schema({
     default: Date.now
   },
   unitprice: {
-    type: Number, 
+    type: Number,
   },
   quantity: {
-    type: Number, 
+    type: Number,
   },
   paymentmode: {
-    type: String, 
+    type: String,
     enum: ['cash', 'mobile money']
   },
   directions: {
     type: String,
   },
   deliverymode: {
-    type: String, 
+    type: String,
     enum: ['pickup', 'home delivery']
   },
   producetype: {
     type: String,
-    enum: ['organic','non organic']
+    enum: ['organic', 'non organic']
   },
-  productimage:{
-    type:String
+  produceimage: {
+    type: String
   },
-  status:{
+  status: {
     type: String,
     default: 'Pending'
-    
+
   }
- 
+
 });
 
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Produce', produceSchema);
 
 

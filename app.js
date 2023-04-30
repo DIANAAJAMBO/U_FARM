@@ -31,12 +31,8 @@ app.set("views", path.join(__dirname, "views"))
 const aodashRoute = require("./routes/aoDashroute");
 const loginRoute = require("./routes/loginroute")
 const signupRoute = require("./routes/signuproute")
-const registerUfRoute = require("./routes/registeredUFroute")
-const urbanfarmerRoute = require("./routes/urbanfarmerroute")
-const productuploadRoute = require('./routes/productuploadroute')
-const uploadedproductRoute = require('./routes/uploadedproducts')
 const fodashRoute = require('./routes/foDashroute');
-
+const ufdashRoute = require('./routes/ufDashroute');
 
 //passport middleware
 app.use(passport.initialize());
@@ -45,12 +41,6 @@ passport.use(User.createStrategy());   //identifies what authentication we use w
 passport.use(User.createStrategy());   //identifies what authentication we use which in this case is local 
 passport.serializeUser(User.serializeUser()); //gives a session an ID that the browser can use to tract it
 passport.deserializeUser(User.deserializeUser());
-
-// passport.use(aoUser.createStrategy());   //identifies what authentication we use which in this case is local 
-// passport.use(aoUser.createStrategy());   //identifies what authentication we use which in this case is local 
-// passport.serializeUser(aoUser.serializeUser()); //gives a session an ID that the browser can use to tract it
-// passport.deserializeUser(aoUser.deserializeUser());
-
 
 
 //creating a connection between the controller and the database
@@ -73,12 +63,9 @@ db.on("error", (err) => {
 
 app.use("/", loginRoute)
 app.use("/", signupRoute)
-app.use("/", registerUfRoute)
-app.use("/", urbanfarmerRoute)
-app.use("/", productuploadRoute)
-app.use("/", uploadedproductRoute)
 app.use('/', aodashRoute)
 app.use('/', fodashRoute)
+app.use('/', ufdashRoute)
 
 app.get("*", (req, res) => {
   res.status(404).send("page does not exist")

@@ -7,7 +7,7 @@ const Validate = (event) =>{
     let ufuserName = document.getElementById("ufusername");
     let ufpwd = document.getElementById("ufpassword");    
     let ufNIN = document.getElementById("ufinputNIN");
-    let ufphoneNumber = document.getElementById("uffocontact");
+    let ufphoneNumber = document.getElementById("ufcontact");
     let ufemail = document.getElementById("ufemail");  
     let ufdateOfBirth = document.getElementById("ufbirthdate");
     let ufmale = document.getElementById("ufmale");

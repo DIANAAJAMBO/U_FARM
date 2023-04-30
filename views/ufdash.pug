@@ -1,0 +1,132 @@
+doctype html
+head
+  title Urban farmer Dashboard
+  // Bootstrap CSS
+  link(rel='stylesheet' href='../../css/bootstrap/css/bootstrap.min.css')
+  // Custom CSS
+  link(rel='stylesheet' href='../../css/dash.css')
+// Side Panel
+#sidebar
+  h3.text-center(style='font-size:20px;')
+    | Urban farmer Dashboard
+    button#defaultOpen.tablinks(onclick="showContent(event, 'welcome-message')" style='font-size:20px;') Dashboard
+    br
+    button.tablinks(onclick="showContent(event, 'upload-form')" style='font-size:20px;') upload produce
+    br
+    button.tablinks(onclick="showContent(event, 'uploadedproduce')" style='font-size:20px;') Uploaded produce status
+    br
+   
+    form(method='POST' action='/logout')
+      button Logout
+// Main Content
+#content
+  #welcome-message.tabcontent
+    h1 Welcome to you UFARM
+    p This is your dashboard, where you can manage orders and upload produce.
+    p Please select an option from the side panel to get started.
+  #upload-form.tabcontent(style='margin-top:30px;')
+    h2(style='margin-bottom:30px;') Produce Upload form 
+    .container
+      form(action='/ufdash' enctype='multipart/form-data' onsubmit='return Validate(event);' method='POST')
+          .row
+            .col-md-4
+              label(for='productname') Produce Name:
+              input#productname.form-control(type='text' name='producename')
+              span#pdnameErr
+            .col-md-4
+              label(for='wardname') Ward Name:
+              select#wardname.form-control(name='wardname')
+                option(value='') Select
+                option(value='Ward A') Ward A
+                option(value='Ward B') Ward B
+                option(value='Ward C') Ward C
+                option(value='Ward D') Ward D
+              span#wdnameErr
+            .col-md-4
+              label(for='uniqueid') Urban Farmer ID:
+              input#uniqueid.form-control(type='text' name='uniqueid')
+              span#uniqueidErr
+            .col-md-4
+              label(for='date') Date of upload:
+              input#date.form-control(type='date' name='date')
+              span#dateErr
+            .col-md-4
+              label(for='unit-price') Unit Price in Ugx:
+              input#unit-price.form-control(type='number' name='unitprice')
+              span#unitpxErr
+            .col-md-4
+              label(for='quantity') Quantity in kgs:
+              input#quantity.form-control(type='number' name='quantity')
+              span#QtyErr
+            .col-md-4
+              label(for='payment-method') Mode of Payment:
+              select#payment-method.form-control(name='paymentmode')
+                option(value='') Select
+                option(value='cash') Cash
+                option(value='mobile money') Mobile Money
+                span#paymethodErr
+            .col-md-4
+              label(for='directions') Directions:
+              textarea#directions.form-control(name='directions')
+              span#directionsErr
+            .col-md-4
+              label(for='delivery-method') Mode of Delivery:
+              select#delivery-method.form-control(name='deliverymode')
+                option(value='') Select
+                option(value='pickup') Pickup
+                option(value='home delivery') Home Delivery
+              span#delmethodErr
+            .col-md-4
+              label(for='product-type') Produce Type:
+              select#product-type.form-control(name='producetype')
+                option(value='') Select
+                option(value='organic') Organic
+                option(value='non organic') Non Organic
+              span#producttypeErr
+            .col-md-4
+              label(for='productImage') Produce Image:
+              input#productImage.form-control-file(type='file' name='produceimage' accept='image/*')
+              span#productimageErr
+          .row
+            button.btn.btn-primary(type='submit' style='width: 100px; margin-left:10px; margin-top:10px;') Submit
+  #uploadedproduce.tabcontent
+    div
+      .table-responsive
+        table.table.table-striped.table-hover
+          thead
+            tr
+              th #
+              th Produce Name
+              th Ward
+              th Unique ID
+              th Date
+              th Unit Price
+              th Quantity
+              th Mode of Payment
+              th Directions
+              th Mode of Delivery
+              th Produce Type
+              th Status
+          tbody
+          if produce.length 
+            each produce in produce
+              tr
+                td 
+                  img(src='/productimages/'+produce.produceimage height='100px' width='100px')
+                td #{produce.producename}
+                td #{produce.wardname}
+                td #{produce.username}
+                td #{produce.date}
+                td #{produce.unitprice}ugx
+                td #{produce.quantity}
+                td #{produce.paymentmode}
+                td #{produce.directions}
+                td #{produce.deliverymode}
+                td #{produce.producetype}
+                td #{produce.status}
+          else 
+            p there is no produce uploaded.
+// JS
+script(src='../../css/bootstrap/js/bootstrap.min.js')
+script(src='../../js/dash.js')
+script(src='../../js/pdtuplvalidation.js')
