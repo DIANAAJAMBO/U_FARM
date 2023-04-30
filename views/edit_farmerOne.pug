@@ -36,11 +36,11 @@ h2(style='margin-top:20px') Edit FarmerOne Details
               label Gender:
               .form-check.form-check-inline
                 label(for='male')
-                  input#male.form-check-input(type='radio' name='gender' disabled) 
+                  input#male.form-check-input(type='radio' name='gender' value='male' checked=farmerOne.gender==='male' disabled) 
                   | Male
               .form-check.form-check-inline
                 label(for='female')
-                  input#female.form-check-input(type='radio' name='gender' disabled)
+                  input#female.form-check-input(type='radio' name='gender' value='female' checked=farmerOne.gender==='male' disabled)
                   | Female
               span#genderErr
             .col-md-4
@@ -49,22 +49,22 @@ h2(style='margin-top:20px') Edit FarmerOne Details
               span#address1Err
             .col-md-4
               label Residential type
-              select#inputAddress2.form-control(type='text' name='residenceType' disabled)
+              select#inputAddress2.form-control(type='text' name='residenceType' value=farmerOne.residenceType disabled)
                 option(value='' disabled) Select
-                option(value='Rented') Rented
-                option(value='Owned') Owned
+                option(value='Rented' selected=farmerOne.residenceType==='Rented') Rented
+                option(value='Owned' selected=farmerOne.residenceType==='Owned') Owned
               span#address2Err
         fieldset
           legend Ward Information
           .row
             .col-md-4
               label Ward
-              select#inputward.form-control(type='text' name='ward')
-                option(value='' disabled) Select
-                option(value='ward A') Ward A
-                option(value='Ward B') Ward B
-                option(value='Ward C') Ward C
-                option(value='Ward D') Ward D
+              select#inputward.form-control(type='text' name='ward' value=farmerOne.ward)
+                option(value='') Select
+                option(value='ward A' selected=farmerOne.ward==='Ward A') Ward A
+                option(value='Ward B' selected=farmerOne.ward==='Ward B') Ward B
+                option(value='Ward C' selected=farmerOne.ward==='Ward C') Ward C
+                option(value='Ward D' selected=farmerOne.ward==='Ward D') Ward D
               span#wardErr
             .col-md-4
               label Role
@@ -76,13 +76,13 @@ h2(style='margin-top:20px') Edit FarmerOne Details
           .mb-3.mt-3
             label Activities done by FO:
             br
-            input#option1(type='checkbox' value='Register Urban Farmers in the ward' name='activities')
+            input#option1(type='checkbox' value='Register Urban Farmers in the ward' name='activities' checked=farmerOne.activities==='Register Urban Farmers in the ward')
             | Register Urban Farmers in the ward
             br
-            input#option2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='activities')
+            input#option2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='activities' checked=farmerOne.activities==='Inspects the produce and agricultural activities for quality')
             | Inspects the produce and agricultural activities for quality
             br
-            input#option3(type='checkbox' value="Approves farmer's produce to be listed" name='activities')
+            input#option3(type='checkbox' value="Approves farmerOne's produce to be listed" name='activities' checked=farmerOne.activities==="Approves farmerOne's produce to be listed")
             | Approves farmerOne's produce to be listed
             span#foactiviesErr
    

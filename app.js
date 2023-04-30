@@ -5,10 +5,8 @@ const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require("express-session");
-const user = require("./models/registeredFO");
 const config = require("./config/database");
-
-
+const User = require('./models/users')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,23 +28,28 @@ app.set("views", path.join(__dirname, "views"))
 
 
 
-const registerFoRoute = require("./routes/registeredFOroute");
-const farmerOneRoute = require("./routes/farmerOneroute")
+const aodashRoute = require("./routes/aoDashroute");
 const loginRoute = require("./routes/loginroute")
 const signupRoute = require("./routes/signuproute")
 const registerUfRoute = require("./routes/registeredUFroute")
 const urbanfarmerRoute = require("./routes/urbanfarmerroute")
 const productuploadRoute = require('./routes/productuploadroute')
 const uploadedproductRoute = require('./routes/uploadedproducts')
-const aodashRoute = require('./routes/aoDashroute')
+const fodashRoute = require('./routes/foDashroute');
+
 
 //passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(user.createStrategy());   //identifies what authentication we use which in this case is local 
-passport.use(user.createStrategy());   //identifies what authentication we use which in this case is local 
-passport.serializeUser(user.serializeUser()); //gives a session an ID that the browser can use to tract it
-passport.deserializeUser(user.deserializeUser());
+passport.use(User.createStrategy());   //identifies what authentication we use which in this case is local 
+passport.use(User.createStrategy());   //identifies what authentication we use which in this case is local 
+passport.serializeUser(User.serializeUser()); //gives a session an ID that the browser can use to tract it
+passport.deserializeUser(User.deserializeUser());
+
+// passport.use(aoUser.createStrategy());   //identifies what authentication we use which in this case is local 
+// passport.use(aoUser.createStrategy());   //identifies what authentication we use which in this case is local 
+// passport.serializeUser(aoUser.serializeUser()); //gives a session an ID that the browser can use to tract it
+// passport.deserializeUser(aoUser.deserializeUser());
 
 
 
@@ -67,8 +70,7 @@ db.on("error", (err) => {
 
 
 
-app.use("/", registerFoRoute)
-app.use("/", farmerOneRoute)
+
 app.use("/", loginRoute)
 app.use("/", signupRoute)
 app.use("/", registerUfRoute)
@@ -76,6 +78,7 @@ app.use("/", urbanfarmerRoute)
 app.use("/", productuploadRoute)
 app.use("/", uploadedproductRoute)
 app.use('/', aodashRoute)
+app.use('/', fodashRoute)
 
 app.get("*", (req, res) => {
   res.status(404).send("page does not exist")

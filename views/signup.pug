@@ -38,7 +38,11 @@ section
                   .d-flex.flex-row.align-items-center.mb-4
                     .form-outline.flex-fill.mb-0
                       label.form-label(for='signuprole') Role
-                      input.form-control(type='text' name='role' value='customer' readonly)
+                      select#role.form-control(type='text' name='role')
+                        option(value='') Select
+                        option(value='customer') Customer
+                        option(value='agricofficer') Agric Officer
+                      span#roleErr
                   .d-flex.flex-row.align-items-center.mb-4
                     .form-outline.flex-fill.mb-0
                       label.form-label(for='signupUN') Username

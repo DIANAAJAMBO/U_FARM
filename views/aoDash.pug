@@ -16,7 +16,7 @@ head
     br
     button.tablinks(onclick="showContent(event, 'farmerOnes-list')") FarmerOnes
     br
-    form(method='POST' action='#')
+    form(method='POST' action='/logout')
       button Logout
 // Main Content
 #content
@@ -70,11 +70,11 @@ head
               label Gender:
               .form-check.form-check-inline
                 label(for='male')
-                  input#male.form-check-input(type='radio' name='gender')
+                  input#male.form-check-input(type='radio' name='gender' value='male' )
                   | Male
               .form-check.form-check-inline
                 label(for='female')
-                  input#female.form-check-input(type='radio' name='gender')
+                  input#female.form-check-input(type='radio' name='gender' value='female')
                   | Female
               span#genderErr
             .col-md-4
