@@ -9,7 +9,7 @@ The 'destination' function specifies the folder where files should be stored. In
 The 'filename' function specifies the name of the file within the folder. In this case, it uses the original name of the uploaded file.
 */
 let storage = multer.diskStorage({
-  destination: (req, file, cb) => { cb(null, "public/productimages") },
+  destination: (req, file, cb) => { cb(null, "public/produceimages") },
   filename: (req, file, cb) => { cb(null, file.originalname) }
 });
 
@@ -17,11 +17,11 @@ let imageupload = multer({ storage: storage });
 
 
 //posting into the database
-router.post("/upload", imageupload.single('productimage'), async (req, res) => {
+router.post("/ufdash", imageupload.single('produceimage'), async (req, res) => {
   try {
-    const products = new Products(req.body);
-    products.productimage = req.file.filename
-    await products.save()
+    const produce = new Produce(req.body);
+    produce.produceimage = req.file.filename
+    await produce.save()
     res.redirect("/ufdash")      //we redirect to a path
     console.log(req.body)
   }

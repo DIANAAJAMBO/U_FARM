@@ -161,24 +161,23 @@ head
               th Action
           tbody
           if produce.length 
-            each produce in produce
+            each item in produce
               tr
-                td
                 td 
-                  img(src='/productimages/'+produce.produceimage height='100px' width='100px')
-                td #{produce.producename}
-                td #{produce.wardname}
-                td #{produce.username}
-                td #{produce.date}
-                td #{produce.unitprice}ugx
-                td #{produce.quantity}
-                td #{produce.paymentmode}
-                td #{produce.directions}
-                td #{produce.deliverymode}
-                td #{produce.producetype}
-                td #{produce.status}
+                  img(src='/produceimages/'+item.produceimage height='100px' width='100px')
+                td #{item.producename}
+                td #{item.wardname}
+                td #{item.username}
+                td #{item.date}
+                td #{item.unitprice}ugx
+                td #{item.quantity}
+                td #{item.paymentmode}
+                td #{item.directions}
+                td #{item.deliverymode}
+                td #{item.producetype}
+                td #{item.status}
                 td
-                  a.btn.btn-dark.btn-block(href="/edit_produceupload/"+product.id) Edit
+                  a.btn.btn-dark.btn-block(href="/edit_produce/"+item.id) Edit
           else 
             p there is no produce uploaded.
 // JS

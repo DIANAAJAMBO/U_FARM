@@ -8,10 +8,10 @@ head
   link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
 .container.fluid
   h2 Produce Upload Form
-  form(action='/edit_produceupload?id='+product._id name="edit produceupload" enctype='multipart/form-data' onsubmit='return Validate(event);' method='POST')
+  form(action='/edit_produce?id='+item._id name="editproduce"  onsubmit='return Validate(event);' method='POST')
     .form-group
       label(for='productname') Produce Name:
-      input#productname.form-control(type='text' name='productname' value=product.productname )
+      input#productname.form-control(type='text' name='producename' value=item.producename)
       span#pdnameErr
     .form-group
       label(for='wardname') Ward Name:
@@ -36,7 +36,7 @@ head
       span#unitpxErr
     .form-group
       label(for='quantity') Quantity in kgs:
-      input#quantity.form-control(type='number' name='quantity' disabled)
+      input#quantity.form-control(type='number' name='quantity'  disabled)
       span#QtyErr
     .form-group
       label(for='product-type') Produce Type:
@@ -47,7 +47,7 @@ head
       span#producttypeErr
     .form-group
       label(for='status') Status:
-      select.form-control(name='status' value=product.status)
+      select.form-control(name='status' )
         option(value='' disabled) Select
         option(value='Pending') Pending
         option(value='Approved') Approved

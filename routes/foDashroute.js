@@ -50,10 +50,10 @@ router.get("/fodash", async (req, res) => {
 
 
 //editing status for produce upload.
-router.get("/edit_produceupload/:id", async (req, res) => {
+router.get("/edit_produce/:id", async (req, res) => {
   try {
     const Item = await Produce.findOne({ _id: req.params.id });
-    res.render("edit_produceupload", { produce: Item });
+    res.render("edit_produceupload", { item: Item });
   }
   catch (error) {
     res.send("could not find produce");
@@ -61,10 +61,10 @@ router.get("/edit_produceupload/:id", async (req, res) => {
   }
 });
 
-router.post("/edit_produceupload/", async (req, res) => {
+router.post("/edit_produce", async (req, res) => {
   try {
-    await Produce.findOneAndUpdate({ _id: req.query.id }, req.body)
-    res.redirect("/uploadedproduct")
+    await Produce.findOneAndUpdate({ _id: req.query.id }, { $set: { status: req.body.status }},{ new: true })
+    res.redirect("/fodash")
   }
   catch (err) {
     res.send("failed to update produce details")
