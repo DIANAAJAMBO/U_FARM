@@ -1,3 +1,4 @@
+//importing environments
 const mongoose = require('mongoose');
 const passportLocalMongoose = require("passport-local-mongoose")
 
@@ -5,12 +6,12 @@ const farmerOneSchema = new mongoose.Schema({
   firstname: {
     type: String,
     trim: true
-    
+
   },
   lastname: {
     type: String,
     trim: true
-    
+
   },
   username: {
     type: String,
@@ -19,7 +20,7 @@ const farmerOneSchema = new mongoose.Schema({
   },
   NIN: {
     type: String,
-    trim: true  
+    trim: true
   },
   phonenumber: {
     type: String,
@@ -57,7 +58,7 @@ const farmerOneSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    
+
   },
   dateOfRegistration: {
     type: Date,
@@ -65,10 +66,13 @@ const farmerOneSchema = new mongoose.Schema({
   },
   activities: {
     type: [String],    //defining the field as an array of strings
-    
+
   }
-  
+
 });
 
+// add the Passport-Local Mongoose plugin to the schema for authentication, password hashing and salting and username
 farmerOneSchema.plugin(passportLocalMongoose,);
+
+//exporting the model
 module.exports = mongoose.model('RegisteredFO', farmerOneSchema);

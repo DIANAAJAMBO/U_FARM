@@ -1,5 +1,7 @@
+//import mongoose library
 const mongoose = require('mongoose');
 
+//Produce schema
 const produceSchema = new mongoose.Schema({
   producename: {
     type: String,
@@ -29,7 +31,7 @@ const produceSchema = new mongoose.Schema({
   },
   deliverymode: {
     type: String,
-    enum: ['pickup', 'home delivery']
+    enum: ['pickup', 'home delivery']   //validation for specifying the calues acepted in a particular field
   },
   producetype: {
     type: String,
@@ -40,13 +42,14 @@ const produceSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: 'Pending'
+    default: 'Pending'  //default value if no value has been selected upon form submission
 
   }
 
 });
 
-
+//exporting the produce model
+//mongoose.model is a method used to perform CRUD on documents in mongoose
 module.exports = mongoose.model('Produce', produceSchema);
 
 
