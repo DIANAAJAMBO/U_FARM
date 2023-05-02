@@ -4,7 +4,6 @@ const Validate = (event) => {
     //input variables
     let uffirstName = document.getElementById("inputuffirstname");
     let uflastName = document.getElementById("inputuflastname");
-    let ufuserName = document.getElementById("ufusername");
     let ufpwd = document.getElementById("ufpassword");
     let ufNIN = document.getElementById("ufinputNIN");
     let ufphoneNumber = document.getElementById("ufcontact");
@@ -24,7 +23,6 @@ const Validate = (event) => {
     //input error variables
     let uffirstNameError = document.getElementById("ufFNError");
     let uflastNameError = document.getElementById("ufLNError");
-    let ufuserNameError = document.getElementById("ufuserNameErr");
     let ufninError = document.getElementById("ufNINErr");
     let ufpwdError = document.getElementById("ufpwdErr");
     let ufphoneNumberError = document.getElementById("ufphoneNoErr");
@@ -83,26 +81,6 @@ const Validate = (event) => {
     else {
         uflastName.style.border = "1px solid green";
         uflastNameError.innerHTML = "";
-
-    }
-
-    //validating username
-    const ufuserNameRegex = /^[a-zA-Z0-9]+$/;
-    if (ufuserName.value == "") {
-        ufuserName.style.border = "1px solid red";
-        ufuserNameError.innerHTML = "Please fill in your username";
-        ufuserNameError.style = "color: red; font-size:11px;";
-        return false
-    }
-    else if (!(ufuserName.value.match(ufuserNameRegex))) {
-        ufuserName.style.border = "1px solid red";
-        ufuserNameError.innerHTML = "username should be alphanumeric";
-        ufuserNameError.style = "color: red; font-size:11px;";
-        return false
-    }
-    else {
-        ufuserName.style.border = "1px solid green";
-        ufuserNameError.innerHTML = "";
 
     }
 
@@ -193,24 +171,26 @@ const Validate = (event) => {
 
     //validating date of birth
 
-    let today = new Date();
-    let dateofBirth = new Date(dob.value);
-    let age = today.getFullYear() - dateofBirth.getFullYear();
-    let userAge = age;
-
-
+    
     if (ufdateOfBirth.value == "") {
         ufdateOfBirth.style.border = "1px solid red";
         ufdobError.innerHTML = "Please fill in your date of birth ";
         ufdobError.style = "color: red; font-size:11px;";
         return false
 
-    } else if (userAge < 10) {
+    } 
+    
+    let uftoday = new Date();
+    let dateOfbirth = new Date(ufdateOfBirth.value);
+    let ufage = uftoday.getFullYear() - dateOfbirth.getFullYear();
+    let ufuserAge = ufage;
+    
+    if (ufuserAge < 10) {
+        ufdateOfBirth.style.border = "1px solid red";
         ufdobError.innerHTML = 'You are not eligible to register!';
-        ufdobError.style.color = 'red'
+        ufdobError.style = "color: red; font-size:11px;";
         return false
     }
-
     else {
         ufdateOfBirth.style.border = "1px solid green";
         ufdobError.innerHTML = " ";

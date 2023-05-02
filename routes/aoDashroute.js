@@ -1,23 +1,24 @@
+//importing environments
 const express = require('express');
 const router = express.Router();
-const connectEnsureLogin = require("connect-ensure-login")
+const connectEnsureLogin = require("connect-ensure-login") //page can only be accessed upon login
 const RegisterFO = require("../models/registeredFO")
 const User = require('../models/users')
 
 
-//posting into the database
+//posting farmerOne into the database
 router.post("/aodash", async (req, res) => {
     console.log(req.body)
     try {
         const items = new RegisterFO(req.body);
         const user = new User(req.body)
-        let UserName = await User.findOne({ username: req.body.username })
+        let UserName = await User.findOne({ username: req.body.username }) //checking whether username already exists
         if (UserName) {
             return res.send("This username already exists")
         }
         else {
-            items.save()
-            User.register(user, req.body.password, (error) => {
+            await items.save()
+            await User.register(user, req.body.password, (error) => {   //method hashes the password
                 if (error) {
                     throw error    //works like console.log(error)
                 }
@@ -32,27 +33,28 @@ router.post("/aodash", async (req, res) => {
 });
 
 
-//retrieving from the database
-router.get("/aodash", async (req, res) => {
-
-    try {
-        let items = await RegisterFO.find();
-        res.render("aoDash", { farmerOnes: items })    //we render a file
+//retrieving farmerOnes from the database
+router.get("/aodash",connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+    if (req.user.role == "agricofficer") {   //only agricofficer can login and see this page
+        try {
+            let items = await RegisterFO.find();
+            res.render("aoDash", { farmerOnes: items })    //keyword used to get the value of items in that class
+        }
+        catch (err) {
+            console.log(err)
+            res.send("failed to retrieve farmerOne details")
+        }
+    } else {
+        res.redirect("/login")
     }
-    catch (err) {
-        console.log(err)
-        res.send("failed to retrieve farmerOne details")
-    }
-
-
 
 })
 
 
 //editing a database
-router.get("/edit_farmerOne/:id", async (req, res) => {
+router.get("/edit_farmerOne/:id", async (req, res) => {    //allows retreival of a specific document based on unique identifier
     try {
-        const item = await RegisterFO.findOne({ _id: req.params.id });
+        const item = await RegisterFO.findOne({ _id: req.params.id });  //method for retrieving a single document based on the parameter value
         res.render("edit_farmerOne", { farmerOne: item });
     }
     catch (error) {
@@ -61,7 +63,8 @@ router.get("/edit_farmerOne/:id", async (req, res) => {
     }
 });
 
-router.post("/edit_farmerOne/", async (req, res) => {
+// updating the details of a single document
+router.post("/edit_farmerOne/", async (req, res) => { 
     try {
         await RegisterFO.findOneAndUpdate({ _id: req.query.id }, req.body)
         res.redirect("/aodash")

@@ -5,14 +5,15 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Signup
   link(rel='stylesheet' href='./css/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' href='../../css/editform.css')
 section
   .container
-    .row.d-flex.justify-content-center.align-items-center.h-100
-      .col-lg-12.col-xl-11
-        .card.text-black(style='border-radius: 25px;')
-          .card-body.p-md-5
+    .row
+      .col
+        .card.text-black(style='margin-bottom:30px;')
+          .card-body(style='background-color:beige;')
             .row.justify-content-center
-              .col-md-10.col-lg-6.col-xl-5.order-2.order-lg-1
+              .col-md-10.col-lg-6
                 p.text-center.h1.fw-bold Sign up
                 form.mx-1.mx-md-4(action='#' name='signup' onsubmit='return Validate(event);' method='POST')
                   .d-flex.flex-row.align-items-center.mb-4

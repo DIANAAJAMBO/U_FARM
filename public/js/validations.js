@@ -1,10 +1,9 @@
 const Validate = (event) => {
 
-   
+
     //input variables
     let firstName = document.getElementById("inputfirstname");
     let lastName = document.getElementById("inputlastname");
-    let userName = document.getElementById("username");
     let pwd = document.getElementById("password");
     let NIN = document.getElementById("inputNIN");
     let phoneNumber = document.getElementById("focontact");
@@ -27,7 +26,6 @@ const Validate = (event) => {
     //input error variables
     let firstNameError = document.getElementById("FNError");
     let lastNameError = document.getElementById("LNError");
-    let userNameError = document.getElementById("userNameErr");
     let ninError = document.getElementById("NINErr");
     let pwdError = document.getElementById("pwdErr");
     let phoneNumberError = document.getElementById("phoneNoErr");
@@ -92,28 +90,7 @@ const Validate = (event) => {
 
     }
 
-    //validating username
-    const userNameRegex = /^[a-zA-Z0-9]+$/;
-    if (userName.value == "") {
-        userName.style.border = "1px solid red";
-        userNameError.innerHTML = "Please fill in your username";
-        userNameError.style = "color: red; font-size:11px;";
-        return false
-    }
-    else if (!(userName.value.match(userNameRegex))) {
-        userName.style.border = "1px solid red";
-        userNameError.innerHTML = "username should be alphanumeric";
-        userNameError.style = "color: red; font-size:11px;";
-        return false
-    }
-    else {
-        userName.style.border = "1px solid green";
-        userNameError.innerHTML = "";
-
-    }
-
     //validating password
-
 
     if (pwd.value == "") {
         pwd.style.border = "1px solid red";
@@ -121,7 +98,6 @@ const Validate = (event) => {
         pwdError.style = "color: red; font-size:11px;";
         return false
     }
-
     else if (pwd.value.length < 5) {
         pwd.style.border = "1px solid red";
         pwdError.textContent = "Please the password must be atleast 5 characters";
@@ -177,7 +153,6 @@ const Validate = (event) => {
 
     }
 
-
     //validating email
     const emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (email.value == "") {
@@ -198,22 +173,26 @@ const Validate = (event) => {
 
     }
 
-
     //validating date of birth
 
-    let today = new Date();
-    let dateofBirth = new Date(dob.value);
-    let age = today.getFullYear() - dateofBirth.getFullYear();
-    let userAge = age;
 
     if (dateOfBirth.value == "") {
         dateOfBirth.style.border = "1px solid red";
         dobError.innerHTML = "Please fill in your date of birth ";
         dobError.style = "color: red; font-size:11px;";
         return false
-    } else if (userAge < 10) {
+
+    }
+
+    let today = new Date();
+    let dateofbirth = new Date(dateOfBirth.value);
+    let age = today.getFullYear() - dateofbirth.getFullYear();
+    let userAge = age;
+
+    if (userAge < 10) {
+        dateOfBirth.style.border = "1px solid red";
         dobError.innerHTML = 'You are not eligible to register!';
-        dobError.style.color = 'red'
+        dobError.style = "color: red; font-size:11px;";
         return false
     }
     else {
@@ -282,13 +261,13 @@ const Validate = (event) => {
     }
     else if (yearsLivedInWard.value < 10) {
         yearsLivedInWard.style.border = "1px solid red";
-        yearsLivedInWardError.innerHTML = "Sorry";
+        yearsLivedInWardError.innerHTML = "You are not eligible to register";
         yearsLivedInWardError.style = "color: red; font-size:11px;";
         return false
     }
     else {
-
-        yearsLivedInWardError.innerHTML = "Sorry but you are below required age to register";
+        yearsLivedInWardError.style.border = "1px solid green";
+        yearsLivedInWardError.innerHTML = "";
 
     }
 
@@ -333,5 +312,5 @@ const Validate = (event) => {
         foActivitiesErr.style = "color: red; font-size:11px;";
         return false
     }
-   
+
 }

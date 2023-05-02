@@ -6,12 +6,10 @@ const farmerOneSchema = new mongoose.Schema({
   firstname: {
     type: String,
     trim: true
-
   },
   lastname: {
     type: String,
     trim: true
-
   },
   username: {
     type: String,
@@ -54,11 +52,9 @@ const farmerOneSchema = new mongoose.Schema({
   periodOfStayInWard: {
     type: Number,
     trim: true,
-    min: 10
   },
   role: {
     type: String,
-
   },
   dateOfRegistration: {
     type: Date,
@@ -66,7 +62,6 @@ const farmerOneSchema = new mongoose.Schema({
   },
   activities: {
     type: [String],    //defining the field as an array of strings
-
   }
 
 });

@@ -1,5 +1,5 @@
 body {
-  background-image: url("../pictures/fruits.jpg");
+  background-image: url("../pictures/loginpic.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -23,6 +23,7 @@ button {
 }
 a:link {
   text-decoration: none;
+ 
 }
 h2,
 h3 {

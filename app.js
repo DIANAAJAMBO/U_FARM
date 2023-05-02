@@ -1,3 +1,4 @@
+//importing environments/models
 const express = require("express");
 const app = express();
 const path = require('path');
@@ -43,14 +44,14 @@ passport.serializeUser(User.serializeUser()); //gives a session an ID that the b
 passport.deserializeUser(User.deserializeUser());
 
 
-//creating a connection between the controller and the database
+//creating a connection between the controller and the database 
 mongoose.connect(config.database, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
 
 const db = mongoose.connection;
-//checking if db has connected
+//checking if db has connected using open and error events
 db.once("open", () => {
   console.log("connected to db")
 });
@@ -58,15 +59,14 @@ db.on("error", (err) => {
   console.error(err)
 })
 
-
-
-
+//middleware for routes
 app.use("/", loginRoute)
 app.use("/", signupRoute)
 app.use('/', aodashRoute)
 app.use('/', fodashRoute)
 app.use('/', ufdashRoute)
 
+//accessing a page that doesnt exist
 app.get("*", (req, res) => {
   res.status(404).send("page does not exist")
 })

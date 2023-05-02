@@ -6,6 +6,7 @@ head
   title Edit Farmer one
   link(rel='stylesheet' href='../../css/bootstrap/css/bootstrap.min.css')
   link(rel='stylesheet' href='../../css/registeration.css')
+  link(rel='stylesheet' href='../../css/editform.css')
 h2(style='margin-top:20px') Edit FarmerOne Details
 .container
       form(action='/edit_farmerOne?id='+farmerOne._id name='editfarmerOne' onsubmit='return Validate(event);' method='POST')
@@ -14,78 +15,78 @@ h2(style='margin-top:20px') Edit FarmerOne Details
           .row
             .col-md-4
               label First Name:
-              input#inputfirstname.form-control(type='text' name='firstname' value=farmerOne.firstname disabled)
-              span#FNError
+              input.form-control(type='text' name='firstname' value=farmerOne.firstname disabled)
+              
             .col-md-4
               label Last Name:
-              input#inputlastname.form-control(type='text' name='lastname' value=farmerOne.lastname disabled)
-              span#LNError
+              input.form-control(type='text' name='lastname' value=farmerOne.lastname disabled)
+             
             .col-md-4
               label National IdentificationNumber(NIN)
-              input#inputNIN.form-control(type='text' name='NIN' value=farmerOne.NIN disabled)
-              span#NINErr
+              input.form-control(type='text' name='NIN' value=farmerOne.NIN disabled)
+             
             .col-md-4
               label Phonenumber:
-              input#focontact.form-control(type='text' name='phonenumber' value=farmerOne.phonenumber)
-              span#phoneNoErr
+              input#efocontact.form-control(type='text' name='phonenumber' value=farmerOne.phonenumber)
+              span#ephoneNoErr
             .col-md-4
               label Email:
-              input#email.form-control(type='email' name='email' value=farmerOne.email disabled)
-              span#emailErr
+              input.form-control(type='email' name='email' value=farmerOne.email disabled)
+             
             .col-md-4(style='margin-top: 30px;')
               label Gender:
               .form-check.form-check-inline
                 label(for='male')
-                  input#male.form-check-input(type='radio' name='gender' value='male' checked=farmerOne.gender==='male' disabled) 
+                  input.form-check-input(type='radio' name='gender' value='male' checked=farmerOne.gender==='male' disabled) 
                   | Male
               .form-check.form-check-inline
                 label(for='female')
-                  input#female.form-check-input(type='radio' name='gender' value='female' checked=farmerOne.gender==='male' disabled)
+                  input.form-check-input(type='radio' name='gender' value='female' checked=farmerOne.gender==='male' disabled)
                   | Female
-              span#genderErr
+             
             .col-md-4
               label Directions to your residence
-              input#inputAddress.form-control(type='text' placeholder='plot 1, Entebbe rd, opp Police station' name='directionsToHome' value=farmerOne.directionsToHome disabled)
-              span#address1Err
+              input.form-control(type='text' placeholder='plot 1, Entebbe rd, opp Police station' name='directionsToHome' value=farmerOne.directionsToHome disabled)
+             
             .col-md-4
               label Residential type
-              select#inputAddress2.form-control(type='text' name='residenceType' value=farmerOne.residenceType disabled)
+              select.form-control(type='text' name='residenceType' value=farmerOne.residenceType disabled)
                 option(value='' disabled) Select
                 option(value='Rented' selected=farmerOne.residenceType==='Rented') Rented
                 option(value='Owned' selected=farmerOne.residenceType==='Owned') Owned
-              span#address2Err
+              
         fieldset
           legend Ward Information
           .row
             .col-md-4
               label Ward
-              select#inputward.form-control(type='text' name='ward' value=farmerOne.ward)
-                option(value='') Select
+              select#eward.form-control(type='text' name='ward' value=farmerOne.ward)
+                option(value='' disabled) Select
                 option(value='ward A' selected=farmerOne.ward==='Ward A') Ward A
                 option(value='Ward B' selected=farmerOne.ward==='Ward B') Ward B
                 option(value='Ward C' selected=farmerOne.ward==='Ward C') Ward C
                 option(value='Ward D' selected=farmerOne.ward==='Ward D') Ward D
-              span#wardErr
+              span#ewardErr
             .col-md-4
               label Role
               input.form-control(type='text' value='farmerOne' name='role' readonly)
             .col-md-4
               label Unique FO number
-              input#inputFOnumber.form-control(type='text' placeholder='eg UGFO-000' name='username' value=farmerOne.username disabled)
-              span#foNoErr
+              input.form-control(type='text' placeholder='eg UGFO-000' name='username' value=farmerOne.username disabled)
+              
           .mb-3.mt-3
             label Activities done by FO:
             br
-            input#option1(type='checkbox' value='Register Urban Farmers in the ward' name='activities' checked=farmerOne.activities==='Register Urban Farmers in the ward')
+            input#eoption1(type='checkbox' value='Register Urban Farmers in the ward' name='activities' checked=farmerOne.activities.includes('Register Urban Farmers in the ward') )
             | Register Urban Farmers in the ward
             br
-            input#option2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='activities' checked=farmerOne.activities==='Inspects the produce and agricultural activities for quality')
+            input#eoption2(type='checkbox' value='Inspects the produce and agricultural activities for quality' name='activities' checked=farmerOne.activities.includes('Inspects the produce and agricultural activities for quality'))
             | Inspects the produce and agricultural activities for quality
             br
-            input#option3(type='checkbox' value="Approves farmerOne's produce to be listed" name='activities' checked=farmerOne.activities==="Approves farmerOne's produce to be listed")
+            input#eoption3(type='checkbox' value="Approves farmerOne's produce to be listed" name='activities' checked=farmerOne.activities.includes("Approves farmerOne's produce to be listed"))
             | Approves farmerOne's produce to be listed
-            span#foactiviesErr
+            span#efoactiviesErr
    
         button.btn.btn-warning(type='submit') UPDATE
 script(src='./css/bootstrap/js/bootstrap.min.js')
-script(src='/js/validations.js')
+script(src='/js/editfovalidation.js')

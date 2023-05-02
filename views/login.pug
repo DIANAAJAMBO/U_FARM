@@ -10,7 +10,8 @@ head
   .row.justify-content-center
     .col-md-7
       .card
-        .card-body
+        .h3(style='margin-top:20px; text-align:center; font-size:40px;') U FARM
+        .card-body(style='margin-top:10px;')
           form(action='/login' name='login' onsubmit='return Validate(event);' method='POST')
             .mb-3
               label.form-label(for='username_UserID') Username/ID:
@@ -21,7 +22,7 @@ head
               input#Password.form-control(type='password' name='password' placeholder='Enter password')
               span#PasswordErr
             button.btn.btn-primary(type='submit') Sign in
-            p
+            p(style='margin-top:30px;')
               | Need an Account   
               a(href='signup') Sign Up
 script(src='./css/bootstrap/js/bootstrap.js')

@@ -8,13 +8,13 @@ head
     link(rel='stylesheet' href='../../css/dash.css')
 
 #sidebar
-  h3.text-center
+  h3
     | Agric Officer Dashboard
-    button#defaultOpen.tablinks(onclick="showContent(event, 'welcome-message')") Dashboard
+    button#defaultOpen.tablinks(onclick="showContent(event, 'welcome-message')" style='font-size:20px; margin-top:30px;') Dashboard
     br
-    button.tablinks(onclick="showContent(event, 'foregisteration-form')") Register FarmerOne
+    button.tablinks(onclick="showContent(event, 'foregisteration-form')" style='font-size:20px; margin-top:30px;') Register FarmerOne
     br
-    button.tablinks(onclick="showContent(event, 'farmerOnes-list')") FarmerOnes
+    button.tablinks(onclick="showContent(event, 'farmerOnes-list')" style='font-size:20px; margin-top:30px;') FarmerOnes
     br
     form(method='POST' action='/logout')
       button Logout
@@ -25,11 +25,11 @@ head
     p This is your dashboard, where you can manage farmerOnes.
     p Please select an option from the side panel to get started.
   #foregisteration-form.tabcontent
-    h2 Registration form
+    h2(style='text-decoration:underline;') Registration form
     h3 Farmer one
     .container
       form(action='/aodash' name='register' onsubmit='return Validate(event);' method='POST')
-        fieldset(style='border:3px')
+        fieldset
           legend Personal Information
           .row
             .col-md-4
@@ -172,4 +172,4 @@ head
 // JS
 script(src='../../css/bootstrap/js/bootstrap.min.js')
 script(src='../../js/dash.js')
-script(src='/js/validations.js')
+script(src='../../js/validations.js')

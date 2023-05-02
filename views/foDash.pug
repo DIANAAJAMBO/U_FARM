@@ -7,15 +7,15 @@ head
   link(rel='stylesheet' href='../../css/dash.css')
 // Side Panel
 #sidebar
-  h3.text-center
+  h3.text-center(style='font-size:25px;')
     | FarmerOne Dashboard
-    button#defaultOpen.tablinks(onclick="showContent(event, 'welcome-message')") Dashboard
+    button#defaultOpen.tablinks(onclick="showContent(event, 'welcome-message')" style='font-size:20px; margin-top:30px;') Dashboard
     br
-    button.tablinks(onclick="showContent(event, 'ufregisteration-form')") Register Urban farmer
+    button.tablinks(onclick="showContent(event, 'ufregisteration-form')" style='font-size:20px;') Register Urban farmer
     br
-    button.tablinks(onclick="showContent(event, 'urbanfarmers-list')") Urban Farmers
+    button.tablinks(onclick="showContent(event, 'urbanfarmers-list')" style='font-size:20px;') Urban Farmers
     br
-    button.tablinks(onclick="showContent(event, 'uploadedproduce')") Uploaded produce
+    button.tablinks(onclick="showContent(event, 'uploadedproduce')" style='font-size:20px;') Uploaded produce
     br
     form(method='POST' action='/logout')
       button Logout

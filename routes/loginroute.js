@@ -13,8 +13,7 @@ router.post("/login", passport.authenticate("local", { failureRedirect: "/login"
   let userExist = await User.findOne({
     username: req.user.username, password: req.user.password
   });
-  // console.log("this user exists", userExist)
-  // console.log("this is the user session:", req.session)
+
   if (req.user.role === "agricofficer" && userExist) {
     res.redirect("/aodash")
   }

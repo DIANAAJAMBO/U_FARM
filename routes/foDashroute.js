@@ -1,3 +1,4 @@
+//importing environments
 const express = require('express');
 const router = express.Router();
 const connectEnsureLogin = require("connect-ensure-login")
@@ -5,7 +6,7 @@ const RegisterUF = require("../models/registeredUF")
 const User = require('../models/users')
 const Produce = require('../models/produce');
 
-//posting into the database
+//posting urban farmers into the database
 router.post("/fodash", async (req, res) => {
   console.log(req.body)
   try {
@@ -33,17 +34,18 @@ router.post("/fodash", async (req, res) => {
 
 
 //retrieving urban farmers and produce from the database
-router.get("/fodash", async (req, res) => {
-  try {
-    let items = await RegisterUF.find();
-    let Items = await Produce.find();
-    res.render("foDash", { urbanfarmers: items,produce: Items })    //we render a file
+router.get("/fodash", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+  if (req.user.role == "farmerOne") {
+    try {
+      let items = await RegisterUF.find();
+      let Items = await Produce.find();
+      res.render("foDash", { urbanfarmers: items, produce: Items })    //we render a file
+    }
+    catch (err) {
+      console.log(err)
+      res.send("failed to retrieve details")
+    }
   }
-  catch (err) {
-    console.log(err)
-    res.send("failed to retrieve details")
-  }
-
 
 });
 
@@ -61,9 +63,10 @@ router.get("/edit_produce/:id", async (req, res) => {
   }
 });
 
+// updating the status of the produce upload
 router.post("/edit_produce", async (req, res) => {
   try {
-    await Produce.findOneAndUpdate({ _id: req.query.id }, { $set: { status: req.body.status }},{ new: true })
+    await Produce.findOneAndUpdate({ _id: req.query.id }, req.body)
     res.redirect("/fodash")
   }
   catch (err) {
