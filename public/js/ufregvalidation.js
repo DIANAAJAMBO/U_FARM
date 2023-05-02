@@ -171,7 +171,6 @@ const Validate = (event) => {
 
     //validating date of birth
 
-    
     if (ufdateOfBirth.value == "") {
         ufdateOfBirth.style.border = "1px solid red";
         ufdobError.innerHTML = "Please fill in your date of birth ";
@@ -179,7 +178,6 @@ const Validate = (event) => {
         return false
 
     } 
-    
     let uftoday = new Date();
     let dateOfbirth = new Date(ufdateOfBirth.value);
     let ufage = uftoday.getFullYear() - dateOfbirth.getFullYear();

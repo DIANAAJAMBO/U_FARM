@@ -110,9 +110,9 @@ head
         button.btn.btn-primary(type='submit' style='width: 100px;') Submit
   #urbanfarmers-list.tabcontent(style='margin-top:50px;')
     .table-responsive
-      table.table.table-striped.table-hover
+      table.table.table-striped.table-hover.border-secondary
         thead
-          tr
+          tr(style='color:#4A3728;')
             th Name
             th Unique ID
             th NIN
@@ -143,10 +143,10 @@ head
   #uploadedproduce.tabcontent
     div
       .table-responsive
-        table.table.table-striped.table-hover
+        table.table.table-striped.table-hover.border-secondary
           thead
-            tr
-              th #
+            tr(style='color:#4A3728;')
+              th Produce Image
               th Produce Name
               th Ward
               th Unique ID
@@ -175,7 +175,7 @@ head
                 td #{item.directions}
                 td #{item.deliverymode}
                 td #{item.producetype}
-                td #{item.status}
+                td(style={color: item.status === 'Pending' ? '#FF5800' : item.status === 'Approved' ? 'green' : 'red'}) #{item.status}
                 td
                   a.btn.btn-dark.btn-block(href="/edit_produce/"+item.id) Edit
           else 

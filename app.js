@@ -23,7 +23,7 @@ app.use(session({
 }));
 
 
-
+//use pug as a templating engine
 app.set("view engine", "pug")
 app.set("views", path.join(__dirname, "views"))
 
@@ -71,5 +71,5 @@ app.get("*", (req, res) => {
   res.status(404).send("page does not exist")
 })
 
-
+// setting up a Node.js web server to listen for incoming HTTP requests on port 3500.
 app.listen(3500, () => console.log('listening to port 3500'));

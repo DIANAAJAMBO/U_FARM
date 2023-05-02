@@ -92,10 +92,10 @@ head
   #uploadedproduce.tabcontent
     div
       .table-responsive
-        table.table.table-striped.table-hover
+        table.table.table-striped.table-hover.border-secondary
           thead
-            tr
-              th #
+            tr(style='color:#4A3728;')
+              th Produce Image
               th Produce Name
               th Ward
               th Unique ID
@@ -115,7 +115,7 @@ head
                   img(src='/produceimages/'+item.produceimage height='100px' width='100px')
                 td #{item.producename}
                 td #{item.wardname}
-                td #{item.username}
+                td #{item.uniqueid}
                 td #{item.date}
                 td #{item.unitprice}ugx
                 td #{item.quantity}
